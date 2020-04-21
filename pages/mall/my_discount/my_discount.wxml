@@ -1,0 +1,50 @@
+<van-tabs swipeable animated color="#FF4F00">
+  <van-tab title="可用优惠券(2)">
+    <view class="quan_item can_use" wx:for="{{[1,2,3,4]}}" wx:key="index">
+      <view class="item_left">
+        <text class="t1">￥</text>
+        <text class="t2">23.00</text>
+      </view>
+      <view class="item_right">
+        <view>
+          <text>满200可用</text>
+          <text>只限于小哥商城</text>
+          <text>2018-12-05前可用</text>
+        </view>
+        <view class="use">去使用</view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 已经使用 -->
+  <van-tab title="已使用(2)">
+    <view class="quan_item timeover">
+      <view class="item_left">
+        <text class="t1">￥</text>
+        <text class="t2">23.00</text>
+      </view>
+      <view class="item_right">
+        <view>
+          <text style="color:#666666;">满200可用</text>
+          <text>只限于小哥商城</text>
+          <text>2018-12-05前可用</text>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 已经过期 -->
+  <van-tab title="已过期(2)">
+    <view class="quan_item timeover">
+      <view class="item_left">
+        <text class="t1">￥</text>
+        <text class="t2">23.00</text>
+      </view>
+      <view class="item_right">
+        <view>
+          <text style="color:#666666;">满200可用</text>
+          <text>只限于小哥商城</text>
+          <text>2018-12-05前可用</text>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

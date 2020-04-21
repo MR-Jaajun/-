@@ -1,0 +1,59 @@
+/* pages/group/groupCollect/groupCollect.wxss */
+
+.item {
+  width: 750rpx;
+  height: 210rpx;
+  box-sizing: border-box;
+  padding: 40rpx 32rpx 32rpx 32rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.item image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin-right: 32rpx;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content>view:nth-child(1) {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.content>view:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+
+.content>view:nth-child(2) text {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.content>view:nth-child(3) {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(225, 26, 26, 1);
+}
+
+.icons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 32rpx;
+}

@@ -1,0 +1,225 @@
+/* pages/mall/timeLimit/timeLimit.wxss */
+
+/* .bg {
+  background: #3b444b;
+  height: 108rpx !important;
+} */
+
+/* .bg3 .van-tabs__wrap {
+  background: #3b444b;
+  height: 108rpx !important;
+} */
+
+/* .bg .van-ellipsis {
+  font-size: 28rpx;
+  color: #fff;
+  height: 108rpx !important;
+  line-height: 108rpx !important;
+} */
+
+/* .bg2 .van-ellipsis { */
+
+/* background: #e11a1a; */
+
+/* line-height: 108rpx !important; */
+
+/* font-weight: bold; */
+
+/* font-size: 28rpx; */
+
+/* letter-spacing: 2rpx; */
+
+/* height: 108rpx !important; */
+
+/* display: flex; */
+
+/* flex-wrap: wrap; */
+
+/* } */
+
+/* 
+.van-tabs__nav {
+  border: 0 !important;
+  height: 108rpx !important;
+  background-color: none !important;
+}
+
+.van-tab {
+  height: 108rpx !important;
+  border-right: 0 !important;
+} */
+
+.scroll_x {
+  display: flex;
+  height: 100rpx;
+  background: linear-gradient(267deg, rgba(44, 52, 57, 1) 0%, rgba(63, 73, 80, 1) 100%);
+  justify-content: flex-start;
+  padding: 0 10rpx;
+}
+
+.scroll_x .scroll_item {
+  width: 140rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll_x .active {
+  background: #e11a1a;
+}
+
+.scroll_x .active2 {
+  background: #4b8844;
+}
+
+.scroll_x .scroll_item .time {
+  font-size: 36rpx;
+  font-family: DINPro;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: fit-content;
+}
+
+.scroll_x .scroll_item .title {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  width: fit-content;
+  color: rgba(248, 248, 248, 1);
+}
+
+/* 倒计时 */
+
+.tips {
+  height: 80rpx;
+  width: 686rpx;
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f1ecec;
+}
+
+.tips text {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}
+
+.tips .timeout {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tips .timeout image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tips .timeout text {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+/* 商品 */
+
+.goodsList {
+  height: 288rpx;
+  padding: 0 32rpx;
+  width: 686rpx;
+  border-bottom: 2rpx solid #f1ecec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goodsList image {
+  width: 232rpx;
+  height: 232rpx;
+  background: #ccc;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+}
+
+.goodsList .content {
+  height: 232rpx;
+  display: flex;
+  flex-direction: column;
+  min-width: 408rpx;
+  justify-content: space-between;
+}
+
+.c_title {
+  /* width: 408px; */
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.subheading {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+/* 进度条 */
+
+.progress {
+  width: 270rpx;
+  height: 28rpx;
+  /* background: #F39F9F; */
+  background: rgba(233, 81, 81, 0.55);
+  border-radius: 20rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.progress .current {
+  width: 50rpx;
+  max-width: 270rpx;
+  height: 28rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  background: #e11a1a;
+  left: 0;
+  z-index: 2;
+}
+
+.progress text {
+  font-size: 20rpx;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.togo {
+  display: flex;
+  height: 52rpx;
+  align-items: center;
+}
+
+.togo2 {
+  width: 128rpx;
+  height: 52rpx;
+  background: rgba(225, 26, 26, 1);
+  text-align: center;
+  line-height: 52rpx;
+  font-size: 24rpx;
+  color: #fff;
+  border-radius: 8px;
+  margin-left: 100rpx;
+}
+
+.togo2_active {
+  background: #4b8844;
+}

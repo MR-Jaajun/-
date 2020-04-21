@@ -1,0 +1,32 @@
+<view class='near_shop_filtrate_bar'>
+  <text bindtap="_comprehensiveRanking">综合排序 </text>
+  <image bindtap="_comprehensiveRanking" class="setimg {{setimgon}}" src="/images/icon_location.png"></image>
+  <text>销量</text>
+  <text>距离</text>
+</view>
+
+<van-popup overlay-style="opacity:0.4" show="{{ popupShow }}" position="top" bind:close="_onClose" bind:transitionEnd="_arrowmarkRotate">
+  <view class="popup">
+    <view class="fl_row_cen padd32 topbar">
+      <view class="ser_fl1">
+        <van-search shape="round" value="{{ value }}" placeholder="搜索商品，商家名称" />
+      </view>
+    </view>
+    <view class='padd32 near_shop_title '>附近商家</view>
+    <view class='padd32 near_shop_filtrate_bar'>
+      <text bindtap="_comprehensiveRanking">综合排序 </text>
+      <image bindtap="_comprehensiveRanking" class="setimg {{setimgon}}" src="/images/icon_location.png"></image>
+      <text>销量</text>
+      <text>距离</text>
+    </view>
+    <view class="padd32 fl_col zhe_list">
+      <view class="active">综合排序</view>
+      <view>评分最高</view>
+      <view>速度最快</view>
+      <view>免配送费</view>
+      <view>起送价最低</view>
+      <view>人均高到低</view>
+      <view>人均低到高</view>
+    </view>
+  </view>
+</van-popup>

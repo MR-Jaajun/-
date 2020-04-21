@@ -1,0 +1,54 @@
+<!--pages/group/Prefecture/Prefecture.wxml-->
+<wxs src="../../../pages/common/public.wxs" module="fin" />
+<view class='v_page'>
+  <view class="topleft">
+    <van-dropdown-menu>
+      <van-dropdown-item value="{{value1 }}" options="{{ option1 }}" bind:change="onChange" />
+      <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" bind:change="twoChange" />
+    </van-dropdown-menu>
+  </view>
+  <view class="topright">
+    <view data-id="1" bindtap="oneTap">距离</view>
+    <view data-id="2" bindtap="oneTap">销量</view>
+  </view>
+</view>
+<scroll-view scroll-y="true" class="scroll-y" bindscrolltoupper="t_scoll" bindscrolltolower="b_scroll" wx:for="{{combo}}" wx:key="index">
+  <view class='home_item' wx:if="{{item.goods_type==1}}">
+    <view class='one_txt'>
+      <text>{{item.shop_title}} • {{item.goods_title}}</text>
+      <view class="v_btn" data-id="{{item}}"bindtap="goshopdetail">立即抢购 </view>
+    </view>
+    <view class='three_txt'>
+    </view>
+    <view class='two_txt'>
+      <text class='f28'>{{item.goods_pink_amount}}人团</text> ￥
+      <text class='f32'>{{item.goods_pink_price}}</text>
+      <text class='f22'>单买价</text>
+      <text class='f24'>￥{{item.goods_sale_price}}</text>
+      <text class='r_km'>{{fin.str_number(item.shop_distance)}}km</text>
+    </view>
+    <view class='five_img'>
+      <image class='duoImg' wx:for="{{fin.arrSlice(item.goods_cover_image,0,3)}}" wx:key="index" src='{{item}}'></image>
+    </view>
+  </view>
+  <view class="merchant_item" wx:if="{{item.goods_type==2}}">
+    <image src="{{fin.arrSlice(item.goods_cover_image,0,1)}}"></image>
+    <view class="right_view">
+      <view class='one_txt'>
+        <text>{{item.shop_title}} </text>
+        <view class="v_btn" data-id="{{item}}" bindtap="goshopdetail">立即抢购 </view>
+      </view>
+      <view class="two_view">
+        <image class='r_img' src="../../../images/pingtuan/youhuikuan.png"></image>
+        <text class="r_text">{{item.goods_title}}</text>
+        <text class='r_km'>{{fin.str_number(item.shop_distance)}}km</text>
+      </view>
+      <view class='three_view'>
+        <text class='f28'>{{item.goods_pink_amount}}人团</text> ￥
+        <text class='f32'>{{item.goods_pink_price}}</text>
+        <text class='f22'>单买价</text>
+        <text class='f24'>￥{{item.goods_sale_price}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

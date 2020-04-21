@@ -1,0 +1,44 @@
+.i-index-demo,page{
+    width:100%;
+    height:100%;
+}
+.i-index-demo-item{
+    padding:10px;
+    border-bottom:#ddd solid 1rpx;
+    font-size:14px;
+}
+
+.nowaddress{
+  padding: 0 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.nowaddress text{
+  font-size: 28rpx;
+}
+.nowaddress image{
+  width: 32rpx;
+  height: 34rpx;
+  margin-right: 12rpx;
+}
+.hotcity{
+  background: #F6F6F6;
+  padding-left: 32rpx;
+}
+.hotcity .hotcity_title{
+  padding: 36rpx 0 14rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.hotcity .addr_item{
+  display: inline-block;
+  width: 180rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  background: #fff;
+  text-align: center;
+  margin: 0 24rpx 24rpx 0;
+}
+.body .i-index-item-header{
+  background: #F6F6F6;
+}

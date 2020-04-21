@@ -1,0 +1,22 @@
+<!-- 引用 -->
+<import src="../../common/loadmore.wxml" />
+<import src="../../common/merchant_item.wxml" />
+<import src="../../common/youxuan_item.wxml" />
+<!-- 主体 -->
+<view class='van'>
+  <van-search value="{{ value }}" background="#FAFAFA" placeholder="搜索商品,商家名称" />
+</view>
+
+<template is="youxuan_item" data="{{...recommendInfo}}"></template>
+
+<view class='section'>
+  <!-- 分类删选组件 -->
+  <popupcomp></popupcomp>
+  <!-- 上边框 -->
+
+  <view class="merchant_list">
+    <block wx:for="{{recommendList}}" wx:key="{{index}}">
+      <template is="merchant_item" data="{{...item}}"></template>
+    </block>
+  </view>
+</view>

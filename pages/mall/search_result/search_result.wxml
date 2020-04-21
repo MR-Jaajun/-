@@ -1,0 +1,75 @@
+<import src="../../common/searchpopup_temp.wxml" />
+<view class="topbar fl_row_cen">
+  <view class="fl1">
+    <van-search shape="round" bind:clear="hideSearchView" bind:change="searchChange" placeholder="搜索商品" focus="{{isfocus}}" />
+  </view>
+  <!-- <button class="mini-btn nobg" style="margin:0 0 0 16rpx" size="mini">搜索</button> -->
+</view>
+<!-- 搜索结果弹出层 -->
+<template is="searchpopup_temp" data="{{isshowsearch}}"></template>
+
+
+<!-- 条件 -->
+<view class="search_type">
+  <van-collapse value="{{ activeNames }}" bind:change="onChange2" custom-class="com">
+    <van-collapse-item title="综合排序" name="1" border="false">
+      <van-radio-group value="{{ radio }}" bind:change="onChange">
+        <view class="checked">
+          <text>综合排序</text>
+          <van-radio name="1" checked-color="#F12A2A"></van-radio>
+        </view>
+        <view class="checked">
+          <text>价格升序</text>
+          <van-radio name="2" checked-color="#F12A2A"></van-radio>
+        </view>
+        <view class="checked">
+          <text>价格降序</text>
+          <van-radio name="3" checked-color="#F12A2A"></van-radio>
+        </view>
+      </van-radio-group>
+    </van-collapse-item>
+  </van-collapse>
+  <view class="sales">销量</view>
+  <view class="store" bindtap="shops">店铺</view>
+</view>
+
+
+<!-- 结果 -->
+<view class="search_res">
+<!-- 综合结果 -->
+  <view class="goodsList" wx:for="{{[1,2,3]}}" wx:if="{{type===1}}" wx:key="index">
+    <image src="" class="goods_img"></image>
+    <view class="goodsinfo">
+      <view>韩版潮流百搭学生休闲长裤 潮牌男士工装裤...</view>
+      <view>买1送1 两件145元</view>
+      <view>
+        <text style="color:#E11A1A;">￥</text>
+        <text style="font-size:44rpx;color:#E11A1A;">45</text>
+        <text style="color:#666;margin-left:36rpx">1230人付款</text>
+      </view>
+      <view>
+        <text>匡威官方旗舰店</text>
+        <text style="color:#333;margin:0 14rpx;">进店</text>
+        <image src="/images/icon_next.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 店铺结果 -->
+  <view class="shopsList" wx:for="{{[1,2,3]}}" wx:if="{{type===3}}">
+    <view class="s_top">
+      <view class="shopsinfo">
+        <image src=""></image>
+        <view>
+          <text>匡威官方旗舰店</text>
+          <text style="font-size:22rpx;color:#666;">共545件商品</text>
+        </view>
+      </view>
+      <view class="toshops" bindtap="toStore">进店</view>
+    </view>
+    <view class="s_bottom">
+      <image src=""></image>
+      <image src=""></image>
+      <image src=""></image>
+    </view>
+  </view>
+</view>

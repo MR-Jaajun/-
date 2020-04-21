@@ -1,0 +1,96 @@
+/* 顶部 */
+
+.top {
+  height: 90rpx;
+  padding: 18rpx 32rpx 0 34rpx;
+}
+
+/* .top image {
+  width: 20rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.top text {
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.top return {
+  width: 96rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+} */
+
+.top save {
+  width: 56rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  float: right;
+}
+
+/* 用户详细信息 */
+
+.detail_item {
+  height: 112rpx;
+  position: relative;
+  padding: 0 0 0 32rpx;
+  border-bottom: 1px solid rgba(248, 246, 246, 1);
+}
+
+.detail_item .detail_l {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.detail_item .user_picture {
+  width: 82rpx;
+  height: 82rpx;
+  box-shadow: 0rpx 6rpx 12rpx rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.detail_item .icon_next {
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 20rpx;
+}
+
+.detail_item .detail_r {
+  position: absolute;
+  top: 50%;
+  right: 34rpx;
+  transform: translateY(-50%);
+}
+
+.detail_item .detail_r text {
+  width: 146rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+/* 退出按钮 */
+.exit_btn{
+  width:494rpx;
+  height:96rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 3px 6px rgba(0,0,0,0.05);
+  border-radius:33px;
+  font-size:28rpx;
+  text-align: center;
+  color:rgba(51,51,51,1);
+  font-weight:500;
+  line-height: 96rpx;
+  margin: 70rpx 128rpx 0 128rpx;
+}

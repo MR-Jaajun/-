@@ -1,0 +1,20 @@
+<!-- 进度条 -->
+<van-steps steps="{{ steps }}" active="{{ vipLevel }}" active-color="#FC6767" custom-class="textcolor" />
+<!-- 我的权益 -->
+<view class="equity">
+  <view>我的权益</view>
+  <view class="equity_info">10%消费奖励</view>
+  <view class="equity_info" style="margin:0 32rpx;">15%商家奖励</view>
+  <view class="equity_info">30%分佣</view>
+</view>
+
+<!-- 等级规则 -->
+<view class="rule">
+  <view>等级规则</view>
+  <view class="rule_introduced">
+    <view style="font-weight:bold;">方式一</view>
+    <view style="color:#333;font-size:28rpx;font-weight:bold;">规则介绍</view>
+    <view style="width:302rpx;margin:20rpx 0 24rpx;">邀请50个直属用户下载注册 累计结算收益达到￥600.00</view>
+    <view style="width:302rpx;">邀请50个直属用户下载注册 间接邀请用户人数100人以上 累计结算收益达到￥200.00</view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<import src="/pages/common/bean_detail.wxml"/>
+
+<van-tabs swipeable animated>
+  <van-tab title="全部" >
+    <template is="bal_detail" data="{{all_balance}}"/>
+  </van-tab>
+  <van-tab title="收入">
+    <template is="bal_income" data="{{bal_income}}"/>
+  </van-tab>
+  <van-tab title="支出">
+    <template is="bal_expenditure" data="{{bal_expenditure}}" />
+  </van-tab>
+</van-tabs>

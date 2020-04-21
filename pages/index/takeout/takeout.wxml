@@ -1,0 +1,22 @@
+<!--外卖模块-->
+<block wx:if="{{tabActive == 0}}">
+  <takeoutcomp></takeoutcomp>
+</block>
+
+<!-- 购物车 -->
+<view class="" wx:elif="{{tabActive == 1}}">
+  <shoppingcart></shoppingcart>
+</view>
+
+<!-- 订单 -->
+<view class="" wx:elif="{{tabActive == 2}}">
+  <ordercomp></ordercomp>
+</view>
+
+<!-- 更多 -->
+<view wx:else>
+  <moretab></moretab>
+</view>
+
+<!-- 底部tab -->
+<takeoutbar class="takebar_class" bind:getactiveprop="getactive"></takeoutbar>

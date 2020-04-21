@@ -1,0 +1,116 @@
+/* pages/group/lookCoupons/lookCoupons.wxss */
+
+page {
+  width: 750rpx;
+  height: 100%;
+  padding: 22rpx 20rpx;
+  box-sizing: border-box;
+  background: #f8f8f8;
+}
+
+.title {
+  width: 710rpx;
+  height: 148rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2rpx 12rpx rgba(0, 0, 0, 0.03);
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 32rpx;
+}
+
+.top {
+  font-size: 36rpx;
+  font-weight: bold;
+  font-family: PingFang SC;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+}
+
+.bottom {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+}
+
+.btn {
+  position: absolute;
+  right: 20rpx;
+  bottom: 16rpx;
+}
+
+.active {
+  color: #333 !important;
+  width: 144rpx;
+  height: 48rpx;
+  letter-spacing: 2rpx;
+  font-size: 22rpx;
+}
+
+.cList {
+  padding: 0 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.cList text:nth-child(1) {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.cList text:nth-child(2) {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.cList image {
+  width: 670rpx;
+  height: 670rpx;
+  background: #ccc;
+}
+
+.cList .code {
+  padding-top: 20rpx;
+  background: #fff;
+  box-shadow: 0rpx 2rpx 12rpx rgba(0, 0, 0, 0.03);
+  margin-top: 20rpx;
+}
+
+.cList .shu_codebox {
+  width: 620rpx;
+  height: 150rpx;
+  margin: 0 auto;
+}
+
+.cList .er_code {
+  width: 500rpx;
+  height: 500rpx;
+  margin: -12rpx auto 0 auto;
+}
+
+.all {
+  width: 750rpx;
+  height: 700rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.all .shu_codebox {
+  width: 600rpx;
+  height: 150rpx;
+  margin: 0 auto;
+}
+
+.all .er_code {
+  width: 500rpx;
+  height: 500rpx;
+  margin: -12rpx auto 0 auto;
+}

@@ -1,0 +1,43 @@
+<view class='box_a_main'>
+  <view class="a_main {{type == 0 ? 'active' : 'a_main'}}" data-type="0" bindtap="changeTap">
+    <text>全部(0)</text>
+  </view>
+  <view class="a_main {{type == 4 ? 'active' : 'a_main'}}" data-type="4" bindtap="changeTap">
+    <text>有图(1)</text>
+  </view>
+  <view class="a_main {{type == 1 ? 'active' : 'a_main'}}" data-type="1" bindtap="changeTap">
+    <text>好评(2)</text>
+  </view>
+  <view class="a_main {{type == 2 ? 'active' : 'a_main'}}" data-type="2" bindtap="changeTap">
+    <text>中评(3)</text>
+  </view>
+  <view class="a_main {{type == 3 ? 'active' : 'a_main'}}" data-type="3" bindtap="changeTap">
+    <text>差评(4)</text>
+  </view>
+</view>
+<!-- 评论 -->
+<view>
+  <view class="pinglun">
+    <view class="user" wx:for="{{goods_comments}}" wx:key="index">
+      <view class="u1">
+        <image src="item.user_avatar"></image>
+        <view class="username">
+          <view>{{item.user_nick_name}}</view>
+          <view class="aaa">
+            <text style="color:#999;font-weight: 400;font-size:24rpx">评分</text>
+            <van-rate readonly value="{{ item.composite_evaluate_score }}" color="#FF9C09" void-color="#ccc" size="{{12}}" />
+          </view>
+        </view>
+      </view>
+      <view class="u2">{{item.goods_sku_title}}</view>
+      <view class="u3">{{item.comment_time}} {{item.comment_content}}</view>
+      <view class="imgarr">
+        <image wx:for="{{item.comment_image}}" src="items" wx:for-item="items" wx:for-index="idx" wx:key="idx"></image>
+      </view>
+      <view class="reply">
+        <text>商家回复：</text>
+        <text>{{item.comment_reply.reply_content?'item.comment_reply.reply_content':'路遥知马力，日久见人心古人云：路遥知马力，日久见人心古人云：路遥知马力，日久见人心古人云'}}</text>
+      </view>
+    </view>
+  </view>
+</view>

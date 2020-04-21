@@ -1,0 +1,202 @@
+/* pages/mall/search_result/search_result.wxss */
+
+page {
+  box-sizing: border-box;
+}
+
+.topbar {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.topbar image {
+  width: 20rpx;
+  height: 32rpx;
+}
+
+/* 搜索 */
+
+.search_type {
+  padding: 0 0rpx;
+  box-sizing: border-box;
+  position: relative;
+  height: 88rpx;
+  box-shadow: 0px 3px 11px rgba(41, 63, 100, 0.09);
+}
+
+.com::after {
+  /* border-width: 0 !important; */
+}
+
+.search_type .van-cell {
+  /* height: 60rpx; */
+  margin-left: 20rpx;
+  line-height: 60rpx;
+  padding: 15rpx 30rpx !important;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search_type .van-cell::after {
+  border-bottom: 2rpx solid #f12a2a !important;
+  left: 0 !important;
+}
+
+.search_type .collapse-item-index--van-cell {
+  width: 230rpx !important;
+  /* border: none !important; */
+}
+
+.search_type .van-cell__title {
+  font-weight: bold !important;
+  color: rgba(51, 51, 51, 1);
+  border: none !important;
+}
+
+.sales, .store {
+  text-align: center;
+  height: 88rpx;
+  width: 100rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-52%);
+}
+
+.sales {
+  left: 48%;
+}
+
+.store {
+  right: 40rpx;
+}
+
+/* 排序 */
+
+.checked {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 86rpx;
+  /* width: 710rpx; */
+  /* border-bottom:2rpx solid rgba(241,236,236,1); */
+}
+
+/* 搜索结果 */
+
+.search_res {
+  padding: 22rpx 20rpx 0 20rpx;
+  background: #f8f8f8;
+}
+
+.goodsList {
+  display: flex;
+  justify-content: space-around;
+  /* width: 686rpx; */
+  height: 340rpx;
+  border-bottom: 2rpx solid #f1ecec;
+  box-sizing: border-box;
+}
+
+.goodsList .goods_img {
+  margin-right: 32rpx;
+  width: 294rpx;
+  height: 294rpx;
+  border-radius: 10rpx;
+  background: #58bc58;
+}
+
+.goodsinfo {
+  height: 264rpx;
+  width: 360rpx;
+}
+
+.goodsinfo view:nth-child(1) {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goodsinfo view:nth-child(2) {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  margin: 22rpx 0 30rpx 0;
+}
+
+.goodsinfo view:nth-child(3) text, .goodsinfo view:nth-child(4) text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.goodsinfo view:nth-child(4) image {
+  width: 10rpx;
+  height: 16rpx;
+}
+
+/* 搜索店铺列表 */
+
+.shopsList {
+  width: 710rpx;
+  height: 350rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 6rpx 16rpx rgba(180, 180, 180, 0.09);
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 12rpx;
+}
+
+.s_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toshops {
+  width: 114rpx;
+  height: 50rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(225, 26, 26, 1);
+  border-radius: 26rpx;
+  text-align: center;
+  color: #e11a1a;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+
+.shopsinfo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.shopsinfo image {
+  width: 76rpx;
+  height: 76rpx;
+  background: #58bc58;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.shopsinfo text {
+  font-size: 28rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+  display: block;
+}
+
+.s_bottom {
+  margin-top: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.s_bottom image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  background: #456789;
+}

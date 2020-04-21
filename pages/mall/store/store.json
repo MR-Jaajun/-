@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-navigation-bar": "../../../component/navigation-bar/navigation-bar",
+    "verticalnav": "../../../component/verticalnav/verticalnav"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "custom"
+}

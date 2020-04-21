@@ -1,0 +1,339 @@
+/*用户名称  */
+
+.userinfo {
+  position: relative;
+}
+
+#username {
+  margin: 98rpx 0 8rpx 22rpx;
+  height: 44rpx;
+  position: relative;
+}
+
+.username {
+  float: left;
+  height: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 44rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 4rpx;
+  margin-right: 16rpx;
+}
+
+.member_level {
+  float: left;
+  text-align: center;
+  width: 110rpx;
+  height: 34rpx;
+  border: 1px solid rgba(246, 111, 48, 1);
+  border-radius: 12px;
+  line-height: 28rpx;
+}
+
+.member_level text {
+  vertical-align: middle;
+  font-size: 22rpx;
+  color: rgba(245, 75, 48, 1);
+}
+
+.member {
+  vertical-align: middle;
+  width: 26rpx;
+  height: 24rpx;
+}
+
+/* 邀请码 */
+
+#invite_ID {
+  margin: 0 0 20rpx 24rpx;
+}
+
+.invite_ID {
+  width: 206rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 34rpx;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+  margin-right: 14rpx;
+}
+
+.copy {
+  display: inline-block;
+  width: 66rpx;
+  height: 30rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  text-align: center;
+  line-height: 28rpx;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+  border-radius: 24rpx;
+  border: 1px solid rgba(153, 153, 153, 1);
+}
+
+/* 升级提示 */
+
+#upgrade {
+  margin-left: 28rpx;
+}
+
+.upgrade {
+  width: 478rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 24rpx;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+  margin-right: 20rpx;
+}
+
+.next {
+  width: 6px;
+  height: 11px;
+}
+
+/* 用户照片 */
+
+.userPicture {
+  width: 374rpx;
+  height: 270rpx;
+  background-image: url("https://apitest.xgscheng.com/static/weapp/background.png");
+  background-size: cover;
+  position: absolute;
+  top: -98rpx;
+  right: 0;
+  z-index: -99;
+}
+
+.userPicture image {
+  width: 42rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 34rpx;
+  right: 34rpx;
+}
+
+.user_picture {
+  width: 120rpx;
+  height: 120rpx;
+  box-shadow: 0rpx 6rpx 12rpx rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: 32rpx;
+  bottom: 52rpx;
+  border-radius: 50%;
+  background-size: cover;
+}
+/* .user_picture image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;left: 0;
+} */
+/* 用户的钱 */
+
+.money {
+  width: 710rpx;
+  height: 190rpx;
+  margin: 34rpx 20rpx 44rpx 20rpx;
+  background-image: url("https://apitest.xgscheng.com/static/weapp/mine_money_bg.png");
+  background-size: cover;
+}
+
+.money text {
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 2rpx;
+}
+
+.accumulative_all {
+  width: 100%;
+  margin-top: 16rpx;
+  text-align: center;
+  height: 40rpx;
+  float: left;
+  margin-bottom: 22rpx;
+}
+
+.accumulative_all text {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 52rpx;
+}
+
+.month {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.estimate {
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+
+.number text:nth-child(1) {
+  margin-bottom: 14rpx;
+  display: block;
+  font-weight: 400;
+  font-size: 24rpx;
+}
+
+/* 导航 */
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  height: 116rpx;
+  overflow: hidden;
+}
+
+.nav>view {
+  text-align: center;
+  flex: 1;
+  width: 96rpx;
+  height: 116rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.nav>view image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.nav>view text {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+
+
+.active>view text{
+  color:#999;
+}
+
+/* 常用工具 */
+
+.instrument {
+  margin: 36rpx 34rpx 0 32rpx;
+}
+
+.instrument_title {
+  width: 112rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 15rpx;
+  margin-bottom: 32rpx;
+}
+/* .instrument_title .active{
+  color: #999;
+} */
+.instrument_item {
+  position: relative;
+  height: 100rpx;
+  color: rgba(51, 51, 51, 1);
+  /* line-height: 100rpx; */
+}
+
+.instrument_item .icon {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 32rpx;
+}
+
+.instrument_item text {
+  width: 96rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 100rpx;
+}
+.active{
+  color: #999;
+}
+
+.instrument_item .icon_next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -11rpx;
+  width: 12rpx;
+  height: 22rpx;
+}
+
+
+/* 未登录的状态 */
+
+
+/* 遮罩层 */
+.shade{
+  width: 750rpx;
+  height: 1200rpx;
+  /* background: #f5f5f5; */
+  /* opacity: 0.5; */
+  position: fixed;
+  top: 0;
+}
+.shade_top{
+  width: 750rpx;
+  height: 650rpx;
+  background:rgba(250, 250, 250, 1);
+  position: relative;
+}
+.shade_top image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  width: 150rpx;
+  height: 150rpx;
+}
+.shade_top .login_btn{
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200rpx;
+  height: 50rpx;
+  border: 2rpx solid #8a8a8a;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 50rpx;
+  text-align: center;
+}
+.shade .shade_bottom{
+  width: 750rpx;
+  height: 100%;
+  background: #f5f5f5;
+  opacity: 0;
+}
+
+/* 半屏弹框 */
+.weui-demo-dialog{
+  visibility:hidden;
+  opacity:0;
+  transition:all .3s;
+}
+.weui-half-screen-dialog{
+  transition:all .3s;
+  transform:translateY(100%);
+}
+.weui-demo-dialog_show{
+  visibility:visible;
+  opacity:1;
+}
+.weui-demo-dialog_show .weui-half-screen-dialog{
+    transform:translateY(0);
+}

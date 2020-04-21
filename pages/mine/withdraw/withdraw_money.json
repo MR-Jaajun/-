@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "余额提现",
+  "usingComponents": {
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index"
+  }
+}

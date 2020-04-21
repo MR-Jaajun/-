@@ -1,0 +1,114 @@
+<!-- <mp-navigation-bar show="{{true}}" color="#fff" back="{{false}}" ext-class="zIndex"></mp-navigation-bar> -->
+<!-- 返回按钮 -->
+<view class="backBtn">
+  <image src="/images/icon_eturnone.png" bindtap="goback" />
+  <view class="x"></view>
+  <image src="/images/icon_gengduo.png" class="meau" bindtap="showMeau" />
+  <van-popup show="{{ showmeau }}" bind:close="onClose" custom-class="meauList" overlay-style="opacity:0;">
+    <view class="m_list">
+      <image src="/icon/icon_fefefre@2x(1).png"></image>
+      <text>首页</text>
+    </view>
+    <view class="m_list">
+      <image src="/icon/icon_fenxiang@2x.png"></image>
+      <text>分享</text>
+    </view>
+    <view class="m_list">
+      <image src="/icon/icon_xiaoxi@2x.png"></image>
+      <text>消息</text>
+    </view>
+    <view class="m_list">
+      <image src="/icon/icon_lianxi@2x.png"></image>
+      <text>联系卖家</text>
+    </view>
+  </van-popup>
+</view>
+<!-- 店铺背景图 -->
+<view class="store_bg">
+  <image src=""></image>
+</view>
+<!-- 店铺信息 -->
+<view class="store_top">
+  <!-- <image src="" class="store_bg"></image> -->
+  <view class="store_info">
+    <view class="left">
+      <view class="left_top" bindtap="toImpression">
+        <text class="store_name">匡威官方旗舰店</text>
+        <image src="/images/icon_eturnone.png"></image>
+      </view>
+      <view class="left_bottom">
+        <text>综合评分</text>
+        <van-rate readonly value="{{ 3 }}" bind:change="onChange" color="#5FBDFC" size="13" void-color="#EBE8E8" custom-class="rate" />
+        <text>粉丝数1344</text>
+      </view>
+
+    </view>
+    <view class="right">
+      <image src="/images/icon_guanzhu.png"></image>
+      <text>收藏</text>
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <view class="d1 discount" bindtap="toStoreDiscount">
+    <view>
+      <text>￥</text>
+      <text style="font-size:48rpx;">30</text>
+    </view>
+    <view>
+      <text>优惠券</text>
+      <text class="manjian">满300使用</text>
+    </view>
+  </view>
+  <view class="d2 discount" bindtap="toStoreDiscount">
+    <view>
+      <text>￥</text>
+      <text style="font-size:48rpx;">30</text>
+    </view>
+    <view>
+      <text>优惠券</text>
+      <text class="manjian">满300使用</text>
+    </view>
+  </view>
+</view>
+<!-- 店铺商品 -->
+<view class="goods">
+  <view class="search">
+    <view>综合</view>
+    <view>销量</view>
+    <view>价格</view>
+  </view>
+  <!-- 全部商品 -->
+  <view class="recommend" wx:if="{{type==1}}">
+    <view class="r_con">
+      <view class="r_item" wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="index">
+        <image/>
+        <text class="goods_title">韩版潮流百搭学生休闲裤</text>
+        <view class="goods_price">
+          <text>￥89</text>
+          <text>1230人付款</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 分类 -->
+  <view class="fenlei" wx:if="{{type==2}}">
+    <verticalnav></verticalnav>
+  </view>
+</view>
+
+
+<!-- 底部导航 -->
+<van-tabbar active="{{ active }}" z-index="3" bind:change="onChange" active-color="#333" inactive-color="#999" bind:change="onChange">
+  <van-tabbar-item bindtap="allgoods">
+    <image slot="icon" src="/icon/all(2).png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/all.png" mode="aspectFit" style="width: 30px; height: 18px;" /> 全部商品
+  </van-tabbar-item>
+  <van-tabbar-item bindtap="fenlei">
+    <image slot="icon" src="/icon/fenlei.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/fenlei(2).png" mode="aspectFit" style="width: 30px; height: 18px;" />分类
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/call.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/call.png" mode="aspectFit" style="width: 30px; height: 18px;" />联系客服
+  </van-tabbar-item>
+</van-tabbar>

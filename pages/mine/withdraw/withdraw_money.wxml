@@ -1,0 +1,44 @@
+<view class="withdraw">
+<!-- 选择银行卡 -->
+  <view class="bank_card">
+    <view class="card_left">
+      <text>提现至</text>
+    </view>
+    <view class="card_right" bindtap="showCards">
+      <text>请选择银行卡</text>
+      <image src="/images/icon_next.png"/>
+    </view>
+  </view>
+  <!-- 提现金额 -->
+  <view class="withdraw_money">
+    <view>提现金额</view>
+    <view>
+      <text>¥</text>
+      <input value="213.00"/>
+    </view>
+
+  </view>
+  <!-- 全部提现 -->
+  <view class="can_withdraw">
+    <view>
+      <text>可提现金额</text>
+      <text>¥213.00</text>
+    </view>
+    <view>全部提现</view>
+  </view>
+</view>
+
+
+<!-- 提交按钮 -->
+<view class="submit_btn">
+  全部提现
+</view>
+
+<!-- 银行卡弹窗 -->
+<van-popup class="show_cards" show="{{show_cards}}" bind:close="closeCards">
+  <view class="title">选择银行卡</view>
+  <view class="c_item">中国建设银行储蓄卡（2341）</view>
+  <view class="c_item">中国农业银行储蓄卡（8588）</view>
+  <view class="add_cards">添加储蓄卡</view>
+  <view class="c_item" style="border-bottom:none" bindtap="closeCards">取消</view>
+</van-popup>

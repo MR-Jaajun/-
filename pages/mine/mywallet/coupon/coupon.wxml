@@ -1,0 +1,42 @@
+<!-- https://apitest.xgscheng.com/static/weapp/juan.png -->
+<!-- https://apitest.xgscheng.com/static/weapp/juabnz.png -->
+<!-- https://apitest.xgscheng.com/static/weapp/juana.png -->
+<van-tabs swipeable animated>
+  <van-tab title="可用优惠券（{{coupon_num}})">
+    <view class="quan_item can_use">
+      <view class="item_left">
+        <text class="t1">￥</text>
+        <text class="t2">23.00</text>
+      </view>
+      <view class="item_right">
+        <view>满200可用</view>
+        <view>只限于小哥商城</view>
+        <view>2018-12-05前可用</view>
+      </view>
+    </view>
+    <!-- <view class="quan_item can_use">
+      <view class="item_left">
+        <text class="t2">7</text>
+        <text class="t1">折</text>
+      </view>
+      <view class="item_right">
+        <view>满200可用</view>
+        <view>只限于小哥商城</view>
+        <view>2018-12-05前可用</view>
+      </view>
+    </view> -->
+  </van-tab>
+  <van-tab title="已过期">
+    <view class="quan_item timeover">
+      <view class="item_left">
+        <text class="t1">￥</text>
+        <text class="t2">23.00</text>
+      </view>
+      <view class="item_right">
+        <view style="color:#666666;">满200可用</view>
+        <view>只限于小哥商城</view>
+        <view>2018-12-05前可用</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

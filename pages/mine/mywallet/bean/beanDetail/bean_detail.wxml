@@ -1,0 +1,25 @@
+<import src="/pages/common/bean_detail.wxml"/>
+<!-- <template name="bean_detail">
+  <view class="all">
+    <view class="all_item">
+      <view class="item_left">
+        <text class="type">{{type}}</text>
+        <text class="date">{{date}}</text>
+        <text class="time">{{time}}</text>
+      </view>
+      <view class="money">{{money}}</view>
+    </view>
+  </view>
+</template> -->
+
+<van-tabs swipeable animated>
+  <van-tab title="全部" >
+    <template is="bean_detail" data="{{allList}}"/>
+  </van-tab>
+  <van-tab title="收入">
+    <template is="income" data="{{income}}"/>
+  </van-tab>
+  <van-tab title="支出">
+    <template is="expenditure" data="{{expenditure}}" />
+  </van-tab>
+</van-tabs>

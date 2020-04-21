@@ -1,0 +1,46 @@
+.all{
+  width: 750rpx;
+  height: 1334rpx;
+  overflow-y: visible;
+}
+/* 地图 */
+.map{
+  width:750rpx;
+  height:224rpx;
+}
+
+.isShowMore{
+  width: 750rpx;
+  height: 74rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+.isShowMore image{
+  width: 22rpx;
+  height: 16rpx;
+  margin-left: 12rpx;
+}
+
+/* 商品信息 */
+.ziqu_item{
+  padding: 0 32rpx;
+  width: 686rpx;
+  height: 100%;
+}
+.merchant_item{
+  margin-top: 40rpx;
+  margin-bottom: 0 !important;
+}
+
+/* 点击加载更多 */
+.load_more{
+  text-align: center;
+  width: 686rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  color:#999999;
+  margin-top: 20rpx;
+}

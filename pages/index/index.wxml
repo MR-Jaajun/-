@@ -1,0 +1,89 @@
+<!--总首页-->
+<import src="../common/loadmore.wxml" />
+<!-- 引用 -->
+<!-- 头部搜索栏 -->
+<view>
+  <view class='top_bar'>
+    <view class='top_txt'>广州</view>
+    <van-search style='flex:1' shape="round" background="#3F4950" value="{{ value }}" placeholder="请输入搜索关键词" />
+    <image bindtap='toNotify' src='/icon/icon_messages.svg'></image>
+  </view>
+  <!-- 四大按键 -->
+  <view class='main_four_btn'>
+    <view>
+      <image src='/images/icon_Invitation.png' mode='aspectFit'></image>
+      <text>扫一扫</text>
+    </view>
+    <view bindtap="toStore">
+      <image src='/images/icon_market.png' mode='aspectFit'></image>
+      <text>商城</text>
+    </view>
+    <view bindtap='toTakeOut'>
+      <image src='/images/icon_take.png' mode='aspectFit'></image>
+      <text>外卖</text>
+    </view>
+    <view bindtap='toGroup'>
+      <image src='/images/icon_groupbuying.png' mode='aspectFit'></image>
+      <text>团购</text>
+    </view>
+  </view>
+  <!-- 日常推荐 -->
+  <view class='hot'>
+    <text>日常推荐</text>
+    <swiper indicator-dots="true" indicator-color="rgba(239,235,235,1)" indicator-active-color="#FF3030">
+      <block wx:for="{{banner}}" wx:key="*this">
+        <swiper-item>
+          <image mode='widthFix' src='/images/{{item}}.png'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 主体循环 -->
+  <view class='section'>
+    <view class='home_item'>
+      <view class='one_txt'>
+        <image src='/images/icon_take.png' mode='widthFix'></image>
+        <text>潮汕兄弟汤粉世家(文冲店)</text>
+        <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+      </view>
+      <view class='two_txt'>
+        <text class='redtxt'>4.2分</text>｜起送价¥15｜配送费¥2</view>
+      <view class='three_txt'>
+        <text class='redbgtxt'>优惠</text>
+        <text>满17减3,满27减1</text>
+      </view>
+      <text class='four_txt'>支持自取</text>
+      <view class='five_img'>
+        <image class='duoImg' src=''></image>
+        <image class='duoImg' src=''></image>
+        <image class='duoImg' src=''></image>
+      </view>
+    </view>
+    <!-- home_item -->
+    <view class='home_item'>
+      <view class='one_txt'>
+        <image src='/images/icon_take.png' mode='widthFix'></image>
+        <text>潮汕兄弟汤粉世家(文冲店)</text>
+        <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+      </view>
+      <view class='two_txt'>
+        <text class='redtxt'>4.2分</text>｜起送价¥15｜配送费¥2</view>
+      <view class='three_txt'>
+        <text class='redbgtxt'>优惠</text>
+        <text>满17减3,满27减1</text>
+      </view>
+      <text class='four_txt'>支持自取</text>
+      <view class='five_img'>
+        <image src='' lazy-load="true"></image>
+        <image src='' lazy-load="true"></image>
+        <image src='' lazy-load="true"></image>
+      </view>
+    </view>
+  </view>
+
+  <template is="{{!isHideLoadMore ? 'loadmore' : 'nodata'}}" />
+  <!-- 引用触底动画和提示 -->
+
+  <!-- 回到头部 -->
+  <totop totop-prop="{{totopData}}"></totop>
+</view>

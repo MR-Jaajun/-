@@ -1,0 +1,6 @@
+<template name="loadmore">
+  <van-loading size="24px">加载中...</van-loading>
+</template>
+<template name="nodata">
+  <van-divider contentPosition="center " customStyle="padding:0 20rpx;color: ccc;border-color: #ccc;font-size: 32rpx; ">没有更多数据了!</van-divider>
+</template>

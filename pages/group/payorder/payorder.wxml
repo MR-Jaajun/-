@@ -1,0 +1,31 @@
+<!--pages/group/payorder/payorder.wxml-->
+<!-- <text>pages/group/payorder/payorder.wxml</text> -->
+<view class="top">
+  <view class="time">
+    <text>支付剩余时间</text>
+    <!-- <text style="font-size:36rpx;margin">12:56</text> -->
+    <van-count-down time="{{ countDown }}" bind:finish="finished">
+    </van-count-down>
+  </view>
+  <view class="price">￥{{o_detail.total_fee}}</view>
+</view>
+
+<view class="paytype">
+  <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <van-cell-group>
+      <van-cell title="微信支付" clickable data-name="1">
+        <van-radio slot="right-icon" name="1" checked-color="#FF4444" />
+      </van-cell>
+    </van-cell-group>
+  </van-radio-group>
+</view>
+
+<view class="btn" bindtap="pay">立即支付</view>
+
+<van-dialog use-slot show="{{ show }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo" cancelButtonText="{{isshow==1?'查看订单':'重新支付'}}" confirmButtonText="返回商城" bind:cancel="backs" bind:confirm="nexts">
+  <view style="text-align:center;margin-top:36rpx;">
+    <image src="{{isshow==1?'/icon/icon_lijisongda.png':'/icon/icon_shibai.png'}}" style="width:120rpx;height:120rpx" />
+  </view>
+
+  <view style="text-align:center;margin-bottom:28rpx;">{{isshow==1?'支付成功':'支付失败'}}</view>
+</van-dialog> 

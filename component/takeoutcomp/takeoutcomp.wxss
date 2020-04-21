@@ -1,0 +1,171 @@
+/* 多专区公用 */
+page{
+  padding-bottom: 100rpx;
+}
+.youxuan_txt, .discounts_txt, .ziqu_txt{
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.youxuan_txt > text, .ziqu_txt > text {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #999;
+}
+
+/* 标题栏 */
+.top_bar {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 32rpx;
+}
+.top_bar .waimai_head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.top_bar .waimai_head .title_txt{
+  margin: 0 6rpx;
+}
+.top_bar .waimai_head .location{
+  width: 36rpx;
+  height: 36rpx;
+  flex-shrink: 0;
+}
+.top_bar .waimai_head .rightzui{
+  width: 8rpx;
+  height: 12rpx;
+  transform: translate(6rpx, 2rpx);
+  flex-shrink: 0;
+}
+.top_bar .Notify{
+  width: 36rpx;
+  height: 41rpx;
+  transform: translate(-32rpx, 0);
+}
+/* .top_bar text {
+  flex: 1;
+  text-align: center;
+} */
+
+/* banner */
+.hot {
+  padding: 0 20rpx;
+}
+.hot swiper {
+  height: 212rpx;
+}
+.hot swiper image {
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+.setbar{
+  padding: 10px;
+}
+.setradius{
+border-radius: 16rpx;
+}
+.van-search__content{
+  border-radius: 16rpx;
+}
+
+.takeout_classify {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+
+.takeout_classify .takeout_classify_item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.takeout_classify .takeout_classify_item image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-bottom: 8rpx;
+  border-radius: 50%;
+}
+
+.takeout_classify .takeout_classify_item text {
+  font-size: 22rpx;
+  color: #666
+}
+
+.section {
+  padding: 0 32rpx;
+}
+
+.youxuan_txt .toright, .ziqu_txt .toright {
+  position: absolute;
+  right: 0;
+}
+
+.youxuan_list, .discounts_list .dis_top, .discounts_list .dis_bot{
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 优惠专区 */
+.discounts_txt {
+  margin-top: 40rpx;
+}
+.discounts_list{
+  margin-bottom: 32rpx;
+}
+.discounts_list .dis_bot image {
+  width: 158rpx;
+  height: 200rpx;
+  background: #999;
+}
+
+/* 到点自取 */
+.ziqu_txt{
+  margin: 26rpx 0 20rpx 0;
+}
+.ziqu_tips{margin-left: 16rpx;}
+.ziqu_list{
+  display: flex;
+  justify-content: space-between;
+}
+.ziqu_item{
+  width: 334rpx;
+  /* display: flex;
+  flex-direction: column; */
+}
+.ziqu_item > image{
+  width: 334rpx;
+  height: 220rpx;
+  background: #999;
+  border-radius: 12rpx;
+  vertical-align: top;
+}
+.ziqu_title {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 8rpx 0;
+}
+.ziqu_tagone {
+  line-height: 1;
+}
+
+/* 附近商家 */
+.near_shop{
+  margin-top: 50rpx;
+}
+
+/* 覆盖UI */
+.ziqu_list .van-tag{
+  display: flex;
+  margin:0 8rpx 8rpx 0; 
+}

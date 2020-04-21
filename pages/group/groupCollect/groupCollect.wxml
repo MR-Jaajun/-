@@ -1,0 +1,49 @@
+<!--pages/group/groupCollect/groupCollect.wxml-->
+<van-tabs active="{{ active }}" animated swipeable bind:change="onChange" color="#FCCE06">
+  <van-tab title="商品" name="1">
+    <view class="item" bindlongtap="opendia" wx:for="{{goodsList}}" wx:key="index" data-cid="{{ite.collect_id}}">
+      <image src="item.goods_cover_image"></image>
+      <view class="content">
+        <view>{{item.shop_title}} </view>
+        <view>
+          <van-tag type="primary" size="medium" wx:if="{{item.goods_type==2}}">套 餐</van-tag>
+          <van-tag type="danger" size="medium" wx:if="{{item.goods_type==1}}">代金券</van-tag>
+          <!-- <text>3~4人套餐</text> -->
+        </view>
+        <view>￥{{item.goods_sale_price}}</view>
+      </view>
+      <view class="icons">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </van-tab>
+  <!-- 店铺 -->
+  <van-tab title="店铺" name="2">
+    <view class="item" bindlongtap="opendia" wx:for="{{shopList}}" wx:key="index" data-cid="{{ite.collect_id}}">
+      <image src="item.shop_cover_image"></image>
+      <view class="content">
+        <view>{{item.shop_title}} </view>
+        <view>
+          <van-rate readonly value="{{ value }}" color="#FF9C09" void-color="#ccc" size="{{ 16 }}" />
+          <text style="color:#666">{{item.shop_evaluate_score}}分</text>
+        </view>
+        <view>
+          <text>￥{{item.shop_avg_cost}}/人</text>
+          <text style="font-size:24rpx;color:#666;margin-left:40rpx;">{{item.shop_area}}</text>
+        </view>
+      </view>
+      <view class="icons">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+
+
+<van-dialog id="van-dialog" message="{{active==0?'您是否要删除该收藏商品':'您是否要删除此该收藏店铺'}}" show="{{ close }}" show-cancel-button async-close="true" bind:cancel="onClose" bind:confirm="isDel">
+</van-dialog>
+
+<!-- 引用底线 -->
+<block wx:if="{{list.length<1}}">
+  <van-divider contentPosition="center" customStyle="padding:0 20rpx;color: ccc;border-color: #ccc;font-size: 30rpx;">我是有底线的</van-divider>
+</block>

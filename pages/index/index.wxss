@@ -1,0 +1,149 @@
+
+.top_bar {
+  width: 100%;
+  height: 172rpx;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+  background: #3f4950;
+  color: #fff;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-bottom: 50rpx;
+}
+
+.top_bar image {
+  width: 36rpx;
+  height: 40rpx;
+}
+
+.main_four_btn {
+  background: #fff;
+  margin: -50rpx 0 20rpx;
+  border-radius: 30rpx;
+  padding-top: 36rpx;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main_four_btn > view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-right: 84rpx 现用center，过不了审核再用复杂方式精确到px*/
+}
+
+/* .main_four_btn > view:last-child{
+  margin-right: 0
+} */
+
+.main_four_btn > view > image {
+  width: 96rpx;
+  height: 96rpx;
+  margin-bottom: 10rpx;
+}
+
+.main_four_btn > view > text {
+  color: #666;
+}
+
+.hot {
+  padding: 0 20rpx;
+}
+
+.hot text {
+  font: bold 28rpx Arial;
+  letter-spacing: 2rpx;
+}
+
+.hot swiper {
+  height: 212rpx;
+  margin-top: 20rpx;
+}
+
+.hot swiper image {
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+.home_item {
+  padding: 32rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.home_item:last-child {
+  border-bottom: 0;
+}
+
+.home_item > view {
+  display: flex;
+  align-items: center;
+}
+
+.one_txt, .two_txt, .three_txt {
+  padding-bottom: 10rpx;
+}
+
+.home_item .one_txt text {
+  font-size: 32rpx;
+  flex: 1;
+}
+
+.home_item .one_txt image {
+  width: 32rpx;
+  margin-right: 6rpx;
+}
+
+.home_item .one_txt image.close {
+  width: 30rpx;
+}
+
+.home_item .two_txt {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.home_item .two_txt .redtxt {
+  color: #fc4f3d;
+}
+
+.home_item .three_txt {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.home_item .three_txt .redbgtxt {
+  background-color: #fc4f3d;
+  padding: 0 10rpx;
+  margin-right: 4rpx;
+  color: #fff;
+  border-radius: 4rpx;
+}
+
+.home_item .four_txt {
+  color: #666;
+  font-size: 22rpx;
+  border: 1px solid rgba(208, 207, 207, 1);
+  padding: 4rpx;
+  border-radius: 4rpx;
+}
+
+.home_item .five_img {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home_item .five_img image {
+  width: 218rpx;
+  height: 184rpx;
+  background: #999;
+  border-radius: 8rpx;
+}
+
+.footer {
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,96 @@
+<!-- 订单列表，用组件构造页面 -->
+<import src="/pages/common/loadmore.wxml" />
+<template name="orderItem">
+  <block wx:if='{{!orderList.length}}'>
+    <!-- 无订单 -->
+    <view class='v-content'>
+      <view class='v-top'>
+        <image src="/images/blank.png" class="image-center" mode="scaleToFill"></image>
+        <view class="v-font">空空如也，啥都没有</view>
+      </view>
+    </view>
+  </block>
+  <!-- 有订单 -->
+  <!-- <button size="mini" bindtap="tapMove">click me to scroll</button> -->
+  <block wx:if='{{orderList.length}}'>
+    <scroll-view class="scroll-y" scroll-y style='height:{{scrollHeight}}px' bindscrolltolower="scrollLower">
+      <view class="merchant_list" id="test">
+        <block wx:for="{{orderList}}" wx:key="index" wx:for-item="i">
+          <view class='warpper_item' data-index="{{index}}" bindtap="toOrderInfo">
+            <view class='v-one'>
+              <view class="top-left">
+                <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                <text class='text1'>{{i.shop_title}}</text>
+              </view>
+              <view class='top-right'>
+                <text class='text2 rightBorder'>{{i.status_title}}</text>
+                <image class='close' src='/images/icon-shanchu.png' mode='widthFix' data-index="{{index}}" catchtap="delOrder"></image>
+              </view>
+            </view>
+            <view class="merchant_item">
+              <image src="{{i.cover_image}}"></image>
+              <view class="right_view">
+                <view class="smalltxt_line">
+                  <text class="blue_txt">{{i.goods_title}} 等 {{i.goods_num}} 件商品</text>
+                </view>
+                <view class="smalltxt_line">
+                  <view class="test">
+                    <van-tag wx:for="{{i.coupon}}" wx:key="*this" round plain color="#F95D5D">{{item}}</van-tag>
+                  </view>
+                </view>
+                <view class="smalltxt_line right_txt">
+                  <text class="text3">实付款:</text>
+                  <text class="text2">￥{{i.total_fee}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='bottom-box'>
+              <!-- 已取消 -->
+              <block wx:if="{{i.order_status==-1}}">
+                <view class='v-bottom bottom-txt txt-bg' data-index="{{index}}" catchtap="toShop">再来一单</view>
+              </block>
+              <!-- 未支付 -->
+              <block wx:if="{{i.order_status==1}}">
+                <view class='v-bottom bottom-txt txt-bg1' data-index="{{index}}" catchtap="cancelOrder">取消订单</view>
+                <view class='v-bottom bottom-txt txt-bg' data-index="{{index}}" catchtap="topay">去支付</view>
+              </block>
+              <!-- 2已支付，3配送中，8待取货，9商家已接单 -->
+              <block wx:if="{{i.order_status==2||i.order_status==3||i.order_status==8||i.order_status==9}}">
+                <view class='v-bottom bottom-txt txt-bg1' data-index="{{index}}" catchtap="toShop">再来一单</view>
+                <view class='v-bottom bottom-txt txt-bg' data-index="{{index}}" catchtap="confirmReceive">确认收货</view>
+              </block>
+              <!-- 待评价，5已完成，0评价 -->
+              <block wx:if="{{i.order_status==5&&i.is_comment==0}}">
+                <view class='v-bottom bottom-txt txt-bg1' data-index="{{index}}" catchtap="toShop">再来一单</view>
+                <!-- <view class='v-bottom bottom-txt txt-bg' data-index="{{index}}" catchtap="toAppraise">去评价</view> -->
+                <!-- //+-异常，做评价 -->
+              </block>
+              <!-- 查看评价，5已完成，1评价 -->
+              <block wx:if="{{i.order_status==5&&i.is_comment==1}}">
+                <view class='v-bottom bottom-txt txt-bg1' data-index="{{index}}" catchtap="toShop">再来一单</view>
+                <view class='v-bottom bottom-txt txt-bg'>查看评价</view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+      <template is="{{isHideLoadMore ? 'loadmore' : 'nodata'}}"/>
+    </scroll-view>
+  </block>
+</template>
+<view class="zhezhao">
+  <van-tabs swipeable animated bind:change="changeTab">
+    <van-tab title="全部">
+      <template is="orderItem" data="{{orderList, scrollHeight, isHideLoadMore}}" />
+    </van-tab>
+    <van-tab title="待付款">
+      <template is="orderItem" data="{{orderList, scrollHeight, isHideLoadMore}}" />
+    </van-tab>
+    <van-tab title="待评价">
+      <template is="orderItem" data="{{orderList, scrollHeight, isHideLoadMore}}" />
+    </van-tab>
+    <van-tab title="退款/售后">
+      <template is="orderItem" data="{{orderList, scrollHeight, isHideLoadMore}}" />
+    </van-tab>
+  </van-tabs>
+</view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "城市定位",
+  "usingComponents": {
+    "i-index": "/miniprogram_npm/iview-weapp/index/index",
+    "i-index-item": "/miniprogram_npm/iview-weapp/index-item/index",
+    "van-search": "/miniprogram_npm/vant-weapp/search/index"
+  }
+}

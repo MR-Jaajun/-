@@ -1,0 +1,49 @@
+/* pages/index/notify/message_list/message_list.wxss */
+
+.message_list {
+  height: 136rpx;
+  width: 706rpx;
+  padding: 24rpx 12rpx 0 32rpx;
+  border-bottom: 8rpx solid #fafafa;
+  position: relative;
+}
+
+.message_list .message_con {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.message_con .message_type image {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 18rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.message_con .message_type text{
+  color: #333333;
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+
+.message_con .message_status{
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 12rpx;
+}
+.message_list .toDetail image {
+  width: 12rpx;
+  height: 22rpx;
+  vertical-align: middle;
+  margin-left: 18rpx;
+}
+
+.message_list .toDetail {
+  height: 34rpx;
+  color: #666;
+  font-size: 24rpx;
+  letter-spacing: 3rpx;
+  position: absolute;
+  bottom: 22rpx;
+  right: 32rpx;
+}

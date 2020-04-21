@@ -1,0 +1,9 @@
+<template name="show_cards">
+  <van-popup class="show_cards" show="{{show_cards}}" bind:close="closeCards">
+    <view class="title">选择银行卡</view>
+    <view class="c_item">中国建设银行储蓄卡（2341）</view>
+    <view class="c_item">中国农业银行储蓄卡（8588）</view>
+    <view class="add_cards">添加储蓄卡</view>
+    <view class="c_item" style="border-bottom:none" bindtap="closeCards">取消</view>
+  </van-popup>
+</template>

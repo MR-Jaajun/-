@@ -1,0 +1,71 @@
+<!-- 商家名称和订单号 -->
+<view class="top">
+  <view class="name">
+    <text>投诉商家：</text>
+    <text>商家名称</text>
+  </view>
+  <view class="order_num">
+    <text>订单号：</text>
+    <text>234354658697898978</text>
+  </view>
+</view>
+
+
+<!-- 需要投诉的问题 -->
+<view class="problem">
+  <view class="problem_top">
+    <text style="color:#F63E3E;">* </text>
+    <text style="color:#333333;">问题类型</text>
+    <view class="choose" bindtap="choose_problem">
+      <text style="color:#999999;margin-right:16rpx;">请选择</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+  <view class="problem_bottom">
+    <textarea placeholder="请填写问题信息" placeholder-style="color:#999999;" maxlength="200"></textarea>
+  </view>
+</view>
+
+<!-- 上传照片 -->
+<view class="photos">
+  <view style="color:#333;margin-bottom:20rpx;padding-top:20rpx;">上传凭证(最多不超过三张)</view>
+  <view class="upload">
+    <!-- 添加的图片 -->
+    <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{imgsrc}}" wx:key="*this">
+        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+          <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+        </view>
+      </block>
+      <!-- 添加图片的按钮 -->
+      <view class="weui-uploader__input-box" style="width:200rpx;height:206rpx;" wx:if="{{chooseImg}}">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 投诉人信息 -->
+<view class="pop">
+  <view class="name">
+    <text style="color:#F63E3E;">* </text>
+    <text style="color:#333333;">联系人</text>
+    <input placeholder="请输入您的名称" />
+  </view>
+  <view class="tel">
+    <text style="color:#F63E3E;">* </text>
+    <text style="color:#333333;">联系方式</text>
+    <input placeholder="请输入您的联系方式" />
+  </view>
+</view>
+
+
+<!-- 提交反馈 -->
+<view class="btn">提交反馈</view>
+
+<van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:cancel="onClose" bind:close="onClose" />
+<!-- <van-action-sheet show="{{ true }}" title="支持以下配送方式" bind:close="onClose">
+  <view>一些内容</view>
+  <view>一些内容</view>
+</van-action-sheet> -->

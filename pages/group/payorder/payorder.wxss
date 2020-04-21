@@ -1,0 +1,51 @@
+/* pages/group/payorder/payorder.wxss */
+
+.top {
+  width: 750rpx;
+  height: 370rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  height: 32rpx;
+}
+
+.time text {
+  color: #333;
+  font-size: 38rpx;
+  margin-right: 10rpx;
+}
+
+.van-count-down {
+  height: 32rpx;
+  font-size: 26rpx;
+}
+
+.price {
+  font-size: 30rpx;
+  color: #ff3636;
+  margin-top: 20rpx;
+}
+
+.paytype {
+  padding: 0 40rpx;
+}
+
+.btn {
+  position: fixed;
+  width: 750rpx;
+  height: 74rpx;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  line-height: 74rpx;
+  color: #333;
+  background:rgba(252,206,6,1);
+  font-size:28rpx;
+  letter-spacing: 2rpx;
+}

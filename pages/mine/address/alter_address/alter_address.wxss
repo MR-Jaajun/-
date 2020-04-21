@@ -1,0 +1,20 @@
+/* 保存地址 */
+button{
+  width: 686rpx;
+  border-radius: 46rpx;
+  font-size:32rpx;
+}
+.save_btn{
+  background:linear-gradient(94deg,rgba(70,78,83,1) 0%,rgba(52,58,62,1) 100%);
+}
+.del_btn{
+  /* border: 2rpx solid black; */
+  margin-top: 50rpx;
+  color:linear-gradient(94deg,rgba(70,78,83,1) 0%,rgba(52,58,62,1) 100%);
+}
+/* 分享弹地址层 */
+.show_share{
+  width: 750rpx;
+  border-radius:6px 6px 0px 0px;
+  position: relative;
+}

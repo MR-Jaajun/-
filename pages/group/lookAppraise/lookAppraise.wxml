@@ -1,0 +1,44 @@
+<!--pages/group/lookAppraise/lookAppraise.wxml-->
+
+<view class="top">
+  <image src="{{comment_detail.shop_cover_image}}"></image>
+  <view class="rate">
+    <text class="title">{{comment_detail.goods_title}}</text>
+    <view class="rate2">
+      <text style="margin-right:14rpx;">满意程度</text>
+      <van-rate value="{{ comment_detail.shop_evaluate_score }}" void-icon="star" size="{{ 18 }}" color="#5FBDFC" readonly/>
+      <!-- <text style="font-size:24rpx;margin-left:40rpx;">{{test}}</text> -->
+    </view>
+  </view>
+</view>
+
+<view class="appraise">
+  <view class="a_top">
+    <image src="{{comment_detail.comment_anonymous==1?'/images/niming.png':comment_detail.shop_cover_image}}"></image>
+    <view class="userinfo">
+      <view class="top_title">
+        <text style="margin-right:20rpx;">{{comment_detail.comment_anonymous==1?'匿名评价':comment_detail.user_nick_name}}</text>
+        <!-- <van-rate value="{{ value2 }}" void-icon="star" size="{{ 20 }}" color="#5FBDFC" readonly/> -->
+      </view>
+      <text class="time">{{comment_detail.comment_time}}</text>
+    </view>
+  </view>
+  <view class="a_center">{{comment_detail.comment_content}}</view>
+  <view class="a_bottom">
+    <image wx:for="{{comment_detail.comment_image}}" wx:key="index" src="{{item}}" bindtap="onClickShow" data-url="{{item}}"></image>
+  </view>
+</view>
+<!-- 
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="block" catch:tap="noop">
+      <image class="bigimg" src="{{bigimg}}"></image>
+    </view>
+
+
+  </view>
+</van-overlay> -->
+
+<van-popup show="{{ show }}" bind:close="onClose">
+  <image class="bigimg" src="{{bigimg}}"></image>
+</van-popup>

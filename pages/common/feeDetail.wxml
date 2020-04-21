@@ -1,0 +1,12 @@
+<wxs src="./public.wxs" module="foo" />
+
+<template name="feeItem">
+  <view class="fee_item">
+    <view class="fee_type">
+      <text style="color:#333;font-size:28rpx;">{{title}}</text>
+      <text style="color:#666;font-size:20rpx;" space="nbsp">{{create_time}}</text>
+    </view>
+    <view class="fee_money">{{foo.plus(plus,amount)}}</view>
+    <view class="fee_status">{{type_name}}</view>
+  </view>
+</template>

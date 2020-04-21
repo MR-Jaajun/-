@@ -1,0 +1,48 @@
+<!--component/useCoupons/useCoupons.wxml-->
+
+<van-tabs animated swipeable bind:change="changes" color="#FCCE06">
+  <van-tab title="套餐券({{length2}})">
+    <view class="taocan common" bindtap="todetail" wx:for="{{couponslist2}}" wx:key="index" data-id="{{item.id}}">
+      <view>
+        <text style="margin-right:18rpx;">{{item.shop_title}}</text>
+        <text>套餐劵</text>
+      </view>
+      <view>
+        <text>{{item.order_title}}</text>
+      </view>
+      <view class="borders"></view>
+      <view class="times">
+        <text>有效期至：</text>
+        <text>{{item.end_time}}</text>
+      </view>
+      <image class="erweima" src="/images/erweima.png"></image>
+      <view class="num">{{item.og_num}} 张</view>
+    </view>
+  </van-tab>
+  <van-tab title="代金券({{length1}})">
+    <view class="daijin common" bindtap="todetail" wx:for="{{couponslist}}" wx:key="index" data-id="{{item.id}}">
+      <view>
+        <text style="margin-right:18rpx;">{{item.shop_title}}</text>
+        <text>代金券</text>
+      </view>
+      <view>
+        <text>{{item.order_title}}</text>
+      </view>
+      <view class="borders"></view>
+      <view class="times">
+        <text>有效期至：</text>
+        <text>{{item.end_time}}</text>
+      </view>
+      <image class="erweima" src="/images/erweima.png"></image>
+      <view class="num">{{item.og_num}} 张</view>
+    </view>
+  </van-tab>
+</van-tabs>
+
+<!-- 引用底线 -->
+<block wx:if="{{length2<1&&active==0}}">
+  <van-divider contentPosition="center" customStyle="padding:0 20rpx;color: ccc;border-color: #ccc;font-size: 32rpx;">您没有更多的套餐券了</van-divider>
+</block>
+<block wx:if="{{length1<1&&active==1}}">
+  <van-divider contentPosition="center" customStyle="padding:0 20rpx;color: ccc;border-color: #ccc;font-size: 32rpx;">您没有更多的代金券了</van-divider>
+</block>

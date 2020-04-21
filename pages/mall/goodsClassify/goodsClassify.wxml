@@ -1,0 +1,78 @@
+<!--pages/mall/goodsClassify/goodsClassify.wxml-->
+<!-- <view class="erji_tab">
+  <van-tabs animated bind:change="changeType" line-height="4rpx" tab-class="bg" tab-active-class="bg2">
+    <van-tab title="空调"></van-tab>
+    <van-tab title="电脑"></van-tab>
+    <van-tab title="冰箱"></van-tab>
+    <van-tab title="洗衣机"></van-tab>
+    <van-tab title="电视机"></van-tab>
+    <van-tab title="照相机"></van-tab>
+  </van-tabs>
+</view> -->
+<view class="category">
+  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+    <view class="{{active==index?'border':'title'}}" wx:for="{{categoryTitle}}" wx:key="index" data-cid="{{item.category_id}}" bindtap="switchover" data-idx="{{index}}">{{item.category_title}}</view>
+  </scroll-view>
+</view>
+<van-tabs animated sticky>
+  <!-- 综合 -->
+  <van-tab title="综合">
+    <view class="goodsList" wx:for="{{goodlist}}" wx:key="index">
+      <image src="{{item.goods_cover_image}}" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>{{item.goods_title}}</view>
+        <view>{{item.goods_subtitle}}</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">{{item.goods_sale_price}}</text>
+          <text style="color:#666;margin-left:36rpx">{{item.goods_sale_amount}}人付款</text>
+        </view>
+        <view>
+          <text>匡威官方旗舰店</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 销量 -->
+  <van-tab title="销量">
+    <view class="goodsList">
+      <image src="" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>韩版潮流百搭学生休闲长裤 潮牌男士工装裤...</view>
+        <view>买1送1 两件145元</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">45</text>
+          <text style="color:#666;margin-left:36rpx">1230人付款</text>
+        </view>
+        <view>
+          <text>匡威官方旗舰店</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 价格 -->
+  <van-tab title="价格">
+    <view class="goodsList">
+      <image src="" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>韩版潮流百搭学生休闲长裤 潮牌男士工装裤...</view>
+        <view>买1送1 两件145元</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">45</text>
+          <text style="color:#666;margin-left:36rpx">1230人付款</text>
+        </view>
+        <view>
+          <text>匡威官方旗舰店</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,44 @@
+<!--商城页底部tab-->
+<van-tabbar active="{{ active }}" z-index="3" bind:change="onChange" active-color="#333" inactive-color="#999" bind:change="onChange">
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_fefefre@2x(1).png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/icon_fefefre@2x.png" mode="aspectFit" style="width: 30px; height: 18px;" /> 首页
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_fenlei.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/icon_fenglei.png" mode="aspectFit" style="width: 30px; height: 18px;" />分类
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_ksadk@2x.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/icon_ordeer@2x.png" mode="aspectFit" style="width: 30px; height: 18px;" />订单
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_shopping@2x.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/icon_shopp.png" mode="aspectFit" style="width: 30px; height: 18px;" />购物车
+  </van-tabbar-item>
+  <van-tabbar-item bindtap="showMore">
+    <image slot="icon" src="/icon/icon_sdfjsjf@2x.png" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="/icon/icon_sdfjs.png" mode="aspectFit" style="width: 30px; height: 18px;" />更多
+  </van-tabbar-item>
+</van-tabbar>
+
+<!-- 点击更多弹出 -->
+<!-- <block wx:if="{{!is_showmore}}">
+  <view class="operations">
+    <view>收藏列表</view>
+    <view>优惠券</view>
+    <view>管理地址<text></text></view>
+  </view>
+</block> -->
+
+<van-popup show="{{ showmeau }}" bind:close="onClose" custom-class="meauList" overlay-style="opacity:0;">
+  <view class="m_list">
+    <text>收藏列表</text>
+  </view>
+  <view class="m_list">
+    <text>优惠券</text>
+  </view>
+  <view class="m_list">
+    <text>管理地址</text>
+  </view>
+</van-popup>

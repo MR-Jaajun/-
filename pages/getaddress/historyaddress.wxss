@@ -1,0 +1,8 @@
+/* pages/getaddress/historyaddress.wxss */
+page{
+  position: relative;
+}
+.nowaddress{
+  font-size: 28rpx;
+  color: #333;
+}

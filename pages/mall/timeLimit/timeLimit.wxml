@@ -1,0 +1,43 @@
+<!--pages/mall/timeLimit/timeLimit.wxml-->
+<!-- <text>pages/mall/timeLimit/timeLimit.wxml</text> -->
+<!-- <van-tabs type="card" animated tab-class="bg" tab-active-class="bg2" custom-class="bg3">
+  <van-tab title="标签 sssssssssssssssssssssssssssssssssssss">内容 1</van-tab>
+  <van-tab title="标签 2">内容 2</van-tab>
+  <van-tab title="标签 3">内容 3</van-tab>
+</van-tabs> -->
+
+<scroll-view scroll-x="true" enable-flex="true" class="scroll_x">
+  <view class="scroll_item {{item.scene_status==1?'active':'active2'}}" wx:for="{{scene_title}}" wx:key="index" bindtap="switching" data-sid="{{item.scene_id}}">
+    <text class="time">{{item.scene_title}}</text>
+    <text class="title">{{item.scene_status==1?'进行中':'未开始'}}</text>
+  </view>
+</scroll-view>
+<!-- 倒计时 -->
+<view class="tips">
+  <text>抢购中，先下单先得哦~</text>
+  <view class="timeout">
+    <text>距开始</text>
+    <image src="/images/icon_time.png " style="margin:0 12rpx 0 8rpx "></image>
+    <van-count-down time="{{ time }} " bind:finish="finished" />
+  </view>
+</view>
+<!-- 商品 -->
+<view class="goods">
+  <view class="goodsList" wx:for="{{arr2}}" wx:key="index">
+    <image src="{{item.goods_cover_image}}"></image>
+    <view class="content">
+      <text class="c_title">{{item.goods_title}}</text>
+      <text class="subheading">{{item.goods_subtitle}}</text>
+      <view class="progress">
+        <view class="current" style="width:{{item.width}}rpx"></view>
+        <text style="left:50rpx;">已抢{{item.goods_sale_amount}}件</text>
+        <text style="right:6rpx;">{{item.percent}}%</text>
+      </view>
+      <view class="togo">
+        <text style="font-size:44rpx;color:#E11A1A;margin-right:20rpx;">￥{{item.goods_sku_seckill_price}}</text>
+        <text style="text-decoration:line-through;font-size:24rpx;color:#ccc">￥{{item.goods_sku_sale_price}}</text>
+        <view class="togo2 {{item.scene_status==1?'':'togo2_active'}}">去抢购</view>
+      </view>
+    </view>
+  </view>
+</view>

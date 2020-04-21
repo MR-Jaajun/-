@@ -1,0 +1,218 @@
+/* pages/group/Prefecture/Prefecture.wxss */
+
+page {
+  background: #f8f8f8;
+}
+
+.v_page {
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.topleft {
+  width: 50%;
+  display: inline-block;
+}
+
+.topright {
+  width: 50%;
+  height: 100rpx;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+/* 搜索结果附近商家 */
+
+.scroll-y {
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+/* 代金券*/
+
+.merchant_item {
+  margin-top: 20rpx;
+  display: flex;
+  /* width: 710rpx; *//* height: 352rpx; */
+  background: #fff;
+  box-shadow: 0rpx 2rpx 12rpx rgba(0, 0, 0, 0.03);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.merchant_item image {
+  width: 148rpx;
+  height: 148rpx;
+  /* background: rgba(80, 28, 28, 0.842); */
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+.right_view {
+  flex: 1;
+}
+
+.right_view .one_txt {
+  font-size: 32rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.right_view .r_img {
+  width: 156rpx;
+  height: 28rpx;
+  background: #fff;
+}
+
+.right_view .r_text {
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(95, 189, 252, 1);
+  position: relative;
+  top: -8rpx;
+  left: -165rpx;
+}
+
+.two_view {
+  line-height: 52rpx;
+}
+
+.two_view .twotxt {
+  width: 322rpx;
+  height: 32rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}
+
+.two_view .bgtxt {
+  background-color: #fc4f3d;
+  padding: 0 10rpx;
+  margin-right: 6rpx;
+  color: #fff;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+}
+
+.right_view .three_view {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.right_view .three_view .redtxt {
+  color: #fc4f3d;
+  margin-right: 15rpx;
+}
+
+.f28 {
+  color: #fc4f3d;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+.f32 {
+  color: #fc4f3d;
+  font-size: 32rpx;
+  margin-right: 40rpx;
+}
+
+.f22 {
+  font-size: 22rpx;
+  color: #666;
+  margin-right: 12rpx;
+}
+
+.f24 {
+  color: #b4b4b4;
+  font-size: 24rpx;
+}
+
+/* 套餐 */
+
+.home_item {
+  /* width: 710rpx; *//* height: 352rpx; */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 12rpx rgba(0, 0, 0, 0.03);
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.home_item .one_txt {
+  font-size: 32rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.home_item .two_txt {
+  font-size: 22rpx;
+  color: #666;
+  /* margin-top: 15rpx; */
+  line-height: 72rpx;
+}
+
+.home_item .two_txt .redtxt {
+  color: #fc4f3d;
+  margin-right: 15rpx;
+}
+
+.three_txt {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.three_txt .redbgtxt {
+  background-color: #67affb;
+  padding: 0 10rpx;
+  margin-right: 4rpx;
+  color: #fff;
+  border-radius: 4rpx;
+}
+
+.v_btn {
+  width: 124rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 46rpx;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 1rpx;
+  background: rgba(241, 70, 70, 1);
+  border-radius: 15rpx;
+}
+
+.r_km {
+  float: right;
+  font-size: 11px;
+  color: rgba(153, 153, 153, 1);
+}
+
+.home_item .five_img {
+  width: fit-content;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.five_img image {
+  width: 218rpx;
+  height: 148rpx;
+  background: #999;
+  border-radius: 4rpx;
+  margin-right: 5rpx;
+}
+
+/* 头部弹出层 */
+
+.near_shop_filtrate_bar .setimgon {
+  transform: rotate(-90deg);
+}

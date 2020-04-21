@@ -1,0 +1,138 @@
+/* pages/group/lookAppraise/lookAppraise.wxss */
+
+.top {
+  height: 168rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 26rpx 32rpx;
+  /* display: flex; */
+  border-bottom: 2rpx solid #f1ecec;
+}
+
+.top image {
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin-right: 22rpx;
+  float: left;
+}
+
+.rate {
+  width: fit-content;
+  /* float: left; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 116rpx;
+}
+
+.rate text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.rate .title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  /* letter-spacing: 2rpx; */
+}
+
+.rate .rate2 {
+  /* margin-top:  */
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.appraise {
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 24rpx 32rpx;
+}
+
+.a_top {
+  display: flex;
+  height: 102rpx;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.a_top image {
+  width: 88rpx;
+  height: 88rpx;
+  background: #ccc;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.a_top .userinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 88rpx;
+}
+
+.a_top .userinfo .time {
+  width: 246px;
+  height: 28px;
+  font-size: 20rpx;
+  color: rgba(187, 187, 187, 1);
+}
+
+.a_top .userinfo .top_title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  display: flex;
+  align-items: center;
+}
+
+.a_center {
+  width: 684rpx;
+  /* height: 80px; */
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 40rpx;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+  margin-bottom: 22rpx;
+}
+
+.a_bottom {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.a_bottom image {
+  width: 204rpx;
+  height: 204rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin: 0 22rpx 22rpx 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.bigimg {
+  width: 750rpx;
+  height: 950rpx;
+}
+
+.block {
+  width: 750rpx;
+  height: 750rpx;
+  background-color: #fff;
+}

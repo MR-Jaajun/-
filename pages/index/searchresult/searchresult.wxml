@@ -1,0 +1,34 @@
+<!-- 搜索结果页 -->
+<!-- 引用 -->
+<import src="../../common/loadmore.wxml" />
+<import src="../../common/merchant_item.wxml" />
+<import src="../../common/searchpopup_temp.wxml" />
+<view class="topbar fl_row_cen">
+  <view class="fl1">
+    <!-- <van-search value="{{ value }}" shape="round" bind:clear="hideSearchView" bind:change="searchChange" placeholder="搜索商品" focus="{{isfocus}}" /> -->
+    <van-search value="{{ value }}" shape="round" placeholder="搜索商品" focus="{{isfocus}}" bind:change="getValue" />
+  </view>
+  <!-- <button class="mini-btn nobg" style="margin:0 0 0 16rpx" size="mini">搜索</button> -->
+</view>
+<!-- 搜索结果弹出层 -->
+
+<template is="searchpopup_temp" data="{{isshowsearch}}"></template>
+
+
+
+<view class='near_shop' wx:if="{{isNearShop}}">
+  <!-- <view class='near_shop_title'>附近商家</view> -->
+  <!-- 分类删选组件 -->
+  <popupcomp></popupcomp>
+  <view class='near_shop_filtrate_bar2'>
+    <button class="mini-btn" size="mini">首单立减</button>
+    <button class="mini-btn" size="mini">超级好评</button>
+    <button class="mini-btn" size="mini">满减优惠</button>
+    <button class="mini-btn" size="mini">减配送费</button>
+  </view>
+  <view class="merchant_list">
+    <block wx:for="{{searchList}}" wx:key="{{index}}">
+      <template is="merchant_item" data="{{...item}}"></template>
+    </block>
+  </view>
+</view>

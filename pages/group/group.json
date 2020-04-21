@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "gropTap": "/component/gropTap/gropTap",
+    "gropindex": "/component/gropindex/gropindex",
+    "gropCoupons": "/component/useCoupons/useCoupons",
+    "groupOrder": "/component/groupOrder/groupOrder"
+  }
+}

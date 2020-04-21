@@ -1,0 +1,31 @@
+<template name="youxuan_item">
+  <!-- <block wx:for="" wx:key=""> -->
+  <view class="youxuanhot">
+    <view class="merchant_item" bindtap="toshopByYou">
+      <image src="{{shop_cover_image}}"></image>
+      <view class="right_view">
+        <view class="fl_row_cen linehei1">
+          <text class="fl1 van-ellipsis">{{shop_title}}</text>
+          <van-tag custom-class="fl_row_cen" color="#EFEEEE" text-color="#333">进店</van-tag>
+        </view>
+        <view class="smalltxt_line txt_marg_head">
+          <text>起送¥{{delivery_order_amount}} 配送费￥{{delivery_price}} 人均¥{{perperson_consumption}}</text>
+        </view>
+        <view class="smalltxt_line">
+          <block wx:for="{{shop_info_tags}}" wx:key="{{index}}">
+            <van-tag custom-class="bg_tag" color="#76B3F5" plain>{{item.tag_desc}}</van-tag>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="fl_row_cen hot_bottom">
+      <image class="bottom_img" src="{{shop_goods[0].cover_image}}"></image>
+      <view class="fl_col hot_right">
+        <image src="{{shop_goods[1].cover_image}}"></image>
+        <image src="{{shop_goods[2].cover_image}}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- </block> -->
+
+</template>

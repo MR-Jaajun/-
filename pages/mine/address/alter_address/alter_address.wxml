@@ -1,0 +1,27 @@
+<import src="/pages/common/address.wxml" />
+<template is="address" data="{{address_info}}" />
+
+<!-- 保存地址 -->
+<button class="save_btn" type="primary" bindtap="address">
+  保存地址
+</button>
+
+<!-- 删除地址 -->
+<button class="del_btn" type="default" plain="{{true}}" bindtap="isDel">
+  删除地址
+</button>
+
+<!-- 选择地址弹出层 -->
+<van-popup show="{{ choose_address }}" position="bottom" overlay="{{ false }}" bind:close="onClose" z-index="100" custom-class="show_share" custom-style="background-color:#333;">
+  <van-area area-list="{{ areaList }}" value="440000" bind:cancel="close_address" title="请选择地址" bind:confirm="onChange"/>
+</van-popup>
+
+<!-- 是否删除地址弹出层 -->
+<van-dialog id="van-dialog" 
+  show="{{is_delete}}" 
+  show-cancel-button 
+  close-on-click-overlay="true" 
+  message="您确定要删除吗"
+  bind:confirm="delAddress"
+  
+  />

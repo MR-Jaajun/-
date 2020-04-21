@@ -1,0 +1,80 @@
+<!-- 小哥豆全部 -->
+<template name="bean_detail">
+  <view class="all">
+    <view class="all_item" wx:for="{{allList}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.bean_type_title}}</text>
+        <!-- <text class="date">{{date}}</text> -->
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <view class="money">{{foo.plus(item.plus,item.bean_change)}}</view>
+    </view>
+  </view>
+</template>
+<!-- 收入 -->
+<template name="income">
+  <view class="all">
+    <view class="all_item" wx:for="{{income}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.bean_type_title}}</text>
+        <!-- <text class="date">{{date}}</text> -->
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <view class="money">{{foo.plus(item.plus,item.bean_change)}}</view>
+    </view>
+  </view>
+</template>
+<!-- 支出 -->
+<template name="expenditure">
+  <view class="all">
+    <view class="all_item" wx:for="{{expenditure}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.bean_type_title}}</text>
+        <!-- <text class="date">{{date}}</text> -->
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <view class="money">{{foo.plus(item.plus,item.bean_change)}}</view>
+    </view>
+  </view>
+</template>
+
+<!-- 引入文件处理数字的正负 -->
+<wxs src="./public.wxs" module="foo" />
+
+<!-- 余额明细全部 -->
+<template name="bal_detail">
+  <view class="all">
+    <view class="all_item" wx:for="{{all_balance}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.type}}</text>
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <!-- 处理金额 -->
+      <view class="money">{{foo.plus(item.plus,item.amount)}}</view>
+    </view>
+  </view>
+</template>
+<!-- 余额明细收入 -->
+<template name="bal_income">
+  <view class="all">
+    <view class="all_item" wx:for="{{bal_income}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.type}}</text>
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <view class="money">{{foo.plus(item.plus,item.amount)}}</view>
+    </view>
+  </view>
+</template>
+<!-- 余额明细支出 -->
+<template name="bal_expenditure">
+  <view class="all">
+    <view class="all_item" wx:for="{{bal_expenditure}}" wx:key="{{index}}">
+      <view class="item_left">
+        <text class="type">{{item.type}}</text>
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <view class="money">{{foo.plus(item.plus,item.amount)}}</view>
+    </view>
+  </view>
+</template>

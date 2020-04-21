@@ -1,0 +1,42 @@
+<!--pages/mall/shoppingCart/shoppingCart.wxml-->
+<view>
+  <!-- <view wx:else>
+    <view class="cart-no-data">购物车是空的哦~</view>
+  </view>  -->
+  <view class="shop_info common" wx:for="{{cartsArray}}" wx:key="index">
+    <view class="info1">
+      <icon wx:if="{{item.isSelected}}" type="success" color="red" data-item="{{item}}" data-index="{{index}}" class="cart-pro-select" bindtap="selectArray" />
+      <icon wx:else type="circle" class="cart-pro-select" data-item="{{item}}" data-index="{{index}}" bindtap="selectArray" />
+      <image src="/icon/icon_dianpu.png"></image>
+      <text>{{item.shop_title}}</text>
+    </view>
+    <view class="info2" wx:for="{{item.goods_list}}" wx:key="index" wx:for-item="item2" wx:for-index="idx">
+      <icon wx:if="{{item2.isSelected}}" type="success" color="red" data-index="{{index}}" data-idx="{{idx}}" class="cart-pro-select" bindtap="selectcarts" />
+      <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-idx="{{idx}}" bindtap="selectcarts" />
+      <image class='info2_img' src="{{item2.goods_cover_image}}"></image>
+      <view class='info2_center'>
+        <view>{{item2.goods_title}}</view>
+        <view>{{item2.sku_title}}</view>
+        <view>
+          <text class='center_text1'>￥{{item2.sale_price}}</text>
+          <view class='center_view'>
+            <text bindtap="minusCount" data-index="{{index}}" data-idx="{{idx}}">-</text>
+            <text>{{item2.goods_amount}}</text>
+            <text bindtap="addCount" data-index="{{index}}" data-idx="{{idx}}">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cart-footer">
+    <view class='selectAll'>
+      <icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
+      <icon wx:else type="circle" class="total-select" bindtap="selectAll" />
+      <text style="width: 100rpx;">全选</text>
+    </view>
+    <view class='footer-toatl'>
+      <view class='price'>合计：￥{{totalPrice}}</view>
+      <view class="right_text" bindtap="confirm">去结算{{count}}</view>
+    </view>
+  </view>
+</view>

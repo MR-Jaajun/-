@@ -1,0 +1,22 @@
+<wxs src="./public.wxs" module="foo" />
+<template name="merchant_item">
+  <view class="merchant_item" data-id="{{id}}" bindtap="toshop">
+    <image src="{{shop_cover_image}}"></image>
+    <view class="right_view">
+      <view class="van-ellipsis">{{shop_title}}</view>
+      <view class="smalltxt_line">
+        <text class="blue_txt">{{composite_evaluate_score}}</text>
+        <text>月销{{month_sale_amount}}</text>
+        <text class="toright" space="nbsp">{{delivery_estimated_time}}分  {{foo.bar(distance)}}km</text>
+      </view>
+      <view class="smalltxt_line txt_marg">
+        <text space="nbsp">起送¥{{delivery_order_amount}}  免配送费  人均¥{{perperson_consumption}}</text>
+      </view>
+      <view class="smalltxt_line">
+        <block wx:for="{{shop_tags}}" wx:key="id">
+          <van-tag custom-class="bg_tag" color="#76B3F5" plain>{{item.tag_title}}</van-tag>
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

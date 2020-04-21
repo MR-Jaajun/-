@@ -1,0 +1,13 @@
+<!--component/moretab/moretab.wxml-->
+<van-cell
+  is-link
+  title="收藏列表"
+  link-type="navigateTo"
+  url="/pages/mine/mycollect/my_collect"
+/>
+<van-cell
+  is-link
+  title="管理地址"
+  link-type="navigateTo"
+  url="/pages/mine/address/address"
+/>

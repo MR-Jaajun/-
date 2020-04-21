@@ -1,0 +1,81 @@
+<view class="category">
+  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+    <view class="{{active==index?'border':'title'}}" wx:for="{{categoryTitle}}" wx:key="index" data-cid="{{item.category_id}}" bindtap="switchover" data-idx="{{index}}">{{item.category_title}}</view>
+  </scroll-view>
+</view>
+<view class="goodsList" wx:for="{{categoryList}}" wx:key="index">
+  <image src="{{item.goods_cover_image}}" class="goods_img"></image>
+  <view class="goodsinfo">
+    <view>{{item.goods_title}}</view>
+    <view>已拼{{item.goods_sale_amount}}件</view>
+    <view>
+      <text style="color:#333;margin-right:20rpx">2人团</text>
+      <text style="color:#E11A1A;">￥</text>
+      <text style="font-size:44rpx;color:#E11A1A;">{{item.goods_pink_price}}</text>
+    </view>
+    <view>
+      <text style="color:#666;margin-right:20rpx">单买价</text>
+      <text>￥</text>
+      <text style="font-size:28rpx;">{{item.goods_sale_price}}</text>
+    </view>
+    <view class="topink">
+      <text>去拼团</text>
+      <van-icon name="arrow" color="white" size="24rpx" />
+    </view>
+  </view>
+</view>
+<!-- <van-tabs animated> -->
+<!-- 销量 -->
+<!-- <van-tab title="销量">
+    <view class="goodsList">
+      <image src="" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>韩版潮流百搭学生休闲长裤 潮牌男士工装裤...</view>
+        <view>已拼23件</view>
+        <view>
+          <text style="color:#333;margin-right:20rpx">2人团</text>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">45</text>
+        </view>
+        <view>
+          <text style="color:#666;margin-right:20rpx">单买价</text>
+          <text>￥</text>
+          <text style="font-size:28rpx;">77</text>
+        </view>
+        <view class="topink">
+          <text>去拼团</text>
+          <van-icon name="arrow" color="white" size="24rpx" />
+        </view>
+      </view>
+    </view>
+  </van-tab> -->
+<!-- 价格 -->
+<!-- <van-tab title="价格">
+    <view class="goodsList" wx:for="{{[1]}}" wx:key="index">
+      <image src="" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>韩版潮流百搭学生休闲长裤 潮牌男士工装裤...</view>
+        <view>已拼23件</view>
+        <view>
+          <text style="color:#333;margin-right:20rpx">2人团</text>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">45</text>
+        </view>
+        <view>
+          <text style="color:#666;margin-right:20rpx">单买价</text>
+          <text>￥</text>
+          <text style="font-size:28rpx;">77</text>
+        </view>
+        <view class="topink">
+          <text>去拼团</text>
+          <van-icon name="arrow" color="white" size="24rpx" />
+        </view>
+      </view>
+    </view>
+  </van-tab> -->
+<!-- </van-tabs> -->
+
+<!-- btn -->
+<view class="order">
+  <view>我的拼团订单</view>
+</view>

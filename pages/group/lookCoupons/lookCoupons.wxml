@@ -1,0 +1,32 @@
+<!--pages/group/lookCoupons/lookCoupons.wxml-->
+<view class="title">
+  <view class="top">
+    <text>{{shop_title}}</text>
+    <text>·</text>
+    <text style="font-size:32rpx;">{{title}}</text>
+  </view>
+  <view class="bottom">
+    <text>有效期至：</text>
+    <text>{{end_time}}</text>
+  </view>
+  <view class="btn">
+    <van-button round type="info" size="mini" color="#FCCE06" custom-class="active" bind:click="showPopup">核销全部券</van-button>
+  </view>
+</view>
+
+<!-- 优惠券码 -->
+<view class="coupons">
+  <view class="cList" wx:for="{{goods}}" wx:key="index">
+    <text>劵码1：</text>
+    <text>{{item.verify_code}}</text>
+    <view class="code">
+      <canvas canvas-id="barcode" class="shu_codebox" />
+      <canvas canvas-id="qrcode" class="er_code" />
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{ show }}" bind:close="onClose" custom-class="all">
+  <canvas canvas-id="barcode2" class="shu_codebox" />
+  <canvas canvas-id="qrcode2" class="er_code" />
+</van-popup>

@@ -1,0 +1,78 @@
+<wxs src="./public.wxs" module="foo" />
+<template name="orderPage">
+  <!-- 商品详情内容 -->
+  <view style="display: flex; width: 100%;">
+    <scroll-view class="orderPage-sideBar" bindscrolltolower="lower" scroll-y="true">
+      <block wx:for="{{goodsList}}" wx:key="id">
+        <view class="menuList">
+          <view class="menu {{index==selected?'selected':''}}" data-index="{{index}}" catchtap="turnMenu">{{item.title}}</view>
+        </view>
+      </block>
+      <view style="height:150rpx"></view>
+    </scroll-view>
+    <scroll-view class="foodList" scroll-y="true">
+      <view class="title">{{goodsList[selected].title}}</view>
+      <block wx:for="{{goodsList[selected].category_goods}}" wx:for-item="gitem" wx:for-index="idx"  wx:key="id">
+        <view class="food">
+          <image class="img" src="{{gitem.cover_image}}"></image>
+          <view class="food-info">
+            <view class="name">{{gitem.goods_title}}</view>
+            <view class="sales">月售 {{gitem.month_sale_amount}} 赞 {{gitem.like_amount}}
+            </view>
+            <view class="price">￥ {{gitem.sale_price}}
+              <!-- <text hidden="{{!gitem.market_price}}" class="market_price">{{gitem.market_price}}</text> -->
+            </view>
+          </view>
+          <view class="food-numb">
+            <!-- <block wx:if=''>
+              <view> -->
+            <block wx:if="{{goodsList[selected].category_goods[idx].goods_skus.length >1}}">
+              <button size="mini" bindtap="showSku" data-index="{{idx}}">选规格</button>
+            </block>
+            <block wx:else>
+              <view class="addOneBtn" bindtap="addCar" data-isone="{{idx}}">+</view>
+            </block>
+
+
+            <!-- </view>
+            </block>
+            <block wx:else>
+              <view class="remove" bindtap="removeFromTrolley" data-index="{{index}}">-</view>
+              <text class="text" hidden="{{gitem.numb==0}}">{{gitem.numb}}</text>
+              <view class="add" bindtap="addToTrolley" data-index="{{index}}">+</view>
+            </block> -->
+          </view>
+        </view>
+      </block>
+      <view style="height:150rpx"></view>
+    </scroll-view>
+    <view class="footer {{cost!=0?'active':''}}">
+      <!-- 提交按钮 -->
+      <view class="submit_tip">{{minusTips}}</view>
+      <view class="submit_btn">
+        <view class="btn_left">
+          <view class="btn_img {{istrue?'weui-demo-dialog':''}}" bindtap="openDialog">
+            <view class="hongdian" hidden="{{!numShow}}">{{numShow}}</view>
+            <image src="/images/icon_shoppingcart.png" class="btn_img"></image>
+            <view hidden="{{cost<=0}}" class="weui-badge" style="position:absolute;top:-22rpx;right:-8rpx;">{{carNum}}</view>
+          </view>
+          <view>
+            <view class="price">￥{{foo.bar(cost_com,2)}}</view>
+            <view>另需配送费¥{{delivery_price}}元
+              <text hidden="{{!shop_service}}">| {{shop_service}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn_right" bindtap="toOrder">提交</view>
+      </view>
+      <!-- <view class="howMuch">
+      <view class="img" style="background:{{cost!=0?'#FFD161':'#E7E7E7'}};">
+        <image src="" style="width:60rpx;height:60rpx;"></image>
+      </view>
+      <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
+      <view class="free">免配送费</view>
+    </view>
+    <view class="pay">{{cost!=0?'去结算':'15元起送'}}</view> -->
+    </view>
+  </view>
+</template>

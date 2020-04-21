@@ -1,0 +1,197 @@
+<!-- pages/group/shopdetail/shopdetail.wxml -->
+<wxs src="../../../pages/common/public.wxs" module="fin" />
+<scroll-view scroll-y="true" class="scroll-y" style="height:{{height}};">
+  <view class="daijin common" wx:if="{{obj.goods_type==1}}">
+    <view>
+      <text style="margin-right:18rpx;">{{obj.shop_title}}</text>
+      <text>代金券</text>
+    </view>
+    <view>
+      <text>{{obj.goods_title}}</text>
+    </view>
+    <view class="borders"></view>
+    <view class="times">
+      <text>有效期至：</text>
+      <text>{{obj.goods_end_time}}</text>
+    </view>
+  </view>
+  <view class='home_item' wx:if="{{obj.goods_type==2}}">
+    <view class='one_txt'>
+      <text>{{obj.goods_title}}</text>
+    </view>
+    <view class='three_txt'>月销量{{obj.goods_sale_amount}}份</view>
+    <view class='two_txt'>随时退、过期自动退</view>
+    <scroll-view class="scroll-x " scroll-x="true" enable-flex="true">
+      <view class='five_img' wx:for="{{goods_detail_image}}" wx:key="index">
+        <image class='duoImg' src="{{item}}"></image>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 玩法   开团/参团-邀请好友- -->
+  <view class="wanfa" wx:if="{{obj.goods_pink_status==1}}">
+    <view class="w_text">玩法 开团/参团-邀请好友-满员发货（不满自动退款）</view>
+    <view class="w_text1">直接参团 立即拼成</view>
+    <view class="w_view" wx:if="{{pink_list.length>0}}" wx:for="{{pink_list}}" wx:key="index">
+      <view class="left_box">
+        <view class="v_left">
+          <image class="img_nick" src="{{item.avatar}}"></image>
+          <text class="nick">{{item.nick_name}}</text>
+        </view>
+        <view class='v_center'>
+          <view class="haichai">
+            还差
+            <text style=" color:red">{{item.surplus}}</text> 成团
+          </view>
+          <view class="time">
+            <text> 剩余时间</text>
+            <van-count-down class="xtime" time="{{item.countDown}}" />
+          </view>
+        </view>
+      </view>
+      <view class='right_box'>
+        <view bindtap="showClick" data-name="{{item}}">去参团</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <van-dialog use-slot title="" show="{{ pinshow }}" show-cancel-button="false" bind:close="onClose" data-type='2' bind:confirm="onConfirm" show-confirm-button="false">
+      <view class='top_div'>
+        <view class='title_t'>参与{{item_data.nick_name}}的拼单</view>
+        <view class='top_box'>
+          <text>仅剩1个名额</text>
+          <van-count-down time="{{item_data.countDown}}" />
+          <text>后结束</text>
+        </view>
+        <view class="img_div">
+          <image class="img img1" src="{{item_data.avatar}}"></image>
+          <image class="img" src="{{avatarUrl}}"></image>
+          <image class="img3" src="../../../images/pingtuan/tuanzhang.png"></image>
+        </view>
+        <!-- <view class='vb_text'>是否参与拼团</view> -->
+      </view>
+    </van-dialog>
+  </view>
+  <!-- 餐厅介绍 -->
+  <van-dialog id="van-dialog" />
+  <view class="m_item">
+    <view class="left_view">
+      <text>餐厅介绍</text>
+      <image class="w_img" src="{{obj.shop_cover_image}}"></image>
+    </view>
+    <view class="right_view" data-id="{{obj.shop_id}}" bindtap="goshopinfo">
+      <view class='one_txt'>
+        <text>{{obj.shop_title}}</text>
+      </view>
+      <view class="two_view">
+        <van-rate value="{{ obj.shop_evaluate_score}}" />
+        <text>{{obj.shop_evaluate_score}}分</text>
+      </view>
+      <view class='three_view'>
+        <text>{{obj.shop_avg_cost}}/人</text>
+      </view>
+      <view class="four_view">
+        <text class='four_t'>距您{{fin.str_number(obj.shop_distance)}}km,{{obj.shop_address}}</text>
+      </view>
+    </view>
+    <image class='dianhua' src="../../../images/pingtuan/icon_dianhua.png" mode="scaleToFill" catchtap="dianhua"></image>
+  </view>
+  <!-- 套餐详情 -->
+  <view wx:if="{{obj.goods_type==2}}">
+    <view class="detail common" style="height:{{show2?'100%':''}}">
+      <view class="d_title">
+        <image src="/icon/icon_taocan.png"></image>
+        <text>套餐详情</text>
+      </view>
+      <view class="d_con" wx:for="{{goods_detail}}" wx:key="index">
+        <view class="c_title">
+          <image src="/icon/icon_shuruzhanghao.png"></image>
+          <text>{{item.category_title}}</text>
+        </view>
+        <view wx:for="{{item.data}}" wx:for-index="idx" wx:key="idx">
+          <view class="list">
+            <text>{{item.title}}（{{item.num}}{{item.unit}})</text>
+            <text>￥{{item.price}}</text>
+          </view>
+        </view>
+        <view wx:if="{{item.data.length>1}}" class="loadmore" bindtap="loadmore2">
+          <view class='more_text'>更多菜品</view>
+          <van-icon name="arrow-down" wx:if="{{!show2}}" />
+          <van-icon name="arrow-up" wx:if="{{show2}}" />
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 规则 -->
+  <view class="rule" style="height:{{show1?'100%':''}}">
+    <view class="r1" style="margin-bottom:10rpx;">
+      <text>使用规则</text>
+      <text>使用期限：{{obj.goods_start_time}}~{{obj.goods_end_time}}</text>
+      <text>不可用日期：{{obj.goods_unavailable_time}}</text>
+      <text>使用时间：{{obj.goods_available_time}}</text>
+      <text>预约情况：{{obj.goods_booking}}</text>
+    </view>
+    <view class="r1">
+      <text>其它规则：</text>
+      <text>{{obj.goods_desc}}</text>
+    </view>
+    <view class="loadmore" bindtap="loadmore1">
+      <text style="margin-right:10rpx;">更多规则</text>
+      <van-icon name="arrow-down" wx:if="{{!show1}}" />
+      <van-icon name="arrow-up" wx:if="{{show1}}" />
+    </view>
+  </view>
+  <!-- 套餐评价 -->
+  <view class="appraise" wx:if="{{goods_comment_data.length>0}}" style="height:{{xhow?'100%':''}}">
+    <view wx:for="{{goods_comment_data}}" wx:key="index">
+      <view class="a_top">
+        <image src=""></image>
+        <view class="userinfo">
+          <view class="top_title">
+            <text style="margin-right:20rpx;">{{item.user_nick_name}}</text>
+            <van-rate value="{{item.comment_evaluate_score}}" void-icon="star" size="{{ 20 }}" color="#FF9C09" readonly />
+          </view>
+          <text class="time">{{item.comment_time}}</text>
+        </view>
+      </view>
+      <view class="a_center">{{item.comment_content}}</view>
+      <view class="a_bottom">
+        <image wx:for="{{item.comment_image}}" wx:for-index="idx" wx:key="idx" src="{{item}}"></image>
+      </view>
+      <view class="loadmore" bindtap="Xloadmore">
+        <text style="margin-right:10rpx;">更多评价</text>
+        <van-icon name="arrow-down" wx:if="{{!xhow}}" />
+        <van-icon name="arrow-up" wx:if="{{xhow}}" />
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="wbtn" wx:if="{{obj.goods_pink_status==1}}">
+  <view class='left_v' data-type='1' bindtap="GoEnter">
+    <view class="top_t">单独买/¥{{obj.goods_sale_price}}</view>
+    <view class="bottom_t">门市价¥{{obj.goods_market_price}}</view>
+  </view>
+  <view class='right_v' data-type='2' bindtap="GoEnter">
+    <!-- <view class="top_t">{{goods_pink_amount}}人团/¥{{obj.goods_pink.pink_price}}</view> -->
+    <view class="top_t">2人团/¥{{obj.goods_pink.pink_price}}</view>
+    <view class="bottom_t">发起拼团</view>
+  </view>
+</view>
+<view class="wbtn1" wx:if="{{obj.goods_pink_status==0}}">
+  <view class='wbtn1_left'>
+    <view class='btn_top'>
+      ￥{{obj.goods_sale_price}}
+    </view>
+    <view class='btn_b'>
+      最高门市价¥{{obj.goods_market_price}}
+    </view>
+    <view class='btn_zhe'>
+      {{str_zhe}}折
+    </view>
+  </view>
+  <view class='wbtn1_right'>
+    <view class="wbtn1_right_btn " data-type='1' bindtap="GoEnter">
+      立即抢购
+    </view>
+  </view>
+</view>

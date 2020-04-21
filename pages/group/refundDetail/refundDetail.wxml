@@ -1,0 +1,20 @@
+<!--pages/group/refundDetail/refundDetail.wxml-->
+<!-- <text>pages/group/refundDetail/refundDetail.wxml</text> -->
+
+<view class="top con">
+  <view>
+    <text class="title">退款金额：</text>
+    <text style="color:#E11A1A">￥{{price}}</text>
+  </view>
+  <view>
+    <text class="title">退回账户：</text>
+    <text>{{pay.name?pay.name:'微信支付'}}</text>
+  </view>
+
+</view>
+<view class="bottom con">
+  <view class="title">退款流程</view>
+  <view>
+    <van-steps steps="{{ list }}" active="{{ active }}" direction="vertical" active-color="#2680EB"/>
+  </view>
+</view>

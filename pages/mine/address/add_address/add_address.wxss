@@ -1,0 +1,67 @@
+/* .address_detail{
+  width: 750rpx;
+  height: 696rpx;
+}
+.address_detail .item{
+  width: 686rpx;
+  height: 104rpx;
+  padding: 0 32rpx;
+  line-height: 104rpx;
+  border-bottom: 2rpx solid rgba(249,251,245,1);
+  position: relative;
+}
+.address_detail .item text{
+  vertical-align: middle;
+  color:rgba(102,102,102,1);
+  font-size:28rpx;
+  letter-spacing:2rpx;
+}
+.address_detail .item input{
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 24rpx;
+}
+.address .choose{
+  position: absolute;
+  right: 32rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.address .choose image{
+  width: 12rpx;
+  height: 22rpx;
+  vertical-align: middle;
+  margin-left: 14rpx;
+}
+.address .choose text{
+  vertical-align: middle;
+  color:#CCCCCC;
+  font-size: 22rpx;
+}
+
+.address_detail .item .default_btn{
+  float: right;
+  margin-top: 30rpx;
+} */
+
+/* 保存地址 */
+.save_btn{
+  width:670rpx;
+  height:92rpx;
+  background:linear-gradient(94deg,rgba(70,78,83,1) 0%,rgba(52,58,62,1) 100%);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 92rpx;
+  color: #FFFFFF;
+  font-size:32rpx;
+  border-radius: 46rpx;
+}
+
+/* 分享弹地址层 */
+.show_share{
+  width: 750rpx;
+  border-radius:6px 6px 0px 0px;
+  position: relative;
+}

@@ -1,0 +1,34 @@
+/* pages/mine/service/rate_of_progress/rate_of_progress.wxss */
+page{
+  background: #FAFAFA;
+}
+
+.order_item{
+  background: #fff;
+  width: 686rpx;
+  padding: 32rpx;
+  position: relative;
+}
+.order_item .state{
+  position: absolute;
+  color: #666666;
+  font-size: 24rpx;
+  top: 32rpx;
+  right: 32rpx;
+}
+
+.item_top text:nth-child(1),.item_middle text:nth-child(1),.item_bottom{
+  font-size: 24rpx;
+  color: #666666;
+  
+}
+.item_top text:nth-child(2),.item_middle text:nth-child(2){
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 52rpx;
+}
+.item_middle{
+  margin:30rpx 0;
+}
+
+

@@ -1,0 +1,173 @@
+<!--component/groupOrder/groupOrder.wxml-->
+<!-- 团购订单 -->
+<van-tabs swipeable animated sticky bind:change="changes" active="0" color="#FCCE06">
+  <van-tab title="全部" name="0">
+    <view class="goodsList" wx:for="{{goodsList}}" wx:key="index" data-oid="{{item.id}}">
+      <view class="title">
+        <image class="icons" src="/icon/icon_dianpu.png"></image>
+        <text>{{item.shop_title}}</text>
+        <image class="next" src="/images/icon_next.png"></image>
+      </view>
+      <view class="status">{{item.status_title}}</view>
+      <!-- <van-card num="2" price="2.00" thumbClass="imgs" custom-class="aaa" desc="描述信息" title="商品标题" thumb="/images/shopimg.png" /> -->
+      <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+        <image src="{{item.shop_cover_image}}"></image>
+        <view class="name">
+          <text>{{item.order_title}}</text>
+          <text>数量：{{item.og_num}}</text>
+        </view>
+        <view class="price">
+          <text>总价：</text>
+          <text>￥{{item.total_fee}}</text>
+        </view>
+      </view>
+      <view class="btn">
+        <!-- 取消 -->
+        <!-- <van-button round size="mini" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==1}}" plain color="#666" custom-class="active">取消订单</van-button> -->
+        <!-- 查看券码 -->
+        <!-- <van-button round size="mini" bindtap="tolookcoupons" data-oid="{{item.id}}" data-status="{{item.order_status}}" wx:if="{{item.order_status==2}}" plain color="#666" custom-class="active">查看券码</van-button> -->
+        <!-- 删除 -->
+        <!-- <van-button round size="mini" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==-1||item.order_status==3}}" plain color="#666" custom-class="active">删除订单</van-button> -->
+        <!-- 支付 -->
+        <!-- <van-button round size="mini" wx:if="{{item.order_status==1}}" plain color="#666" custom-class="active">去支付</van-button> -->
+        <!-- 去评价 -->
+        <!-- <van-button round size="small"  data-info="{{item}}" bindtap="toappraise" plain color="#666" custom-class="active">去评价</van-button> -->
+        <!-- 看评价 -->
+        <!-- <van-button round size="small" wx:if="{{item.order_status==3 && item.is_comment ==1}}" plain color="#666"   custom-class="active">查看评价</van-button> -->
+        <!-- <van-button round size="mini" wx:if="{{item.order_status==4}}" plain color="#666" custom-class="active" data-oid="{{item.id}}" bindtap="refundDetail">退款详情</van-button> -->
+        <!-- <van-button round size="small" wx:if="{{item.order_status==4}}" plain color="#666" custom-class="active">申请退款</van-button> -->
+        <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==1}}">取消订单</view>
+        <view class="btn_item" bindtap="tolookcoupons" data-oid="{{item.id}}" data-status="{{item.order_status}}" wx:if="{{item.order_status==2}}">查看券码</view>
+        <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==-1||item.order_status==3||item.order_status==4}}">删除订单</view>
+        <view class="btn_item" wx:if="{{item.order_status==1}}" data-oid="{{item.id}}" bindtap="toGoodsDetail">去支付</view>
+        <view class="btn_item" style="background:#FCCE06;color:#333;border:none" wx:if="{{item.order_status==4}}" data-oid="{{item.id}}" bindtap="toGoodsDetail">退款详情</view>
+
+
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="待付款" name="1">
+    <view class="goodsList" wx:if="{{goodsList.length>0}}">
+      <view class="goodsList" wx:if="{{goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="index">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <!-- <van-card num="2" price="2.00" thumbClass="imgs" custom-class="aaa" desc="描述信息" title="商品标题" thumb="/images/shopimg.png" /> -->
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="name">
+            <text>{{item.order_title}}</text>
+            <text>数量：{{item.og_num}}</text>
+          </view>
+          <view class="price">
+            <text>总价：</text>
+            <text>￥{{item.total_fee}}</text>
+          </view>
+        </view>
+        <!-- 查看券码 -->
+        <view class="btn">
+          <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==1}}">取消订单</view>
+          <view class="btn_item" wx:if="{{item.order_status==1}}" data-oid="{{item.id}}" bindtap="toGoodsDetail">去支付</view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="待消费" name="2">
+    <view class="goodsList" wx:if="{{goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="index" bindtap="toGoodsDetail">
+      <view class="title">
+        <image class="icons" src="/icon/icon_dianpu.png"></image>
+        <text>{{item.shop_title}}</text>
+        <image class="next" src="/images/icon_next.png"></image>
+      </view>
+      <view class="status">{{item.status_title}}</view>
+      <!-- <van-card num="2" price="2.00" thumbClass="imgs" custom-class="aaa" desc="描述信息" title="商品标题" thumb="/images/shopimg.png" /> -->
+      <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+        <image src="{{item.shop_cover_image}}"></image>
+        <view class="name">
+          <text>{{item.order_title}}</text>
+          <text>数量：{{item.og_num}}</text>
+        </view>
+        <view class="price">
+          <text>总价：</text>
+          <text>￥{{item.total_fee}}</text>
+        </view>
+      </view>
+      <!-- 查看券码 -->
+      <view class="btn">
+        <view class="btn_item" bindtap="tolookcoupons" data-oid="{{item.id}}" data-status="{{item.order_status}}" wx:if="{{item.order_status==2}}">查看券码</view>
+      </view>
+    </view>
+
+  </van-tab>
+  <van-tab title="待评价" name="5">
+    <view class="goodsList" wx:for="{{goodsList}}" wx:key="index" wx:if="{{goodsList.length>0}}" >
+      <view class="title">
+        <image class="icons" src="/icon/icon_dianpu.png"></image>
+        <text>{{item.shop_title}}</text>
+        <image class="next" src="/images/icon_next.png"></image>
+      </view>
+      <view class="status">{{item.status_title}}</view>
+      <!-- <van-card num="2" price="2.00" thumbClass="imgs" custom-class="aaa" desc="描述信息" title="商品标题" thumb="/images/shopimg.png" /> -->
+      <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+        <image src="{{item.shop_cover_image}}"></image>
+        <view class="name">
+          <text>{{item.order_title}}</text>
+          <text>数量：{{item.og_num}}</text>
+        </view>
+        <view class="price">
+          <text>总价：</text>
+          <text>￥{{item.total_fee}}</text>
+        </view>
+      </view>
+
+      <view class="btn">
+        <!-- 去评价 -->
+        <view class="btn_item" data-oid="{{item.id}}" bindtap="toGoodsDetail" data-status="{{item.order_status}}" wx:if="{{item.order_status==3 && item.is_comment ==0}}">去评价</view>
+
+        <!-- 删除 -->
+        <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==-1||item.order_status==3}}">删除订单</view>
+      </view>
+    </view>
+  </van-tab>
+
+
+  <van-tab title="退款" name="4">
+    <view class="goodsList" wx:for="{{goodsList}}" wx:key="index" data-oid="{{item.id}}">
+      <view class="title">
+        <image class="icons" src="/icon/icon_dianpu.png"></image>
+        <text>{{item.shop_title}}</text>
+        <image class="next" src="/images/icon_next.png"></image>
+      </view>
+      <view class="status">{{item.status_title}}</view>
+      <!-- <van-card num="2" price="2.00" thumbClass="imgs" custom-class="aaa" desc="描述信息" title="商品标题" thumb="/images/shopimg.png" /> -->
+      <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+        <image src="{{item.shop_cover_image}}"></image>
+        <view class="name">
+          <text>{{item.order_title}}</text>
+          <text>数量：{{item.og_num}}</text>
+        </view>
+        <view class="price">
+          <text>总价：</text>
+          <text>￥{{item.total_fee}}</text>
+        </view>
+      </view>
+      <view class="btn">
+        <!-- <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="refundDetail" wx:if="{{item.order_status==4}} ">退款详情</view> -->
+
+      </view>
+    </view>
+
+  </van-tab>
+</van-tabs>
+
+<!-- 是否删除 -->
+<van-dialog id="van-dialog" show="{{shows}}" show-cancel-button close-on-click-overlay="true " message="{{status==1?'你确定要取消订单?':'你确定要删除订单?'}}" bind:confirm="cancelOrder" />
+
+
+<!-- 引用底线 -->
+<block>
+  <van-divider contentPosition="center " customStyle="padding:0 20rpx;color: ccc;border-color: #ccc;font-size: 32rpx; ">我是有底线的</van-divider>
+</block>

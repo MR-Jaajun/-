@@ -1,0 +1,20 @@
+<view class="title">验证新手机号</view>
+<view class="tel" style="margin:50rpx 0">
+  <input 
+        placeholder="请输入新手机号" 
+        placeholder-style="color:#999999;font-size:24rpx;font-weight:400;" 
+        type="number" 
+        focus="true"
+        bindblur="getMobile"
+        />
+</view>
+<view class="security">
+  <input placeholder="请输入验证码" bindblur="mobileCode" placeholder-style="color:#999999;font-size:24rpx;font-weight:400;" type="number"/>
+  <view class="get_security noSend" bindtap="getCode" wx:if="{{isSend}}">{{txt}}</view>
+  <view class="get_security isSend" wx:if="{{!isSend}}">重新发送 {{time}}s</view>
+
+</view>
+
+<view class="next_btn" bindtap="bindMobile">
+  确认绑定
+</view>

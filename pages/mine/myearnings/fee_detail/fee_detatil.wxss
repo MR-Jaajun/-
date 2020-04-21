@@ -1,0 +1,64 @@
+/* pages/mine/myearnings/fee_detail/fee_detatil.wxss */
+
+.van-tabs__wrap {
+}
+
+.van-tabs__nav {
+  width: 640rpx;
+}
+
+.van-ellipsis {
+  font-size: 24rpx !important;
+  color: #666;
+  /* font-family:PingFang SC; */
+}
+
+.choose {
+  width: 128rpx;
+  height: 88rpx;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.fee_item {
+  width: 686rpx;
+  height: 68rpx;
+  padding: 32rpx;
+  border-bottom: 2rpx solid #fafafa;
+}
+
+.fee_item>view {
+  float: left;
+  font-size: 24rpx;
+  color: #333;
+}
+.fee_item .fee_type{
+  width: 430rpx; 
+}
+.fee_item .fee_type text{
+  display: block;
+}
+
+/* 结算金额 */
+.fee_item .fee_money{
+  margin-top: 20rpx;
+}
+
+/* 结算状态 */
+.fee_item .fee_status {
+  margin-top: 14rpx;
+  float: right;
+  width: 112rpx;
+  height: 48rpx;
+  text-align: center;
+  line-height: 48rpx;
+  color: #999;
+  background: rgba(242, 241, 241, 1);
+  border-radius: 28rpx;
+}

@@ -1,0 +1,59 @@
+<!-- 用户信息 -->
+<view class="userinfo">
+  <image src="{{avatar}}" />
+  <view style="float:left">
+    <text>{{name}}</text>
+    <text wx:if="{{code==0}}">小哥粉</text>
+    <text wx:elif="{{code==1}}">小哥</text>
+    <text wx:elif="{{code==2}}">小V哥</text>
+    <text wx:else>V哥</text>
+  </view>
+</view>
+<!-- 标题 -->
+<view class="title" style="margin:66rpx 0 30rpx 0">自用省钱</view>
+<view class="title">分享赚钱</view>
+
+<!-- 邀请码 -->
+<view class="invitationCode">
+  <text>邀请码：{{code}}</text>
+</view>
+
+<!-- 二维码 -->
+<view class="ewm">
+  <image src="https://apitest.xgscheng.com/static/weapp/icon_boder.png" />
+  <image src="" />
+</view>
+
+<!-- 底部 -->
+<view class="share">
+  <view>
+    <image src="/images/icon-copy.png" />复制链接
+  </view>
+  <view bindtap="show_share">
+    <image src="/images/icon_share.png" />分享
+  </view>
+</view>
+
+<!-- 弹出分享方式 -->
+<van-popup show="{{ show }}" position="bottom" overlay="{{ true }}" bind:close="onClose" z-index="100" custom-class="show_share" custom-style="background-color:#333;">
+  <view class="share_way">
+    <view>
+      <image src="/images/icon_qq.png" />
+      <text>QQ</text>
+    </view>
+    <view>
+      <image src="/images/icon_pengyouquan.png" />
+      <text>微信</text>
+    </view>
+    <view>
+      <image src="/images/icon_weibo.png" />
+      <text>微博</text>
+    </view>
+    <view>
+      <image src="/images/icon_baocun.png" />
+      <text>保存图片</text>
+    </view>
+  </view>
+  <view class="cel" bindtap="onClose">取消</view>
+
+</van-popup>

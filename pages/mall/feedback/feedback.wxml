@@ -1,0 +1,45 @@
+<!--pages/mall/feedback/feedback.wxml-->
+<view class="top">
+  <image src="{{imgs}}"></image>
+  <view class="rate">
+    <text class="title">{{goods_title}}</text>
+    <view class="rate2">
+      <text style="margin-right:14rpx;">满意程度</text>
+      <van-rate value="{{ value }}" void-icon="star" size="{{ 18 }}" color="#FF9C09" bind:change="onChange" />
+      <text style="font-size:24rpx;margin-left:40rpx;">{{test}}</text>
+    </view>
+
+  </view>
+</view>
+<view class="upload">
+  <view class="v1">
+    <textarea class="areas" placeholder='空空如也，快点评论吧' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"></textarea>
+    <text class="txtnum">{{num}}/{{max}}</text>
+    <view class="imgurl">
+      <van-uploader file-list="{{ fileList }}" accept="image" capture="['album', 'camera']" max-count="3" bind:delete="deletes" bind:after-read="afterRead" />
+    </view>
+  </view>
+</view>
+<!-- 是否匿名 -->
+<view class="anonymity">
+  <van-checkbox value="{{ checked }}" checked-color="#FF4F00" bind:change="onChange2" label-class="txt">匿名评价</van-checkbox>
+  <text>选择后，您的评价会以匿名的方式展示</text>
+</view>
+<view class="shop_rate">
+  <view class='text'>店铺评分</view>
+  <view class="rate2">
+    <text style="margin-right:14rpx;">物流服务：</text>
+    <van-rate value="{{ value1 }}" void-icon="star" size="{{ 18 }}" color="#FF9C09" bind:change="bindChange1" />
+    <text style="font-size:24rpx;margin-left:40rpx;">{{test1}}</text>
+  </view>
+  <view class="rate2">
+    <text style="margin-right:14rpx;">服务态度：</text>
+    <van-rate value="{{ value2 }}" void-icon="star" size="{{ 18 }}" color="#FF9C09" bind:change="bindChange2" />
+    <text style="font-size:24rpx;margin-left:40rpx;">{{test2}}</text>
+  </view>
+</view>
+
+
+
+<!-- 发布 -->
+<view class="announce" bindtap="announce">发布</view>

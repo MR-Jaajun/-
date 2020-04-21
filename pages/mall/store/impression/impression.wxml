@@ -1,0 +1,76 @@
+<view class="store_info">
+  <view class="store_img">
+    <image src=""></image>
+  </view>
+  <view class="left">
+    <view class="left_top" bindtap="toImpression">
+      <text class="store_name">匡威官方旗舰店</text>
+      <image src="/images/icon_eturnone.png"></image>
+    </view>
+    <view class="left_bottom">
+      <text>综合评分</text>
+      <van-rate readonly value="{{ 3 }}" bind:change="onChange" color="#5FBDFC" size="13" custom-class="rate" />
+      <text>粉丝数1344</text>
+    </view>
+  </view>
+  <view class="right">
+    <image src="/images/icon_guanzhu.png"></image>
+    <text>已关注</text>
+  </view>
+</view>
+
+<!-- 评分 -->
+<view class="pingfen">
+  <view class="rate_item">
+    <text class="rate_type" style="color:#333">描述相符</text>
+    <van-rate readonly allow-half value="{{ value1 }}" bind:change="onChange1" size="15" color="#5FBDFC" custom-class="rate2" />
+    <text>{{satisfaction_val1}}</text>
+  </view>
+  <view class="rate_item">
+    <text class="rate_type">卖家服务</text>
+    <van-rate readonly allow-half value="{{ value2 }}" bind:change="onChange2" size="15" color="#5FBDFC" custom-class="rate2" />
+    <text>{{satisfaction_val2}}</text>
+  </view>
+  <view class="rate_item">
+    <text class="rate_type">物流服务</text>
+    <van-rate readonly allow-half value="{{ value3 }}" bind:change="onChange3" size="15" color="#5FBDFC" custom-class="rate2" />
+    <text>{{satisfaction_val3}}</text>
+  </view>
+</view>
+
+<!-- 基本信息 -->
+<view class="basic">
+  <view class="b_title">基础信息</view>
+  <view class="info_item">
+    <text>店铺名称</text>
+    <view class="info_r">
+      <text>匡威官方旗舰店</text>
+      <image src="/icon/icon_dianhua(2).png"></image>
+    </view>
+  </view>
+  <view class="info_item">
+    <text>服务电话</text>
+    <view class="info_r">
+      <text>123974839540</text>
+      <image src="/icon/icon_dianhua(1).png"></image>
+    </view>
+  </view>
+  <view class="info_item">
+    <text>店铺地址</text>
+    <view class="info_r">
+      <text>广州市天河区棠东大夏</text>
+    </view>
+  </view>
+  <view class="info_item">
+    <text>开店时间</text>
+    <view class="info_r">
+      <text>2019/09/45 9:34</text>
+    </view>
+  </view>
+</view>
+
+<!-- 商家资质信息公示 -->
+<view class="tips">
+    <view class="b_title">商家资质信息公示</view>
+    <image src=""></image>
+</view>

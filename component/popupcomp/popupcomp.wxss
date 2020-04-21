@@ -1,0 +1,61 @@
+/* 头部弹出层 */
+.popup .padd32{
+  padding: 0 32rpx;
+}
+.popup .topbar .ser_fl1{
+  flex: 1;
+}
+.popup .topbar .van-search{
+  padding-right: 0;
+}
+.popup .topbar image{
+  width: 20rpx;
+  height: 32rpx;
+}
+.popup .zhe_list{
+  font-size: 24rpx;
+  color: #757373;
+}
+.popup .zhe_list view{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.popup .zhe_list view::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  border-top: 2rpx solid #EFF0EC; 
+}
+.popup .zhe_list view.active{
+  color: #52B2FA
+}
+
+/* 综合排序两行 */
+.near_shop_filtrate_bar{
+  color: #333;
+  font-size: 28rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.near_shop_filtrate_bar > text{
+  margin-left: 110rpx
+}
+.near_shop_filtrate_bar > text:first-child{
+  margin-left: 0
+}
+.near_shop_filtrate_bar .setimg{
+  width: 12rpx;
+  height: 20rpx;
+  transform:rotate(90deg);
+  margin-left:4rpx; 
+}
+.near_shop_filtrate_bar .setimgon{
+  transform:rotate(-90deg);
+}
+.near_shop_filtrate_bar2 .van-button{
+  margin-right: 16rpx;
+  background: #F0F1E8;
+  color: #898787;
+  padding: 0 24rpx;
+}

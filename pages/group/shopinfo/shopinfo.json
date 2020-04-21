@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "店铺详情",
+  "usingComponents": {
+    "van-count-down": "../../../miniprogram_npm/vant-weapp/count-down/index",
+    "van-rate": "../../../miniprogram_npm/vant-weapp/rate/index"
+  }
+}

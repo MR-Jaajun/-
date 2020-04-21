@@ -1,0 +1,41 @@
+<!--pages/mall/store/store_discount/store_discount.wxml-->
+<view class="top">
+  <image src="/images/shopimg.png" class="shop_img"></image>
+  <text class="shop_name">匡威官方旗舰店</text>
+  <view bindtap="toMydiscount">
+    <text style="margin-right:12rpx;">我的卡劵包</text>
+    <image src="/images/icon_next.png"></image>
+  </view>
+</view>
+
+<!-- 优惠券 -->
+<view class="discount">
+  <view class="disconut_item">
+    <view class="price">
+      <view class="price_left">
+        <text>￥</text>
+        <text style="font-size:48rpx;">30</text>
+      </view>
+      <view class="price_right">
+        <text>优惠券</text>
+        <text class="manjian">满300使用</text>
+        <text>有效期2019/12/23-2019/03/12</text>
+      </view>
+    </view>
+    <view class="liji">立即领取</view>
+  </view>
+  <view class="disconut_item">
+    <view class="price">
+      <view class="price_left due">
+        <text>￥</text>
+        <text style="font-size:48rpx;">30</text>
+      </view>
+      <view class="price_right due">
+        <text>优惠券</text>
+        <text class="manjian due2">满300使用</text>
+        <text class="due">有效期2019/12/23-2019/03/12</text>
+      </view>
+    </view>
+    <view class="liji">已领完</view>
+  </view>
+</view>

@@ -1,0 +1,192 @@
+<!--pages/group/orderDetial/orderDetial.wxml-->
+<!-- 待付款 -->
+<view class="wait_pay" wx:if="{{order_status==1}}">
+  <view class="p1">
+    <image src="/images/icon_time(1).png"></image>
+    <text>等待付款</text>
+    <van-count-down time="{{ countDown }}" bind:finish="finished" />
+  </view>
+  <view class="p2">
+    <text>需付款：</text>
+    <text>￥{{o_detail.total_fee}}</text>
+  </view>
+</view>
+<!-- 拼团差一人 -->
+<view class="wait_pay" wx:if="{{o_detail.pink_status==1&&o_detail.is_pink==1&&order_status!=1}}">
+  <view class="p1">
+    <image src="/images/icon_time(1).png"></image>
+    <text>还剩</text>
+    <van-count-down time="{{ countDown }}" bind:finish="finished" />
+    <text style="margin-left:6rpx"> 结束，还差1人，拼团成功</text>
+  </view>
+</view>
+
+
+<!-- 套餐标题 -->
+<view class="top common" bindtap="toshopdetail">
+  <image src="{{o_detail.cover_image?o_detail.cover_image:o_detail.shop_cover_image}}"></image>
+  <view class="top_info">
+    <text>{{o_detail.order_title}}</text>
+    <text>周一至周日 | 免预约</text>
+    <text>随时退、过期自动退</text>
+  </view>
+  <text class="price">￥{{o_detail.sale_price}}</text>
+</view>
+
+<!-- 优惠券 -->
+<view class="coupons common" wx:if="{{o_detail.pink_status!=1&&order_status==2||order_status==3||order_status==4}}">
+  <view class="c_type">
+    <view class="c_name">
+      <image src="/icon/icon_youhuijusn.png"></image>
+      <text>{{o_detail.order_type==1?"代金券":"套餐券"}}</text>
+    </view>
+    <view class="c_time">
+      <text>{{o_detail.goods_num}}张可用</text>
+      <text>{{o_detail.end_time}}</text>
+    </view>
+    <view class="tuikuan" wx:if="{{order_status==2}}" bindtap="toRefund">申请退款</view>
+    <!-- <view class="tuikuan" bindtap="toRefund">申请退款</view> -->
+  </view>
+  <view class="c_info" wx:for="{{o_detail.goods}}" wx:key="index">
+    <text>{{item.verify_code}}</text>
+    <image src="/images/erweima.png" data-code="{{item.verify_code}}" wx:if="{{item.status==2}}" bindtap="showPopup"></image>
+    <view class="c_txt" wx:if="{{item.status==4}}">
+      <text>已退款 |</text>
+      <text style="color:#3092F9;margin-left:8rpx;" bindtap="refundDetail" data-gid="{{item.order_goods_id}}">查看退款详情</text>
+    </view>
+    <view class="c_txt" wx:if="{{item.status==3&&item.is_comment==0}}">
+      <text>待评价 |</text>
+      <text style="color:#3092F9;margin-left:8rpx;" bindtap="toappraise" data-gid="{{item.order_goods_id}}">去评价</text>
+    </view>
+    <view class="c_txt" wx:if="{{item.status==3&&item.is_comment!=0}}">
+      <text>已评价 |</text>
+      <text style="color:#3092F9;margin-left:8rpx;" bindtap="toAppraise" data-comment="{{item.is_comment}}">查看评价</text>
+    </view>
+  </view>
+
+</view>
+
+<view class="pink common" wx:if="{{o_detail.pink_status==1&&o_detail.is_pink==1&&order_status!=1}}">
+  <view class="pinks">{{pink_member.length==1?'拼团中':'拼团成功'}}</view>
+  <view class="userImg">
+    <image src="{{pink_member[0]?pink_member[0]:''}}" style="border:4rpx solid #FCC4C4"></image>
+    <image src="{{pink_member.length==2?pink_member[1]:''}}" style="border:4rpx solid #C1DDFC"></image>
+  </view>
+  <view class="icons">
+    <van-icon name="arrow" color="#C9C9C9" />
+  </view>
+</view>
+
+<!-- 店铺信息 -->
+<view class="shop_info common">
+  <view class="info1" bindtap="toshopinfo">
+    <image src="/icon/icon_dianpu.png"></image>
+    <text>{{o_detail.shop_title}}</text>
+    <van-icon name="arrow" />
+  </view>
+  <view class="info2">
+    <van-icon name="location" color="#FCCE06" size="50rpx" />
+    <text>{{o_detail.shop_addr}}</text>
+  </view>
+  <view class="info3" bindtap="is_call">
+    <van-icon name="phone" color="#FCCE06" size="50rpx" />
+    <text>咨询订座/发票/菜品/使用规则等问题</text>
+  </view>
+</view>
+<van-dialog id="van-dialog" show="{{show2}}" show-cancel-button close-on-click-overlay="true" message="你确定拨打商家电话:{{shop_tel}}" bind:confirm="call" />
+<!-- 套餐详情 没对接口 wx:if="{{goods_detail}}"-->
+<view class="detail common" style="height:{{show?'500rpx':'350rpx'}}" wx:if="{{goods_detail}}">
+  <view class="d_title">
+    <image src="/icon/icon_taocan.png"></image>
+    <text>套餐详情</text>
+  </view>
+  <view class="d_con" wx:for="{{goods_detail}}" wx:key="index">
+    <view class="c_title">
+      <image src="/icon/icon_shuruzhanghao.png"></image>
+      <text>{{item.category_title}}</text>
+    </view>
+    <view class="list" wx:for="{{goods_detail.data}}" wx:for-index="idx" wx:key="idx" wx:for-item="item2">
+      <text>{{item2.title}} ({{item2.num}}{{item2.unit}})</text>
+      <text>¥{{item2.price}}</text>
+    </view>
+  </view>
+  <view class="loadmore" bindtap="loadmore">
+    <text style="margin-right:10rpx;">更多菜品</text>
+    <van-icon name="arrow-down" wx:if="{{!show}}" />
+    <van-icon name="arrow-up" wx:if="{{show}}" />
+  </view>
+</view>
+
+<!-- 规则 -->
+<view class="rule common">
+  <view class="r1" style="margin-bottom:10rpx;">
+    <text>使用规则</text>
+    <text>使用期限：{{o_detail.goods_data.available_time}}</text>
+    <text>不可用日期：{{o_detail.goods_data.unavailable_time}}</text>
+    <!-- <text>使用时间：5:00~18:00</text> -->
+    <text>预约情况：{{o_detail.goods_data.booking}}</text>
+  </view>
+  <view class="r1">
+    <text>其它规则：</text>
+    <text>{{o_detail.goods_data.desc}}</text>
+  </view>
+
+</view>
+
+<!--订单信息 -->
+<view class="order_info common">
+  <view class="r1">
+    <text>订单信息：</text>
+  </view>
+  <view class="r2">
+    <text>订单号</text>
+    <text>{{o_detail.order_bn}}</text>
+  </view>
+  <view class="r2">
+    <text>手机号</text>
+    <text>{{o_detail.receiver_mobile}}</text>
+  </view>
+  <view class="r2">
+    <text>下单时间</text>
+    <text>{{o_detail.create_time}}</text>
+  </view>
+  <view class="r2" wx:if="{{order_status==3}}">
+    <text>付款时间</text>
+    <text>{{o_detail.order_bn}}</text>
+  </view>
+  <view class="r2">
+    <text>数量</text>
+    <text>{{o_detail.goods_num}}</text>
+  </view>
+  <view class="r2">
+    <text>总计</text>
+    <text style="color:#E11A1A">￥{{o_detail.total_fee}}</text>
+  </view>
+  <view class="r2">
+    <text>实付</text>
+    <text style="color:#E11A1A">￥{{o_detail.total_fee}}</text>
+  </view>
+</view>
+
+<!-- 去支付 -->
+<view class="btn" wx:if="{{order_status==1}}" bindtap="topay">
+  <text>￥{{o_detail.total_fee}}</text>
+  <text>立即支付</text>
+</view>
+<!-- 删除订单 -->
+<view class="btn2" wx:if="{{order_status==-1||order_status==3}}" bindtap="todel">
+  <text>删除订单</text>
+</view>
+<van-dialog id="van-dialog" show="{{show3}}" show-cancel-button close-on-click-overlay="true" message="你确定要删除订单？" bind:confirm="cancelOrder" />
+<!-- 弹窗 -->
+<!-- <view wx:if="{{time==0}}">123123132</view> -->
+
+<van-popup show="{{ codeshow }}" bind:close="onClose" custom-class="all">
+  <canvas canvas-id="barcode2" class="shu_codebox" />
+  <canvas canvas-id="qrcode2" class="er_code" />
+</van-popup>
+
+<view class="btn3" wx:if="{{o_detail.pink_status==1&&o_detail.is_pink==1&&order_status!=1}}">
+  <view bindtap="shenqing">申请退款</view>
+  <view>邀请好友</view>
+</view>

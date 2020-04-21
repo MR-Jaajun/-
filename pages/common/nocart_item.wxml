@@ -1,0 +1,19 @@
+<template name="nocart_item">
+  <block wx:for="">
+    <view class='youxuan_item' bindtap="topro">
+      <image src=''></image>
+      <text class="manjian">30减8</text>
+      <text class='van-ellipsis youxuan_btxt'>朝鲜兄弟汤粉1111111111…　</text>
+      <view class='youxuan_sview'>
+        <text class='youxuan_stxt color3'>¥10 月售120</text>
+      </view>
+      <view class='youxuan_sview'>
+        <text class='youxuan_stxt color3'>商家名称</text>
+      </view>
+      <view class='youxuan_sview van_tag_view'>
+        <van-tag round>42分钟</van-tag>
+        <van-tag round>配送费2¥</van-tag>
+      </view>
+    </view>
+  </block>
+</template>

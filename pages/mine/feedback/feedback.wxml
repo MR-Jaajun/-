@@ -1,0 +1,20 @@
+<view class="section">
+  <!-- <text style="color:#F63E3E;margin-right:6rpx;">*</text>
+  <text>请描述你的问题</text> -->
+  <textarea bindinput="getContent" placeholder="请描述你的问题" maxlength="200" placeholder-style="color:#666s;"/>
+  <view class="text_num">
+    {{text_num}}/200
+  </view>
+</view>
+<view class="userinfo" style="margin-top:20rpx;">
+  <text style="color:#F63E3E;">*</text>
+  <text style="margin:0 60rpx 0 6rpx;">联系人</text>
+  <input placeholder="请输入你的名称" bindblur="getName"/>
+</view>
+<view class="userinfo">
+  <text style="color:#F63E3E;">*</text>
+  <text style="margin:0 32rpx 0 6rpx;">联系方式</text>
+  <input placeholder="请输入您的联系方式" bindblur="getMobile" type="number"/>
+</view>
+
+<button type="primary"  class="submit" bindtap="sendinfo">提交反馈</button>

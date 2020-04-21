@@ -1,0 +1,27 @@
+
+.activity_list{
+  height: 148rpx;
+  width: 706rpx;
+  padding: 24rpx 12rpx 0 32rpx;
+  border-bottom: 8rpx solid #FAFAFA;
+  position: relative;
+}
+.activity_list .activity_con{
+  color: #333;
+  font-size: 28rpx;
+}
+.activity_list image{
+  width: 12rpx;
+  height: 22rpx;
+  vertical-align: middle;
+  margin-left: 18rpx;
+}
+.activity_list .toDetail{
+  height: 34rpx;
+  color:#666;
+  font-size:24rpx;
+  letter-spacing:3rpx;
+  position: absolute;
+  bottom: 22rpx;
+  right: 32rpx;
+}

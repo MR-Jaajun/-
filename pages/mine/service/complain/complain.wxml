@@ -1,0 +1,28 @@
+<!--pages/mine/service/complain/complain.wxml-->
+<view class="tips">仅支持24小时内的订单投诉</view>
+
+<!-- 订单列表 -->
+<view class="order">
+  <view class="order_item" bindtap="complain_info">
+    <!-- 商家信息 -->
+    <view class="shop">
+      <view class="name" style="margin-bottom:24rpx;">
+        <image src="/images/icon_takedsmall.png"/>
+        <text>木桶饭连锁店 (天河店)</text>
+      </view>
+      <view class="shop_info">
+        <image src=""/>
+        <view class="title">腐竹牛腩   等 8 件商品</view>
+        <view class="discount">
+          <view>19减5</view>
+          <view>24减7</view>
+          <view>39减9</view>
+        </view>
+      </view>
+    </view>
+    <text class="state">已完成</text>
+    <view class="money">实付款：
+      <text style="font-size:28rpx;">¥24</text>
+    </view>
+  </view>
+</view>

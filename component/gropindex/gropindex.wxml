@@ -1,0 +1,108 @@
+<!--component/gropindex/gropindex.wxml-->
+<wxs src="../../pages/common/public.wxs" module="fin" />
+<!-- 头部搜索栏 -->
+<view class='top_bar'>
+  <!-- <view class='top_txt'>广州</view> -->
+  <van-search style='width:310px;' disabled shape="round" background="#fff" value="{{ value }}" placeholder="搜索商品,商家名称" bindtap="goSearch" />
+  <!-- <image bindtap='toNotify' src='/images/icon_lindang.png'></image> -->
+</view>
+<!-- 日常推荐 -->
+<view class='hot'>
+  <swiper indicator-dots="true" indicator-color="rgba(239,235,235,1)" indicator-active-color="#FF3030">
+    <block wx:for="{{banner}}" wx:key="index">
+      <swiper-item>
+        <image mode='widthFix' src="{{item.cover}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 导航栏 -->
+<view class="nav">
+  <block wx:for="{{menuList}}" wx:key="index">
+    <view class="nav_item" data-id="{{item.id}}" data-title="{{item.title}}">
+      <image src="{{item.cover}}"></image>
+      <text>{{item.title}}</text>
+    </view>
+  </block>
+</view>
+<!-- 拼团专区标题 -->
+<view class="recommend">
+  <view class="r_tit">
+    <view class="title_img">
+      拼团专区
+      <icon class="i"></icon>
+    </view>
+    <view class="more" bindtap="toPrefecture">
+      <text>查看更多</text>
+      <image src="/images/icon_next.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 拼团专区商品展示 -->
+<scroll-view class="scroll-x " scroll-x="true"  enable-flex="true">
+  <view wx:for="{{promotion}}" wx:key="index" class="v_box  clearfix" data-id="{{item}}" bindtap="goshopdetail">
+    <image class="img" src="{{item.goods_cover_image}}" mode="scaleToFill" />
+    <view class='r_promotion'>
+      <view class="toptxt">{{item.goods_title}}</view>
+      <view class="middletxt">
+        <view class="txt1">{{item.goods_pink_amount}}人团</view>
+        <view class="price1">￥{{item.goods_pink_price}}</view>
+      </view>
+      <view class="middletxt2">
+        <view class="txt2">单买价</view>
+        <view class="price2">￥{{item.goods_sale_price}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='near_title'>推荐专区</view>
+<view class='v_page'>
+  <view class="topleft">
+    <van-dropdown-menu>
+      <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" bind:change="twoChange" />
+    </van-dropdown-menu>
+  </view>
+  <view class="topright">
+    <view data-id="2" bindtap="oneTap">距离</view>
+    <view data-id="1" bindtap="oneTap">销量</view>
+  </view>
+</view>
+<scroll-view scroll-y="true" class="scroll-y" wx:for="{{combo}}" wx:key="index">
+  <view class='home_item' wx:if="{{item.goods_type==2}}" data-id="{{item}}" bindtap="goshopdetail">
+    <view class='one_txt'>
+      <text>{{item.shop_title}} • {{item.goods_title}}</text>
+      <text class='km'>{{item.shop_distance}}km</text>
+    </view>
+    <view class='three_txt'>
+      <text class='redbgtxt'>套餐</text>
+      <text>{{item.goods_subtitle}}</text>
+    </view>
+    <view class='two_txt'>
+      <text class='redtxt'>￥{{item.goods_sale_price}}</text>
+      <text>门市价{{item.goods_market_price}}</text>
+    </view>
+    <view class='five_img'>
+      <image class='duoImg' wx:for="{{fin.arrSlice(item.goods_image,0,3)}}" wx:key="index" src='{{item}}'></image>
+    </view>
+  </view>
+  <view class="merchant_item" wx:if="{{item.goods_type==1}}" data-id="{{item}}" bindtap="goshopdetail">
+    <!-- <image src="{{fin.arrSlice(item.goods_image,0,1)}}"></image> -->
+    <image src="{{item.shop_cover_image}}"></image>
+    <view class="right_view">
+      <view class='one_txt'>
+        <text>{{item.shop_title}} </text>
+        <text class='km'>{{item.shop_distance}}km</text>
+      </view>
+      <image class='r_img' src="../../images/pingtuan/youhuikuan.png"></image>
+      <text class="r_text">{{item.goods_title}}</text>
+      <view class="two_view">
+        <text class='bgtxt'>代金券</text>
+        <text class="twotxt">{{item.goods_subtitle}}</text>
+      </view>
+      <view class='three_view'>
+        <text class='redtxt'>￥{{item.goods_pink_price}}</text>
+        <text>门市价{{item.goods_market_price}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

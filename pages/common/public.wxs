@@ -1,0 +1,71 @@
+//保留小数
+var bar = function(d, num = 1) {
+  if (d) {
+    return d.toFixed(num);
+  } else {
+    return d
+  }
+}
+
+//数字的正负
+var plus = function(a, b) {
+  if (a == 0) {
+    b = "-" + b;
+  }
+  if (a == 1) {
+    b = "+" + b;
+  }
+  return b
+}
+
+//截取字符串
+var str = function(val, a, b) {
+  val = val.substring(a, b);
+  // var a = str.slice(a, b)
+  return val
+}
+
+//通知类型
+var module_type = function(a, b) {
+  if (a == 1) {
+    b = "小哥外卖"
+  }
+  if (a == 2) {
+    b = "小哥商城"
+  }
+  if (a == 3) {
+    b = "您有一笔新到账的佣金"
+  }
+  return
+}
+
+//数组截取
+var arrSlice = function(arr, a, b) {
+  return arr.slice(a, b)
+}
+// 实际值取2位数
+var str_number = function(item) {
+  if (item <= 0) {
+    return item * 0
+  }
+  if (item > 0) {
+    return Math.floor(item * 100) / 100
+  }
+
+}
+//打折 保留2位小数四设5入
+var str_zhe = function(a, b) {
+  if (a < b) {
+    var c = (a / b).toFixed(2);
+  }
+  return c * 10
+}
+module.exports = {
+  bar: bar,
+  plus: plus,
+  str: str,
+  str_zhe: str_zhe,
+  str_number: str_number,
+  module_type: module_type,
+  arrSlice: arrSlice
+}

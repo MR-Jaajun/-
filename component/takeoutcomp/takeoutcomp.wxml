@@ -1,0 +1,118 @@
+<!--外卖首页-->
+<!-- 引用 -->
+<import src="/pages/common/loadmore.wxml" />
+<import src="/pages/common/merchant_item.wxml" />
+
+<view class="takeout_page">
+  <!-- 主体 -->
+  <view class='top_bar'>
+    <view class="waimai_head" bindtap="tohisaddress">
+      <image class="location" src="/images/icon_location-1.png"></image>
+      <text class="title_txt van-ellipsis">{{markers}}</text>
+      <image class="rightzui" src="/images/icon_location.png"></image>
+    </view>
+    <view></view>
+    <!-- <image class="Notify" bindtap='toNotify' src='/images/icon_lindang.png'></image> -->
+  </view>
+  <view class="van_search_view">
+    <van-search disabled custom-class="setbar" value="{{ value }}" placeholder="搜索商品,商家名称" bindtap="toSearchPage" />
+  </view>
+
+  <!-- banner -->
+  <view class='hot'>
+    <swiper indicator-dots="true" indicator-color="rgba(239,235,235,1)" indicator-active-color="#FF3030">
+      <block wx:for="{{bannerList}}" wx:key="id">
+        <swiper-item>
+          <image mode='widthFix' src='{{item.cover}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- menu -->
+  <view class='takeout_classify'>
+    <block wx:for="{{menuList}}" wx:key="id">
+      <view class='takeout_classify_item' bindtap="toclassly" data-id="{{item.id}}" data-title="{{item.title}}">
+        <image src='{{item.cover}}'></image>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class='section'>
+    <!-- 为你优选 -->
+    <view class='youxuan_txt'>为你优选
+      <!-- <text class='toright' bindtap='toYouxuan'>更多 ></text> -->
+    </view>
+    <view class='youxuan_list'>
+      <block wx:for="{{recommendShopsList.optimize}}" wx:key="{{index}}">
+        <view class='youxuan_item' data-id="{{item.shop_id}}" bindtap="toshop">
+          <image src='{{item.shop_cover_image}}'></image>
+          <text class='youxuan_btxt'>{{item.shop_title}}</text>
+          <view class='youxuan_sview'>
+            <text class='youxuan_stxt color9'>根据你看过的店推荐</text>
+            <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 优惠专区 -->
+    <!-- <view class='discounts_txt'>优惠专区</view>
+    <view class='discounts_list'>
+      <view class='dis_top'>
+        <image src="{{recommendShopsList.onsale[0].activity_cover_image}}"></image>
+        <image src="{{recommendShopsList.onsale[1].activity_cover_image}}"></image>
+      </view>
+      <view class='dis_bot'>
+        <image src="{{recommendShopsList.onsale[2].activity_cover_image}}"></image>
+        <image src="{{recommendShopsList.onsale[3].activity_cover_image}}"></image>
+        <image src="{{recommendShopsList.onsale[4].activity_cover_image}}"></image>
+        <image src="{{recommendShopsList.onsale[5].activity_cover_image}}"></image>
+      </view>
+    </view> -->
+  </view>
+
+  <view class='section'>
+    <view class='ziqu_txt'>到店自取
+      <text class='ziqu_tips'>极速取餐 同享优</text>
+      <!-- <text class='toright' bindtap='toZiqu'>更多 ></text> -->
+    </view>
+    <view class='ziqu_list'>
+    <block wx:for="{{recommendShopsList.selfservice}}" wx:key="{{index}}">
+      <view class='ziqu_item'>
+        <image src='{{item.shop_cover_image}}'></image>
+        <view class='ziqu_title'>{{item.shop_title}}</view>
+        <view class='ziqu_tagone van-tag_view'>
+          <van-tag color="#85BFFD" text-color="#666">230m</van-tag>
+          <van-tag color="#E9F4FF" text-color="#63A9F3">省¥2配送费</van-tag>
+        </view>
+        <view class='ziqu_tagone van-tag_view'>
+          <van-tag color="#F5602E">减</van-tag>
+          <van-tag color="#D259FB">折</van-tag>
+          <van-tag color="#FB4646">赠</van-tag>
+        </view>
+      </view>
+    </block>
+    </view>
+
+    <view class='near_shop'>
+      <view class='near_shop_title'>附近商家</view>
+      <!-- 分类删选组件 -->
+      <popupcomp></popupcomp>
+      <view class='near_shop_filtrate_bar2'>
+        <button class="mini-btn" size="mini">首单立减</button>
+        <button class="mini-btn" size="mini">超级好评</button>
+        <button class="mini-btn" size="mini">满减优惠</button>
+        <button class="mini-btn" size="mini">减配送费</button>
+      </view>
+    </view>
+    <!-- 商家列表 -->
+    <view class="merchant_list">
+      <block wx:for="{{nearbyShopsList}}" wx:key="shop_id">
+        <template is="merchant_item" data="{{...item}}"></template>
+      </block>
+    </view>
+
+    <!-- 上拉loading -->
+    <template is="{{isHideLoadMore ? 'loadmore' : 'nodata'}}" />
+  </view>
+</view>

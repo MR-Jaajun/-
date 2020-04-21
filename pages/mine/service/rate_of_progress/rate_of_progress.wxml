@@ -1,0 +1,14 @@
+<view class="order_item">
+  <view class="item_top">
+    <text>投诉商家</text>
+    <text>商家名称</text>
+  </view>
+  <view class="item_middle">
+    <text>订单号</text>
+    <text>445732535286834278</text>
+  </view>
+  <view class="item_bottom">
+    经平台的审核，您描述的问题与事实相符，已对商家做出相应的 处罚，对于造成您的经济损失赔偿问题可以咨询人工客服。
+  </view>
+  <text class="state">申诉已受理</text>
+</view>

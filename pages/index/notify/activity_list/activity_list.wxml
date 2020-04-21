@@ -1,0 +1,12 @@
+<view class="activity">
+  <view class="activity_list" wx:for="{{messageList}}" wx:key="{{item.id}}">
+    <view class="activity_con">
+      <!-- 赶快加入小哥骑手，福利待遇丰厚，海量订单月入过万， 专项保险报价护航！ -->
+      {{item.title}}
+    </view>
+    <view class="toDetail" bindtap="toActivityDetail">
+      <text style="vertical-align: middle;">查看详情</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+</view>

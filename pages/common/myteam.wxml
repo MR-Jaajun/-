@@ -1,0 +1,119 @@
+<!-- 全部 -->
+<template name="myteam">
+    <view class="team_item">
+      <view class="teamItem">
+        <view class="item_left">
+          <image src="{{avatar}}" />
+          <text class="shop_name">{{nick_name}}</text>
+          <text class="level_name">{{level_name}}</text>
+        </view>
+        <view class="item_center">
+          <view>累计收益</view>
+          <view>¥{{profit}}</view>
+        </view>
+        <view class="item_right" wx:if="{{!status}}" bindtap="show_details" data-idx="{{index}}">
+          <text>邀请人数{{count}}人</text>
+          <image src="/images/icon-fanhui.png" />
+        </view>
+      </view>
+      <!-- 详细信息 -->
+      <view class="item_details" wx:if="{{status}}">
+        <view>邀请人数 {{count}}人</view>
+        <view>邀请ID {{invite_code}}</view>
+        <view>团队累计收益：
+          <text>¥{{team_profit}}</text>
+        </view>
+        <view>注册时间：
+          <text>{{create_time}}</text>
+        </view>
+        <view class="look_details" bindtap="two_team">
+          <text style="vertical-align: middle;">查看详情</text>
+          <image src="/images/icon_next.png" />
+        </view>
+        <view class="close_detail" bindtap="close_details" data-idx="{{index}}">
+          <image class="return" src="/images/icon-fanhui.png" />
+        </view>
+      </view>
+    </view>
+</template>
+
+
+<!-- 一线团队 -->
+<template name="show_one_team">
+  <view class="team_item">
+      <view class="teamItem">
+        <view class="item_left">
+          <image src="{{avatar}}" />
+          <text class="shop_name">{{nick_name}}</text>
+          <text class="level_name">{{level_name}}</text>
+        </view>
+        <view class="item_center">
+          <view>累计收益</view>
+          <view>¥{{profit}}</view>
+        </view>
+        <view class="item_right" wx:if="{{!status}}" bindtap="show_one_team" data-idx="{{index}}">
+          <text>邀请人数{{count}}人</text>
+          <image src="/images/icon-fanhui.png" />
+        </view>
+      </view>
+      <!-- 详细信息 -->
+      <view class="item_details" wx:if="{{status}}">
+        <view>邀请人数 {{count}}人</view>
+        <view>邀请ID {{invite_code}}</view>
+        <view>团队累计收益：
+          <text>¥{{team_profit}}</text>
+        </view>
+        <view>注册时间：
+          <text>{{create_time}}</text>
+        </view>
+        <view class="look_details" bindtap="two_team">
+          <text style="vertical-align: middle;">查看详情</text>
+          <image src="/images/icon_next.png" />
+        </view>
+        <view class="close_detail" bindtap="close_one_team" data-idx="{{index}}">
+          <image class="return" src="/images/icon-fanhui.png" />
+        </view>
+      </view>
+    </view>
+</template>
+
+
+<!-- 推荐商家 -->
+<template name="show_recommend">
+  <view class="team_item">
+    <view class="teamItem">
+      <view class="item_left">
+        <image src="" />
+        <text class="shop_name">谢文</text>
+        <text>小V哥</text>
+      </view>
+      <view class="item_center">
+        <view>累计收益</view>
+        <view>¥24.60</view>
+      </view>
+      <view class="item_right" wx:if="{{show_recommend}}" bindtap="show_recommend">
+        <text>邀请人数3人</text>
+        <image src="/images/icon-fanhui.png" />
+      </view>
+    </view>
+    <!-- 详细信息 -->
+    <view class="item_details" wx:if="{{!show_recommend}}">
+      <view>邀请人数3人</view>
+      <view>邀请ID 234353</view>
+      <view>团队累计收益：
+        <text>¥24.60</text>
+      </view>
+      <view>注册时间：
+        <text>2019/09/02</text>
+        <text>15:34:00</text>
+      </view>
+      <view class="look_details">
+        <text style="vertical-align: middle;">查看详情</text>
+        <image src="/images/icon_next.png" />
+      </view>
+      <view class="close_detail" bindtap="close_recommend">
+        <image class="return" src="/images/icon-fanhui.png" />
+      </view>
+    </view>
+  </view>
+</template>

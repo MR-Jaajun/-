@@ -1,0 +1,258 @@
+<!--pages/mall/goodsDetail/goodsDetail.wxml-->
+<!-- 图片和价格 -->
+<view class="top">
+  <view class="cover_image">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:750rpx;height:596rpx;">
+      <block wx:for="{{cover_image}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item">
+            <image src="{{item}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+  <!-- 抢购商品 -->
+  <view class="top_price" wx:if="{{promotion_status==2}}">
+    <view class="price1">
+      <text>￥</text>
+      <text>{{goodsdetail.promotion_seckill.seckill_price}}</text>
+    </view>
+    <view class="discount">
+      <text>￥{{goodsdetail.market_price}}</text>
+      <text>已抢{{goodsdetail.promotion_seckill.seckill_sale_amount}}件</text>
+    </view>
+    <view class="timeout">
+      <view>
+        <text style="font-size:24rpx;color:#F3C66B">距结束</text>
+        <van-count-down time="{{ time }}" />
+      </view>
+      <view class="progress">
+        <text>已抢{{seckill}}%</text>
+        <view style="width:{{widths?widths:'0'}}rpx"></view>
+      </view>
+    </view>
+    <view class="img">
+      <image src="/images/shangdian.png"></image>
+    </view>
+  </view>
+  <!-- 普通商品 -->
+  <view class="top_price" wx:if="{{promotion_status==0}}">
+    <view class="price1">
+      <text>￥</text>
+      <text>{{goodsdetail.sale_price}}</text>
+    </view>
+    <view class="discount">
+      <text>￥{{goodsdetail.market_price}}</text>
+      <text>活动价</text>
+    </view>
+  </view>
+  <!-- 即将抢购商品 -->
+  <!-- <view class="top_price">
+    <view class="price1">
+      <text>￥</text>
+      <text>145</text>
+    </view>
+    <view class="discount">
+      <text>￥136</text>
+      <view class="kill">秒杀预告</view>
+    </view>
+  </view> -->
+  <!-- 拼团商品 -->
+  <view class="top_price" wx:if="{{promotion_status==1}}">
+    <view class="price1">
+      <text>￥</text>
+      <text>{{goodsdetail.promotion_pink.pink_price}}</text>
+    </view>
+    <view class="discount">
+      <text style="text-decoration: none;color:#F3EDED;font-size:22rpx;margin-bottom:10rpx;">单买价</text>
+      <view class="kill2">￥{{goodsdetail.market_price}}</view>
+    </view>
+    <view class="pinknum">已拼{{goodsdetail.promotion_pink.pink_sale_amount}}件</view>
+  </view>
+</view>
+
+
+<!-- 标题 月销量 -->
+<view class="title common">
+  <view class="gtitle">{{goodsdetail.goods_title}}</view>
+  <view class="gsales">
+    <text style="margin-right:170rpx">快递: {{goodsdetail.express_price}}</text>
+    <text>月销{{goodsdetail.month_sale_amount}}件</text>
+  </view>
+</view>
+
+<!-- 领取优惠券 普通商品、即将抢购-->
+<view class="getCoupon common" bindtap="showPopup">
+  <view>
+    <text style="color:#999;margin-right:26rpx">领劵</text>
+    <view class="getcoupon">
+      <van-tag plain type="primary" wx:for="{{goodsdetail.goods_shop_coupon}}" wx:key="index">{{item.coupon_title}}</van-tag>
+    </view>
+  </view>
+  <van-icon name="arrow" />
+</view>
+
+<!-- 玩法 -->
+<view class="common size" wx:if="{{promotion_status==1}}">
+  <view>
+    <text style="color:#999;margin-right:26rpx">玩法</text>
+    <text>开团/参团-邀请好友-满员发货（不满自动退款）</text>
+  </view>
+  <van-icon name="arrow" />
+</view>
+<!-- 拼团人数 -->
+<view class="pinkNum common" wx:if="{{promotion_status==1}}">
+  <view class="pinktitle">直接参团 立即拼成</view>
+  <view class="pinkList">
+    <view class="userinfos">
+      <image></image>
+      <text>习大大</text>
+    </view>
+    <view class="pinktime">
+      <view>
+        还差
+        <text style="color:#E11A1A">1人</text> 成团
+      </view>
+      <view style="display:flex; align-items: center;">剩余时间
+        <van-count-down time="{{ time }}" style="margin-left:10rpx;" />
+      </view>
+
+    </view>
+    <view class="btn">去参团</view>
+  </view>
+</view>
+<!-- 选择规格 待定-->
+<view class="common size">
+  <view>
+    <text style="color:#999;margin-right:26rpx">规格</text>
+    <text> 选择  颜色,尺码</text>
+  </view>
+  <van-icon name="arrow" />
+</view>
+
+
+<!-- 评论 -->
+<view class="comment common">
+  <view class="c_top">
+    <text>商品评价(100)</text>
+    <view style="color:#333;display:flex;align-items: center;" bindtap="togoodsEvaluate">
+      查看全部
+      <van-icon name="arrow " />
+    </view>
+  </view>
+  <view class='box_a_main'>
+    <view class="a_main {{type == 0 ? 'active' : ''}}" data-type="0" bindtap="changeTap">
+      全部({{goods_comment.goods_comment_type.comment_amount}})
+    </view>
+    <view class="a_main {{type == 4 ? 'active' : ''}}" data-type="4" bindtap="changeTap">
+      有图({{goods_comment.goods_comment_type.image_amount}})
+    </view>
+    <view class="a_main {{type == 1 ? 'active' : ''}}" data-type="1" bindtap="changeTap">
+      好评({{goods_comment.goods_comment_type.evaluate_one_amount}})
+    </view>
+    <view class="a_main {{type == 2 ? 'active' : ''}}" data-type="2" bindtap="changeTap">
+      中评({{goods_comment.goods_comment_type.evaluate_two_amount}})
+    </view>
+    <view class="a_main {{type == 3 ? 'active' : ''}}" data-type="3" bindtap="changeTap">
+      差评({{goods_comment.goods_comment_type.evaluate_three_amount}})
+    </view>
+  </view>
+  <view class="user" wx:if="{{goods_comments.length>0}}">
+    <view class="u1">
+      <image src="{{goods_comments.anonymous==0?goods_comments.user_avatar:'/images/niming.png'}}"></image>
+      <view class="username">
+        <view>{{goods_comments.user_nick_name}}</view>
+        <view class="aaa">
+          <text style="color:#999;font-weight: 400;font-size:24rpx">评分</text>
+          <van-rate readonly value="{{ goods_comments.composite_evaluate_score }}" color="#FF9C09" void-color="#ccc" size="{{12}}" />
+        </view>
+      </view>
+    </view>
+    <view class="u2">{{goods_comments.comment_time}} {{goods_comments.goods_sku_title}}</view>
+    <view class="u3">{{goods_comments.comment_content}}</view>
+  </view>
+</view>
+
+
+<!-- 店铺 -->
+<view class="shop common">
+  <view class="shop_top">
+    <image src="{{shop_info.shop_cover_image}}"></image>
+    <view class="s_info">
+      <view class="title2">{{shop_info.shop_title}}</view>
+      <view class="s1">
+        <text style="margin-right:6rpx;">综合评分</text>
+        <van-rate readonly value="{{ shop_info.composite_evaluate_score }}" size="{{12}}" color="#FF9C09" custom-class="rates" />
+        <text style="margin-left:40rpx;">粉丝数{{shop_info.follow_amount}}</text>
+      </view>
+    </view>
+    <view class="toshop" bindtap="tostore">进店逛逛</view>
+  </view>
+  <view class="shop_bottom">
+    <text>商品描述  {{shop_info.describe_evaluate_score}}</text>
+    <text>卖家服务  {{shop_info.service_evaluate_score}}</text>
+    <text>物流服务  {{shop_info.logistics_evaluate_score}}</text>
+  </view>
+</view>
+
+<view class="detail_img">
+  <image wx:for="{{detail_image}}" wx:key="index" src="{{item}}"></image>
+</view>
+
+<!-- 查看更多 -->
+<view class="loadmore">继续拖动，查看图文详情</view>
+
+<!-- 底部栏 -->
+<view style="width:750rpx; ">
+  <van-goods-action>
+    <van-goods-action-icon icon="/icon/dianpu.png " text="店铺 " />
+    <van-goods-action-icon icon="/icon/icon_kefu.png " text="客服 " />
+    <van-goods-action-icon icon="/icon/icon_shoucang2.png " text="收藏 " />
+    <!-- <van-goods-action-button text="加入购物车 " type="warning " color="linear-gradient(90deg,rgba(70,77,83,1) 0%,rgba(46,52,55,1) 100%); " />
+    <van-goods-action-button text-class="abcd " text="立即购买 " color="#FCCE06 " style="color:#333 " /> -->
+    <view class="car ">加入购物车</view>
+    <view class="buy ">立即购买</view>
+  </van-goods-action>
+</view>
+
+
+<!-- 弹出优惠券 -->
+
+<van-popup show="{{ shows }}" position="bottom" custom-style="height: 60%; border-radius:20rpx 20rpx 0 0;" bind:close="onClose" overlay-style="opacity: 0;">
+  <view class="coupons">
+    <view class="titles">优惠券</view>
+    <view class="discounts">
+      <view class="disconut_item">
+        <view class="price">
+          <view class="price_left">
+            <text>￥</text>
+            <text style="font-size:48rpx;">30</text>
+          </view>
+          <view class="price_right">
+            <text>优惠券</text>
+            <text class="manjian">满300使用</text>
+            <text>有效期2019/12/23-2019/03/12</text>
+          </view>
+        </view>
+        <view class="liji">立即领取</view>
+      </view>
+      <!-- <view class="disconut_item">
+        <view class="price">
+          <view class="price_left due">
+            <text>￥</text>
+            <text style="font-size:48rpx;">30</text>
+          </view>
+          <view class="price_right due">
+            <text>优惠券</text>
+            <text class="manjian due2">满300使用</text>
+            <text class="due">有效期2019/12/23-2019/03/12</text>
+          </view>
+        </view>
+        <view class="liji">已领完</view>
+      </view> -->
+    </view>
+    <view class="finish">完成</view>
+  </view>
+</van-popup>

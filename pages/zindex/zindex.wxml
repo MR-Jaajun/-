@@ -1,0 +1,7 @@
+<!--pages/zindex/zindex.wxml  wx:if="{{bind_mobile==0}}"-->
+<view class="index">
+  <!-- <image class="img" src="/images/logo.png"></image> -->
+  <view class="btn-group">
+    <button type="primary" style="width:80%" wx:if="{{ !mini_openid }}" open-type="getUserInfo" bindgetuserinfo="getSession">登录</button>
+  </view>
+</view>

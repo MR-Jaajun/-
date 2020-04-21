@@ -1,0 +1,73 @@
+<!-- <van-tabs swipeable animated>
+  <van-tab title="全部"> -->
+<!-- 所有的信息 -->
+<!-- <view class="notify_item">
+      <view class="imgtype">
+        <image src="/images/shangjia.png" />
+      </view>
+      <view class="notify_title">木桶饭连锁饭店（文冲店）</view>
+      <view class="notify_info">亲爱的顾客，已收到您的催单提醒，美食正在...</view>
+      <text class="time">2019/09/02</text>
+    </view>
+  </van-tab> -->
+<!-- 活动 -->
+<!-- <van-tab title="活动">
+    <view class="notify_item">
+      <view class="imgtype">
+        <image src="/images/huodomg.png" />
+      </view>
+      <view class="notify_title">活动消息</view>
+      <view class="notify_info">最新活动消息最新活动消息最新活动消息最新活</view>
+      <text class="time">2019/09/02</text>
+    </view>
+  </van-tab> -->
+<!-- 通知 -->
+<!-- <van-tab title="通知">
+    <view class="notify_item">
+      <view class="imgtype">
+        <image src="/images/xitong.png" />
+      </view>
+      <view class="notify_title">系统信息</view>
+      <view class="notify_info">最新活动消息最新活动消息最新活动消息最新活</view>
+      <text class="time">2019/09/02</text>
+    </view>
+  </van-tab>
+</van-tabs> -->
+
+
+<wxs src="../../../pages/common/public.wxs" module="foo" />
+
+
+<view class="notify">
+  <!-- 系统消息 -->
+  <view class="notify_item" bindtap="toMessageList">
+    <view class="imgtype">
+      <view class="notify_num">{{message_type2.unread_amount}}</view>
+      <image src="/images/xitong.png" />
+    </view>
+    <view class="notify_title" >{{message_type2.title}}</view>
+    <view class="notify_info">{{message_type2.create_time}}</view>
+    <text class="time">{{foo.str(message_type2.create_time,0,10)}}</text>
+  </view>
+
+  <!-- 活动消息 -->
+  <view class="notify_item" bindtap="toActivityList">
+    <view class="imgtype">
+      <view class="notify_num">{{message_type1.unread_amount}}</view>
+      <image src="/images/huodomg.png" />
+    </view>
+    <view class="notify_title">{{message_type1.title}}</view>
+    <view class="notify_info">{{message_type1.create_time}}</view>
+    <text class="time">{{foo.str(message_type1.create_time,0,10)}}</text>
+  </view>
+
+  <!-- 订单消息 -->
+  <view class="notify_item">
+    <view class="imgtype">
+      <image src="/images/shangjia.png" />
+    </view>
+    <view class="notify_title">木桶饭连锁饭店（文冲店）</view>
+    <view class="notify_info">亲爱的顾客，已收到您的催单提醒，美食正在...</view>
+    <text class="time">2019/09/02</text>
+  </view> 
+ </view>

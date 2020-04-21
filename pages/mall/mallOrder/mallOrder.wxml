@@ -1,0 +1,251 @@
+<!-- 引用底线 -->
+
+<import src="../../../pages/common/loadmore.wxml" />
+<van-dialog id="van-dialog" />
+<template name="orderItem">
+  <view class='v-content'>
+    <view class='v-top'>
+      <image src="/images/zanwudingdan.png" class="image-center" mode="scaleToFill"></image>
+      <view class="v-font">暂无订单，请赶快下单</view>
+    </view>
+  </view>
+</template>
+<!-- 订单 -->
+<van-tabs swipeable animated sticky bind:change="changes" active="0" color="#FCCE06">
+  <van-tab title="全部" name="0">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:for="{{goodsList}}" wx:key="index">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" wx:for="{{item.goods}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" data-oid="{{itemName.order_id}}">
+          <image src="{{itemName.cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{itemName.goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{itemName.sku_title}}</text>
+              <text>x{{itemName.goods_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{itemName.goods_num}}件商品</text>
+              <text>总价:￥{{itemName.sale_price}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+   
+          <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="cancelOrder" wx:if="{{item.order_status==1}}">取消订单</view>
+          <view class="btn_item item2" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="confirmReceive" wx:if="{{item.order_status==2}}">提醒发货</view>
+          <view class='btn2'>
+            <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="steps" wx:if="{{item.order_status==5}}">查看物流</view>
+            <view class="btn_item item2" data-oid="{{item.goods}}" data-status="{{item.order_status}}" bindtap="feedback" wx:if="{{item.order_status==5}}">去评价</view>
+          </view>
+          <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="cearOrder" wx:if="{{item.order_status==-1||item.order_status==3||item.order_status==4}}">删除订单</view>
+          <view class="btn_item item2" wx:if="{{item.order_status==1}}" data-oid="{{item.id}}" bindtap="topay">去支付</view>
+        </view>
+      </view>
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="待付款" name="1">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:if="{{goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="index">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{item.goods[0].goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{item.goods[0].sku_title}}</text>
+              <text>x{{item.og_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{item.og_num}}件商品</text>
+              <text>总价:￥{{item.total_fee}}</text>
+            </view>
+          </view>
+          <view class="btn">
+            <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="cancelOrder" wx:if="{{item.order_status==1}}">取消订单</view>
+            <view class="btn_item" wx:if="{{item.order_status==1}}" data-oid="{{item.id}}" bindtap=" topay">去支付</view>
+          </view>
+        </view>
+      </view>
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+
+  </van-tab>
+  <van-tab title="待发货" name="2">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:if="{{goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="index" bindtap="toGoodsDetail">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{item.goods[0].goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{item.goods[0].sku_title}}</text>
+              <text>x{{item.og_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{item.og_num}}件商品</text>
+              <text>总价:￥{{item.total_fee}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+          <view class="btn_item item2" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="confirmReceive" wx:if="{{item.order_status==2}}">提醒发货</view>
+        </view>
+      </view>
+
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="待收货" name="3">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:if="{{goodsList.length>0}}" bindtap="toGoodsDetail">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{item.goods[0].goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{item.goods[0].sku_title}}</text>
+              <text>x{{item.og_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{item.og_num}}件商品</text>
+              <text>总价:￥{{item.total_fee}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+          <!-- 去评价 -->
+          <view class="btn_item item2" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="steps" wx:if="{{item.order_status==3 && item.is_comment ==0}}">查看物流</view>
+        </view>
+      </view>
+
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="待评价" name="4">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:for="{{goodsList}}" wx:key="index" data-oid="{{item.id}}">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{item.goods[0].goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{item.goods[0].sku_title}}</text>
+              <text>x{{item.og_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{item.og_num}}件商品</text>
+              <text>总价:￥{{item.total_fee}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+          <view class="btn_item item2" data-oid="{{item.goods}}" data-status="{{item.order_status}}" bindtap="feedback" wx:if="{{item.order_status==5}}">去评价</view>
+
+        </view>
+      </view>
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="售后" name="6">
+    <block wx:if='{{!goodsList}}'>
+      <template is="orderItem" />
+    </block>
+    <block wx:if='{{goodsList}}'>
+      <view class="goodsList" wx:for="{{goodsList}}" wx:key="index" data-oid="{{item.id}}">
+        <view class="title">
+          <image class="icons" src="/icon/icon_dianpu.png"></image>
+          <text>{{item.shop_title}}</text>
+          <image class="next" src="/images/icon_next.png"></image>
+        </view>
+        <view class="status">{{item.status_title}}</view>
+        <view class="goodsinfo" bindtap="toGoodsDetail" data-oid="{{item.id}}">
+          <image src="{{item.shop_cover_image}}"></image>
+          <view class="right_div">
+            <view class="name">
+              <text>{{item.goods[0].goods_title}}</text>
+            </view>
+            <view class="sku">
+              <text>{{item.goods[0].sku_title}}</text>
+              <text>x{{item.og_num}}</text>
+            </view>
+            <view class="price">
+              <text>共{{item.og_num}}件商品</text>
+              <text>总价:￥{{item.total_fee}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+          <view class="btn_item" data-oid="{{item.id}}" data-status="{{item.order_status}}" bindtap="opendia" wx:if="{{item.order_status==-1||item.order_status==3||item.order_status==4}}">删除订单</view>
+        </view>
+      </view>
+      <view class='hasmore' wx:if="{{showMoreDate}}">
+        <template is="nodata" />
+      </view>
+    </block>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,113 @@
+/* pages/mall/goodsEvaluate/goodsEvaluate.wxss */
+
+.box_a_main {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 20rpx;
+  border-bottom: 2rpx solid #f1ecec;
+  padding: 28rpx 32rpx;
+  box-sizing: border-box;
+}
+
+.box_a_main .a_main {
+  border-radius: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 20rpx;
+  box-sizing: border-box;
+  margin: 20rpx 20rpx 20rpx 0;
+  background: #eeedec;
+  color: #898787;
+  /* line-height: 102rpx; 
+  text-align: center; */
+}
+
+.box_a_main .active {
+  background: #ff4f00;
+  color: #fff;
+}
+
+/* 评论 */
+
+.pinglun {
+  padding: 28rpx 32rpx;
+  box-sizing: border-box;
+  border-bottom: 8rpx solid #f8f8f8;
+}
+
+.user .u1 {
+  display: flex;
+  height: 70rpx;
+  margin-bottom: 18rpx;
+  align-items: center;
+}
+
+.user .u1 image {
+  width: 52rpx;
+  height: 52rpx;
+  background: #ccc;
+  border-radius: 50%;
+  margin-right: 14rpx;
+}
+
+.user .u1 .username {
+  display: flex;
+  font-weight: bold;
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  /* height: 52rpx; */
+  flex-direction: column;
+}
+
+/* .van-rate__icon {
+  display: inline-block !important;
+} */
+
+.username .aaa {
+  margin-top: -10rpx;
+}
+
+.user .u2 {
+  font-size: 20rpx;
+  color: rgba(153, 153, 153, 1);
+  letter-spacing: 2rpx;
+  margin-bottom: 18rpx;
+}
+
+.user .u3 {
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.imgarr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.imgarr image {
+  margin-right: 20rpx;
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 4rpx;
+  background: #ccc;
+}
+
+.reply {
+  background: #f8f8f8;
+  width: 686rpx;
+  min-height: 124rpx;
+  font-size: 24rpx;
+  color: #666;
+  padding: 22rpx 14rpx;
+  box-sizing: border-box;
+}
+
+.reply text:nth-child(1) {
+  font-weight: bold;
+}

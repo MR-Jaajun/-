@@ -1,0 +1,21 @@
+page{
+  background: #FAFAFA
+}
+/* 覆盖app.css */
+.merchant_list {
+  margin-top: 0;
+}
+
+/* 搜索栏 */
+.van .van-search {
+  padding: 20rpx;
+}
+.van .van-search__content{
+  background: #fff;
+}
+
+/* 排序以下 */
+.section {
+  padding: 0 36rpx 18rpx 36rpx;
+  background: #fff;
+}

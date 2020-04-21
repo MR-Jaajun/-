@@ -1,0 +1,109 @@
+<!--pages/mine/mine.wxml-->
+<view class="userinfo">
+  <view id="username">
+    <text class="username">{{nick_name}}</text>
+    <view class="member_level">
+      <image class="member" src="/images/icon_member.png" />
+      <text wx:if="{{vip_level==0}}">小哥粉</text>
+      <text wx:if="{{vip_level==1}}">小哥</text>
+      <text wx:if="{{vip_level==2}}">小V哥</text>
+      <text wx:if="{{vip_level==3}}">V哥</text>
+    </view>
+    
+  </view>
+  <view id="invite_ID">
+    <text class="invite_ID"> 邀请ID：{{invite_code}}</text>
+    <text class="copy">复制</text>
+  </view>
+  <view id="upgrade" bindtap="vipLevel">
+    <text class="upgrade">{{upgrade_tip}}</text>
+    <image class="next" src="/images/icon_next.png" />
+  </view>
+  <view class="userPicture">
+    <image src="/images/icon-set.png" bindtap="set_page"/>
+    <view class="user_picture" style="background-image:url({{avatar}})">
+      <!-- 用户的图片 -->
+      <!-- <image src="{{avatar}}"></image> -->
+    </view>
+  </view>
+</view>
+<!-- 用户收入 -->
+<view class="money">
+  <!-- 累计总收入 -->
+  <view class="accumulative_all">
+    <text>累计总收入（元）</text>
+    <text class="accumulative_money">{{accumulative_money}}</text>
+  </view>
+  <!-- 本月结算收入 -->
+  <view class="month number">
+    <text>本月结算收入</text>
+    <text class="month_money">{{month_money}}</text>
+  </view>
+  <!-- 本月预估收入 -->
+  <view class="estimate number">
+    <text>本月预估收入</text>
+    <text class="estimate_money">{{estimate_money}}</text>
+  </view>
+</view>
+<!-- 导航 -->
+<view class="nav active">
+  <view bindtap="my_collect">
+    <image src="/images/icon_collect.png"/>
+    <text>我的收藏</text>
+  </view>
+  <view bindtap="my_earningst">
+    <image src="/images/icon_profit.png"/>
+    <text>我的收益</text>
+  </view>
+  <view bindtap="my_team">
+    <image src="/images/icon_team.png"/>
+    <text>我的团队</text>
+  </view>
+  <view bindtap="invite_friends">
+    <image src="/images/icon_background.png"/>
+    <text>邀请好友</text>
+  </view>
+</view>
+
+<!-- 常用工具 -->
+<view class="instrument">
+  <text class="instrument_title {{unLogin?'active':''}}">常用工具</text>  
+  <!-- 工内容 -->
+  <view>
+    <view class="instrument_item {{unLogin?'active':''}}" bindtap="my_wallet">
+      <image class="icon" src="/images/icon_wallet.png"/>
+      <text>我的钱包</text>
+      <image class="icon_next" src="/images/icon_next.png"></image>
+    </view>
+    <view class="instrument_item {{unLogin?'active':''}}" bindtap="address">
+      <image class="icon" src="/images/icon_addressl.png"/>
+      <text>我的地址</text>
+      <image class="icon_next" src="/images/icon_next.png"></image>
+    </view>
+    <!-- <view class="instrument_item">
+      <image class="icon" src="/images/icon_addrs.png"/>
+      <text>合作共赢</text>
+      <image class="icon_next" src="/images/icon_next.png"></image>
+    </view> -->
+    <view class="instrument_item {{unLogin?'active':''}}" bindtap="service">
+      <image class="icon" src="/images/icon_service.png"/>
+      <text>客服中心</text>
+      <image class="icon_next" src="/images/icon_next.png"></image>
+    </view>
+    <view class="instrument_item {{unLogin?'active':''}}" bindtap="feedback">
+      <image class="icon" src="/images/icon_opinion.png"/>
+      <text>意见反馈</text>
+      <image class="icon_next" src="/images/icon_next.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 遮罩层 -->
+<view class="shade" wx:if="{{unLogin}}">
+  <view class="shade_top">
+    <image src="/images/unlogin.png"/>
+    <button class="login_btn" open-type="getUserInfo" bindgetuserinfo="tologin">登录</button>
+    <!-- <button class="login_btn" open-type="getUserInfo" bindgetuserinfo="toGetUserInfo">授权</button> -->
+  </view>
+  <view class="shade_bottom"></view>
+</view>

@@ -1,0 +1,4 @@
+<!--回到头部-->
+<view class='toTop' bindtap='_toTop' hidden="{{totopProp}}">
+  <image src='/images/icon_top.png'></image>
+</view>

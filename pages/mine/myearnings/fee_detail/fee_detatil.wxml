@@ -1,0 +1,44 @@
+<!-- <view class="fee_item">
+        <view class="fee_type">
+          <text style="color:#333;font-size:28rpx;">自购收益</text>
+          <text style="color:#666;font-size:20rpx;" space="nbsp">2019/09/02     15:34:00</text>
+        </view>
+        <view class="fee_money">+5.90</view>
+        <view class="fee_status">已结算</view>
+      </view> -->
+
+<!-- 引入 -->
+<import src="/pages/common/feeDetail.wxml" />
+
+<van-tabs animated swipeable sticky>
+  <!-- 全部 -->
+  <van-tab title="全部">
+    <block wx:for="{{all}}" wx:key="{{index}}">
+      <template is="feeItem" data="{{...item}}" />
+    </block>
+  </van-tab>
+  <!-- 自购收益 -->
+  <van-tab title="自购收益">
+    <block wx:for="{{all}}" wx:key="{{index}}">
+      <template is="feeItem" data="{{...item}}" />
+    </block>
+  </van-tab>
+  <!-- 推荐商家收益 -->
+  <van-tab title="推荐收益">
+    <block wx:for="{{all}}" wx:key="{{index}}">
+      <template is="feeItem" data="{{...item}}" />
+    </block>
+  </van-tab>
+  <!-- 团购收益 -->
+  <van-tab title="团购收益">
+    <block wx:for="{{all}}" wx:key="{{index}}">
+      <template is="feeItem" data="{{...item}}" />
+    </block>
+  </van-tab>
+</van-tabs>
+
+<!-- 筛选按钮 -->
+<view class="choose" bindtap="showChoose">筛选</view>
+
+<!-- 筛选弹出层 -->
+<van-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="onClose" bind:select="onSelect" />

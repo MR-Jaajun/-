@@ -1,0 +1,183 @@
+<!--pages/group/shopinfo/shopinfo.wxml-->
+<wxs src="../../../pages/common/public.wxs" module="fin" />
+<scroll-view scroll-y="true" class="scroll-y">
+  <!-- 商家信息介绍 -->
+  <van-dialog id="van-dialog" />
+  <view class="m_item">
+    <view class="left_view">
+      <image class="w_img" src="{{resData.shop_cover_image}}"></image>
+    </view>
+    <view class="right_view">
+      <view class='one_txt'>
+        <text>{{resData.shop_title}}</text>
+      </view>
+      <view class="two_view">
+        <text class='two_ren'>{{resData.avg_cost}}/人</text>
+        <van-rate value="{{ resData.composite_evaluate_score}}" />
+        <text class='twotxt'>{{resData.composite_evaluate_score}}分</text>
+      </view>
+      <view class='three_view'>
+        店铺资质信息
+      </view>
+      <view class="four_view">
+        <text class='four_t'>距您{{fin.str_number(resData.shop_distance)}}km,{{resData.shop_address}}        </text>
+      </view>
+    </view>
+    <image class='dianhua' src="/images/pingtuan/icon_dianhua.png" mode="scaleToFill" catchtap="dianhua"></image>
+  </view>
+  <view class="v_tab">
+    <van-tabs animated swipeable bind:change="changes" active="{{ active }}">
+      <van-tab title="优惠">
+        <view>
+          <view class='home_item' wx:for="{{goods_voucher_list}}" wx:key="index" wx:if="{{item.pink_status =='1'}}">
+            <view class='one_txt'>
+              <view class="one_info">
+                <text> {{item.goods_title}}</text>
+                <text class="pin">拼 </text>
+              </view>
+              <view class="v_btn" data-id="{{item}}" bindtap="goshopdetail">去参团</view>
+            </view>
+            <view class='three_txt'>
+              <text>限购{{item.limit_amount}}张、</text>
+              <text wx:if="{{item.use_scope==2}}">部分商品可用 、</text>
+              <text wx:if="{{item.use_scope==1}}">全场可用 、</text>
+              <text> 单次可使用{{item.once_limit}}张</text>
+            </view>
+            <view class='two_txt'>
+              <text class='f28'>{{item.goods_pink_amount}}人团</text>
+              <text class='f32'> ￥{{item.pink_price}}</text>
+              <text class='f22'>单买价</text>
+              <text class='f24'>￥{{item.sale_price}}</text>
+              <text class='r_km'>已拼{{item.pink_sale_amount}}</text>
+            </view>
+          </view>
+          <view class='home_item' wx:for="{{goods_voucher_list}}" wx:key="index" wx:if="{{item.pink_status==0}}">
+            <view class='one_txt'>
+              <text> {{item.goods_title}}</text>
+              <view class="v_btn" data-id="{{item}}" bindtap="goshopdetail">抢购</view>
+            </view>
+            <view class='three_txt'>
+              <text>限购{{item.limit_amount}}张、</text>
+              <text wx:if="{{item.use_scope==2}}">部分商品可用 、</text>
+              <text wx:if="{{item.use_scope==1}}">全场可用 、</text>
+              <text> 单次可使用{{item.once_limit}}张</text>
+            </view>
+            <view class='two_txt'>
+              <text class='f32'>￥{{item.sale_price}}</text>
+              <text class='f22'>门市价{{item.market_price}}</text>
+              <text class="zhe_bg">{{fin.str_zhe(item.sale_price, item.market_price)}}折</text>
+              <text class='r_km'>月售{{item.sale_amount}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="detail common">
+          <view class="d_title">
+            <text>团购套餐</text>
+          </view>
+          <view class="merchant_item" wx:for="{{goods_package_list}}" wx:key="index" wx:if="{{item.pink_status==1}}">
+            <image src="{{fin.arrSlice(item.detail_image,0,1)}}"></image>
+            <view class="right_view">
+              <view class='one_txt'>
+                <view class="one_info">
+                  <text> {{item.goods_title}}</text>
+                  <text class="pin">拼 </text>
+                </view>
+                <view class="v_btn" data-id="{{item}}" bindtap="goshopdetail">去参团</view>
+              </view>
+              <view class="two_view">
+                <text class="r_text">{{item.goods_package}}</text>
+                <text class='r_km'>已拼{{item.pink_sale_amount}}</text>
+              </view>
+              <view class='three_view'>
+                <text class='f28'>{{item.goods_pink_amount}}人团</text>
+                <text class='f32'>￥{{item.pink_price}}</text>
+                <text class='f22'>单买价</text>
+                <text class='f24'>￥{{item.sale_price}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="merchant_item" wx:for="{{goods_package_list}}" wx:key="index" wx:if="{{item.pink_status==0}}">
+            <image src="{{fin.arrSlice(item.detail_image,0,1)}}"></image>
+            <view class="right_view">
+              <view class='one_txt'>
+                <view class="one_info">
+                  <text> {{item.goods_title}}</text>
+                  <text class="zhe_bg">{{fin.str_zhe(item.sale_price, item.market_price)}}折</text>
+                </view>
+                <view class="v_btn" data-id="{{item}}" bindtap="goshopdetail">抢购</view>
+              </view>
+              <view class="two_view">
+                <text class="r_text">{{item.goods_package}}</text>
+                <text class='r_km'>月售{{item.sale_amount}}</text>
+              </view>
+              <view class='three_view'>
+                <text class='f32'>￥{{item.sale_price}}</text>
+                <text class='f22'>门市价{{item.market_price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="评价">
+        <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower">
+          <view class="appraise">
+            <view class="a_title">
+              <text>用户评价</text>
+              <view class="loadmore" bindtap="loadmore">
+                <text style="margin-right:10rpx;">更多评价</text>
+                <van-icon name="arrow" />
+                <!-- <van-icon name="arrow-down" wx:if="{{xhow}}" /> -->
+              </view>
+            </view>
+            <view class='box_a_main'>
+              <view class="a_main {{type == 0 ? 'active' : ''}}" data-type="0" bindtap="changeTap">
+                全部( {{pData.comment_amount}})
+              </view>
+              <view class="a_main {{type == 4 ? 'active' : ''}}" data-type="4" bindtap="changeTap">
+                有图({{pData.image_amount}})
+              </view>
+              <view class="a_main {{type == 1 ? 'active' : ''}}" data-type="1" bindtap="changeTap">
+                好评({{pData.evaluate_one_amount}})
+              </view>
+              <view class="a_main {{type == 2 ? 'active' : ''}}" data-type="2" bindtap="changeTap">
+                中评({{pData.evaluate_two_amount}})
+              </view>
+              <view class="a_main {{type == 3 ? 'active' : ''}}" data-type="3" bindtap="changeTap">
+                差评({{pData.evaluate_three_amount}})
+              </view>
+            </view>
+    
+            <view class="appraise_item" wx:for="{{goods_comment_data}}" wx:key="index">
+              <view class="a_top">
+                <image src="{{item.user_avatar}}"></image>
+                <view class="userinfo">
+                  <view class="top_title">
+                    <text style="margin-right:20rpx;">{{item.user_nick_name}}</text>
+                    <text class="time">{{item.comment_time}}</text>
+                  </view>
+                  <van-rate value="{{item.comment_evaluate_score}}" void-icon="star" size="{{ 18 }}" color="#FF9C09" readonly />
+                </view>
+              </view>
+              <view class="a_center">{{item.comment_content}}</view>
+              <view class="a_bottom">
+                <image wx:for="{{fin.arrSlice(item.comment_image,0,3)}}" wx:for-index="idx" wx:key="idx" src="{{item}}"></image>
+              </view>
+              <view class='xiaofei'>
+                已消费:
+                <text>{{item.goods_title}}</text>
+              </view>
+              <view class='sjhf'>
+                商家回复：
+                <text>
+            {{item.comment_reply_content}}
+            </text>
+              </view>
+              <!---->
+            </view>
+
+          </view>
+        </scroll-view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</scroll-view>

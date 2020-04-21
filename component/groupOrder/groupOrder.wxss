@@ -1,0 +1,133 @@
+/* component/groupOrder/groupOrder.wxss */
+
+.goodsList {
+  width: 710rpx;
+  /* height: 340rpx; *//* min-height: 0rpx; */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px -2rpx 12rpx rgba(0, 0, 0, 0.03);
+  border-radius: 12rpx;
+  margin: 20rpx auto 0 auto;
+  padding: 22rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.title {
+  /* width: 710rpx; */
+  display: flex;
+  align-items: center;
+  height: 38rpx;
+  margin-bottom: 28rpx;
+}
+
+.title .icons {
+  width: 30rpx;
+  height: 30rpx;
+  /* background: #ccc; */
+}
+
+.title .next {
+  width: 15rpx;
+  height: 25rpx;
+}
+
+.title text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  margin: 0 10rpx 0 16rpx;
+}
+
+.status {
+  position: absolute;
+  top: 24rpx;
+  right: 30rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}
+
+.goodsinfo {
+  height: 140rpx;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.goodsinfo image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  /* background-color: #ccc; */
+  margin-right: 16rpx;
+}
+
+.goodsinfo .name {
+  display: flex;
+  flex-direction: column;
+  height: 140rpx;
+  justify-content: center;
+  font-family: PingFang SC;
+  font-weight: 400;
+}
+
+.goodsinfo .name text:nth-child(1) {
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goodsinfo .name text:nth-child(2) {
+  font-size: 24rpx;
+  color: #666;
+  letter-spacing: 2rpx;
+}
+
+.goodsinfo .price {
+  position: absolute;
+  right: 30rpx;
+  bottom: 0;
+}
+
+.goodsinfo .price text:nth-child(1) {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goodsinfo .price text:nth-child(2) {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #e11a1a;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28rpx;
+  /* z-index: 20; */
+}
+
+.active {
+  color: #666 !important;
+  width: 144rpx;
+  height: 52rpx;
+  letter-spacing: 2rpx;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+}
+
+.btn .btn_item {
+  width: 144rpx;
+  height: 52rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+  font-size: 24rpx;
+  color: rgba(102, 102, 102, 1);
+  border-radius: 26rpx;
+  text-align: center;
+  line-height: 52rpx;
+  letter-spacing: 2rpx;
+  margin-left: 20rpx;
+}

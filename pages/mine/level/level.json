@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "会员等级",
+  "usingComponents": {
+    "van-steps": "/miniprogram_npm/vant-weapp/steps/index"
+  }
+}

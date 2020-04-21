@@ -1,0 +1,43 @@
+<import src="../../common/searchpopup_temp.wxml" />
+<view class="topbar fl_row_cen">
+  <view class="fl1">
+    <van-search shape="round" bind:clear="hideSearchView" bind:change="searchChange" placeholder="搜索商品" focus="{{isfocus}}" />
+  </view>
+  <!-- <button class="mini-btn nobg" style="margin:0 0 0 16rpx" size="mini">搜索</button> -->
+</view>
+<!-- 搜索结果弹出层 -->
+<template is="searchpopup_temp" data="{{isshowsearch}}"></template>
+
+
+<!-- 热门搜索 -->
+<view class="hot search">
+  <view class="hot_title search_title">热门搜索</view>
+  <view class="hot_con search_con">
+    <view class="hot_item items">粥可温</view>
+    <view class="hot_item items">正宗麻辣烫</view>
+    <view class="hot_item items">至尊披萨 东圃店</view>
+    <view class="hot_item items">咕噜咕噜</view>
+    <view class="hot_item items">三米粥铺 天河东圃店</view>
+  </view>
+</view>
+
+<!-- 历史记录 -->
+<view class="histort search">
+  <view class="histort_title search_title">
+    <text>历史记录</text>
+    <image src="/images/icon-shanchu.png" bindtap="close"></image>
+  </view>
+  <view class="histort_con search_con">
+    <view class="histort_item items">粥可温</view>
+    <view class="histort_item items">正宗麻辣烫</view>
+    <view class="histort_item items">至尊披萨 东圃店</view>
+    <view class="histort_item items">咕噜咕噜</view>
+    <view class="histort_item items">三米粥铺 天河东圃店</view>
+  </view>
+</view>
+
+<!-- 删除弹窗 -->
+
+<mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}" title="温馨提示">
+    <view>清除历史记录</view>
+</mp-dialog>

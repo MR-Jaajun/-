@@ -1,0 +1,8 @@
+.toTop{
+  position: fixed;
+  bottom: 20rpx; right: 40rpx;
+}
+.toTop image{
+  width: 48rpx;
+  height: 48rpx;
+}

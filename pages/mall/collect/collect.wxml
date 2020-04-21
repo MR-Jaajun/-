@@ -1,0 +1,27 @@
+<!--pages/mall/collect/collect.wxml-->
+<van-tabs swipeable animated sticky>
+  <van-tab title="商品">
+    <view class="goods">
+      <image></image>
+      <view class="goodsinfo">
+        <text>韩版潮流百搭学生休闲长裤</text>
+        <view class="t1">￥
+          <text style="font-size: 40rpx;color: #e11a1a;margin-left:-8rpx;">145</text>
+        </view>
+      </view>
+      <view class="icons">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="商家">
+    <view class="shops">
+      <image></image>
+      <view class="goodsinfo">
+        <text>匡威官方旗舰店</text>
+        <text>共545件商品</text>
+      </view>
+      <view class="btn">进店</view>
+    </view>
+  </van-tab>
+</van-tabs>

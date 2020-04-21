@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "新增收货地址",
+  "usingComponents": {
+    "van-switch": "/miniprogram_npm/vant-weapp/switch/index",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-area": "/miniprogram_npm/vant-weapp/area/index"
+  }
+}

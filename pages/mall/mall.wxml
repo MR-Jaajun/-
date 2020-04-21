@@ -1,0 +1,30 @@
+<!-- 商城模块 引入组件-->
+
+
+
+<!-- 首页 -->
+<view wx:if="{{tabActive==0}}">
+  <mallindex id="mallindex"></mallindex>
+</view>
+<!-- 商城分类 -->
+<view wx:if="{{tabActive==1}}">
+  <mallclassify class="tabActive"></mallclassify>
+</view>
+<!-- 商城订单 -->
+<!-- <view wx:if="{{tabActive==2}}">
+  <mallOrder id="mallOrder" ></mallOrder>
+</view> -->
+
+
+<!-- 底部导航 -->
+<malltabbar bind:getIndex="getIndex"></malltabbar>
+
+
+
+
+
+
+<!-- 底线 -->
+<!-- <import src="../common/loadmore.wxml" /> -->
+<!-- <template is="loadmore"/> -->
+<!-- <template is="nodata" /> -->

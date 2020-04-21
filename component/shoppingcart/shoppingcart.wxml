@@ -1,0 +1,91 @@
+<!--购物车组件-->
+<import src="/pages/common/loadmore.wxml" />
+<!-- 引用 -->
+<import src="/pages/common/nocart_item.wxml" />
+<wxs src="../../pages/common/public.wxs" module="tools"></wxs>
+
+<!-- 顶部错误提示 -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+<view class="car_body">
+  <block wx:if="{{islogin==0}}">
+    <view class="fl_row_cen car_signin">
+      <text class="car_signin_txt">您还没有登陆,请登录后再浏览</text>
+      <button class="sign_in_sub" size="mini">登录</button>
+    </view>
+  </block>
+  <block wx:elif="{{islogin==1}}">
+    <view class="car_nopro">
+      <image src="/images/blank.png"></image>
+      <view class="color6">空空如也，啥都没有</view>
+    </view>
+  </block>
+  <block wx:elif="{{islogin==2}}">
+    <!-- 编辑栏 -->
+    <view class="fl_row_cen del_line van-hairline--top" style="bottom:{{bottomCss}}px">
+      <block wx:if="{{isShowDelLine}}">
+        <text class="fl1"></text>
+        <button class="setBtnCol2_shop" size="mini" id="0" bindtap="editCar">编辑</button>
+      </block>
+      <block wx:else>
+        <view class="fl1">
+          <van-checkbox value="{{ allList.status }}" checked-color="#07c160" bind:change="cartchoose">全选</van-checkbox>
+        </view>
+        <button class="setBtnCol2_shop" size="mini" id="1" bindtap="editCar" style="margin-right:16rpx;">取消</button>
+        <button class="setBtnCol2_shop" size="mini" data-id="{{item.shop_id}}" bindtap="deleteCar">删除</button>
+      </block>
+    </view>
+
+    <block wx:for="{{allList.list}}" wx:key="index" wx:for-index="idx">
+      <view class="car_havepro" style="background:#fff">
+        <van-checkbox value="{{ item.check }}" checked-color="#07c160" data-idx="{{idx}}" data-item="{{item}}" bind:change="shopchoose">
+          <view class="box_one">
+            <image src="{{item.shop_cover_image}}" class="titleImg"></image>
+            <view>
+              {{item.shop_title}}
+            </view>
+          </view>
+        </van-checkbox>
+        <view wx:for="{{item.goods_list}}" wx:for-item="pro" wx:key="index" wx:for-index="pdx">
+          <van-checkbox value="{{ pro.checked }}" checked-color="#df4c60" data-idx="{{idx}}" data-pdx="{{pdx}}" data-pro="{{pro}}" bind:change="choose">
+            <view class="box_one">
+              <image src="{{pro.cover_image}}" class="titleImg2"></image>
+              <view class="fl_col">
+                <text class="txt">{{pro.goods_title}}</text>
+                <text class="txt sku_title">{{pro.sku_title}}</text>
+              </view>
+              <text class="flsh0">x{{pro.goods_amount}}</text>
+              <text class="flsh0">￥{{pro.sale_price}}</text>
+            </view>
+          </van-checkbox>
+        </view>
+        <view class="van-hairline--top setHeight">
+          <text>包装费 </text>
+          <text>￥{{item.packing_amount}}</text>
+        </view>
+        <view class="setHeight">
+          <text>配送费 </text>
+          <text>￥{{item.delivery_amount}}</text>
+        </view>
+        <view class="van-hairline--top setHeight">
+          <van-tag color="#F5602E">减</van-tag>
+          <text>满减优惠 </text>
+          <text>-￥{{item.haveDiscount}}</text>
+        </view>
+        <view class="van-hairline--top fl_row_cen setHeight">
+          <text style="flex:1">已优惠：<text class="redtxt">￥{{item.haveDiscount}}</text></text>
+          <text>合计: </text>
+          <text class="redtxt">¥{{tools.bar(item.gross_amount,2)}}</text>
+          <button class="setBtnCol" size="mini" data-id="{{item.shop_id}}" bindtap="toshop" style="margin: 0 22rpx;">去结算</button>
+        </view>
+      </view>
+    </block>
+  </block>
+  <view class="car_line"></view>
+  <view class="caini">猜你喜欢</view>
+  <view class="car_section">
+    <!-- <template is="nocart_item" data="" />
+    <template is="nocart_item" data="" /> -->
+  </view>
+  <!-- 引用触底动画和提示 -->
+</view>

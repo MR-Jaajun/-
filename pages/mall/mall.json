@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "malltabbar": "/component/malltabbar/malltabbar",
+    "mallindex":"/component/mallIndex/mallIndex",
+    "mallclassify": "/component/mallClassify/mallClassify",
+    "mallOrder":"/component/mallOrder/mallOrder"
+    
+  }
+}

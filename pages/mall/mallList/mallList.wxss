@@ -1,0 +1,51 @@
+/* pages/mall/mallList/mallList.wxss */
+
+
+.goodsList {
+  display: flex;
+  /* justify-content: space-around; *//* align-items: center; */
+  width: 750rpx;
+  height: 340rpx;
+  padding: 24rpx 32rpx 24rpx 32rpx;
+  border-bottom: 2rpx solid #f1ecec;
+  box-sizing: border-box;
+}
+
+.goodsList .goods_img {
+  margin-right: 32rpx;
+  width: 294rpx;
+  height: 294rpx;
+  border-radius: 10rpx;
+  background: #58bc58;
+}
+
+.goodsinfo {
+  height: 294rpx;
+  width: 360rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goodsinfo view:nth-child(1) {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goodsinfo view:nth-child(2) {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  margin: 22rpx 0 30rpx 0;
+}
+
+.goodsinfo view:nth-child(3) text, .goodsinfo view:nth-child(4) text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.goodsinfo view:nth-child(4) image {
+  width: 10rpx;
+  height: 16rpx;
+}
+

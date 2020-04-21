@@ -1,0 +1,40 @@
+<view class="address_detail">
+  <view class="item name">
+    <text>收货人：</text>
+    <input placeholder="请填写收货人姓名" placeholder-style=" color:#CCCCCC" bindblur="getName" />
+  </view>
+  <view class="item tel">
+    <text>手机号：</text>
+    <input type="number" placeholder="请填写收货人手机号" placeholder-style=" color:#CCCCCC" bindblur="getTel" maxlength="11" />
+  </view>
+  <view class="item address">
+    <text>收货地址：</text>
+    <input class="ssq" placeholder-style="color:#CCCCCC" disabled="true" wx:for="{{address_arr}}" wx:key="{{index}}" value="{{item.name}}" bindblur="getAddress"/>
+    <view class="choose" bindtap="choose_address">
+      <text>请选择</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+  <view class="item address_d">
+    <text>详细地址：</text>
+    <input placeholder="详细地址，例如:19号楼809室" style="width:500rpx" placeholder-style=" color:#CCCCCC" bindblur="getDatail" />
+  </view>
+  <view class="item default">
+    <text>设置默认地址：</text>
+    <van-switch checked="{{ boolen }}" bind:change="onChanges" size="38rpx;" active-color="#7BBAFE" custom-class="default_btn"/>
+  </view>
+</view>
+
+<!-- <import src="/pages/common/address.wxml" />
+<template is="address" data="{{address}}"/> -->
+
+
+<!-- 保存地址 -->
+<view class="save_btn" bindtap="address">
+  保存地址
+</view>
+
+<!-- 选择地址弹出层 -->
+<van-popup show="{{ choose_address }}" position="bottom" overlay="{{ true }}" bind:close="onClose" z-index="100" custom-class="show_share" custom-style="background-color:#333;" close-on-click-overlay="{{true}}">
+  <van-area area-list="{{ areaList }}" value="440000" bind:cancel="close_address" title="请选择地址" bind:confirm="onChange" />
+</van-popup>

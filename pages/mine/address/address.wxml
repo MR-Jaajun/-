@@ -1,0 +1,19 @@
+<view class="address" style="height:{{scrollheight}}px">
+  <view class="address_item" wx:for="{{addressList}}" wx:key="{{item.address_id}}" >
+    <view class="userinfo">
+      <text>{{item.receiver}}</text>
+      <text style="margin:0 30rpx 0 56rpx;">{{item.mobile}}</text>
+      <text wx:if="{{item.is_default==1}}">(默认)</text>
+    </view>
+    <view class="address_info">{{item.province}}{{item.city}}{{item.area}}{{item.address}}</view>
+    <image src="/images/icon_edit.png" bindtap="alter_address" data-id="{{index}}"/>
+  </view>
+</view>
+<!-- <import src="/pages/common/address.wxml"/>
+<template is="address"/> -->
+<!-- 新增收货地址 -->
+<button class="address_btn" bindtap="address" type="primary">
+  新建收货地址
+</button>
+
+

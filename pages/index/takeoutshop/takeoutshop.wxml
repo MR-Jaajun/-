@@ -1,0 +1,140 @@
+<import src="../../common/orderPage.wxml" />
+<import src="../../common/commentPage.wxml" />
+
+<!-- 顶部错误提示 -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+<!-- shop_isclose 1打烊，0营业 shopinfo.shop_isclose-->
+<van-popup custom-class="setpop_height" show="{{ false }}" position="top">
+  本店打烊啦
+</van-popup>
+<!-- 选规则弹出层 -->
+<view class="cover {{isshowSku?'cover_transition':''}}" catchtap="onClose"></view>
+<view class="showskulist {{isshowSku?'showskulist_transition':''}}">
+  <block wx:for="{{skuList.goods_skus_key}}" wx:for-index="idx" wx:key="idx">
+    <view class="outStyle">
+      <view class='outStyleText textStyle buttonPaddingStyle'>{{item.attr_title}}</view>
+      <view class='typeStyle textStyle'>
+        <block wx:for="{{item.attr_data ? item.attr_data : item.attr_list}}" wx:for-item="items" wx:key="sku_info_id">
+          <view class="{{items.select==true?'orange':'back'}} buttonPaddingStyle" data-item='{{item}}' data-index='{{index}}' data-idx='{{idx}}' catchtap="onChangeShowState">
+            {{item.attr_data ? items.attr_value : items.sku_info_title}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <view class='buttonPaddingStyle'>
+    <view class="pop_price">￥{{popupPrice}}</view>
+    <button bindtap="addCar" disabled="{{carBtnStatus}}">加入购物车</button>
+  </view>
+</view>
+
+<!-- 头部店铺详情 s-->
+<view class="shop_view">
+  <image class="shop_img" src="{{shopinfo.shop_cover_image}}"></image>
+  <view class="shop_title">{{shopinfo.shop_title}}</view>
+  <view class="title_txt">
+    <text space="emsp">配送约{{shopinfo.delivery_estimated_time}}分钟 评分:{{shopinfo.composite_evaluate_score}} 月售{{shopinfo.month_sale_amount}}</text>
+  </view>
+  <view class="title_txt">
+    <text space="emsp">{{shopinfo.shop_notice}}</text>
+    <image style="align-self='flex-end'" bindtap="setCollect" src="/images/{{shop_collected?'icon-Collectionone':'icon_collection'}}.png"></image>
+  </view>
+  <view class="title_tag">
+    <block wx:for="{{shopinfo.shop_tags}}" wx:key="id">
+      <van-tag color="#F95D5D" plain>{{item.tag_title}}</van-tag>
+    </block>
+  </view>
+</view>
+<!-- 头部店铺详情 e-->
+<!-- 头部切换tab s -->
+<view class="container">
+  <view class="header">
+    <view class="header_tab">
+      <block wx:for="{{swiperTitle}}" wx:key="id">
+        <view class="title {{index==currentPage?'selected':''}}" data-index="{{index}}" bindtap="turnPage">{{item.text}}</view>
+      </block>
+    </view>
+    <navigator class="header_search" url="/pages/index/searchresult/searchresult?shopid={{shopinfo.shop_id}}">
+      <van-search value="{{ value }}" shape="round" disabled="true" placeholder="搜索" />
+    </navigator>
+  </view>
+  <!-- 头部切换tab e -->
+  <!-- 购物车底部栏，弹出层 -->
+  <view class="carPopView">
+    <view class="weui-demo-dialog {{istrue ? 'weui-demo-dialog_show' : ''}}">
+      <view class="weui-mask" bindtap="closeDialog"></view>
+      <view class="weui-half-screen-dialog" catchtap="stopEvent">
+        <scroll-view scroll-y style="height:600rpx">
+          <view></view>
+          <view class="dialog_tip">
+            <view>{{minusTips}}</view>
+            <view class="del" bindtap="deleteAllcar">
+              <image src="/images/icon-shanchu.png"></image>
+              <text>清空购物车</text>
+            </view>
+          </view>
+          <block wx:for="{{carList}}" wx:key="index">
+            <view class="food">
+              <image class="img" src="{{item.goods_info.cover_image}}"></image>
+              <view class="food-info">
+                <view class="name">{{item.goods_info.goods_title}}</view>
+                <view class="sales">
+                  {{item.goods_sku.sku_title}}
+                  <!-- 月售 {{item.goods_info.sale_amount}} 赞 {{item.goods_info.like_amount}} -->
+                </view>
+                <view class="price">￥ {{item.goods_sku.sku_sale_price}}
+                  <!-- <text hidden="{{!item.goods_sku.sku_market_price}}" class="market_price">{{item.goods_sku.sku_market_price}}</text> -->
+                </view>
+              </view>
+              <view class="food-numb">
+                <view class="remove" bindtap="deleteCar" hidden="{{item.goods_amount==0}}" data-index="{{index}}">-</view>
+                <text class="text" hidden="{{item.goods_amount==0}}">{{item.goods_amount}}</text>
+                <view class="add" bindtap="addCar" data-index="{{index}}">+</view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+  <swiper class="swiper" current="{{currentPage}}" bindchange="turnTitle">
+    <swiper-item id="orderPage">
+      <template is="orderPage" data="{{...shopinfo, goodsList,selected,howMuch,cost,pullBar,istrue,carNum,minusTips,cost_com,numShow}}" />
+    </swiper-item>
+    <swiper-item id="commentPage" bindscrolltolower="lower">
+      <template is="commentPage" data="{{...shopinfo, commentlist, isHideLoadMore, scrollheight}}" />
+    </swiper-item>
+    <swiper-item id="restaurantPage">
+      <mp-cell ext-class="setphone" value="商家地址：广州市天河区东圃镇">
+        <view slot="footer" style="padding:10rpx" bindtap="makePhoneCall">
+          <image src="/images/icon_hkmm.png"></image>
+        </view>
+      </mp-cell>
+
+      <view class="fourImg">
+        <block wx:for="{{shopinfo.takeout_shop_albums}}" wx:key="id">
+          <image src="{{item.image_path}}"></image>
+        </block>
+      </view>
+
+      <navigator url="foodsafety/foodsafety?shopid={{shopinfo.shop_id}}">
+        <mp-cell title="查看食品安全档案" link></mp-cell>
+      </navigator>
+
+      <mp-cell value="配送服务：{{shopinfo.delivery_service}}"></mp-cell>
+      <mp-cell>配送时间：
+        <block wx:for="{{shopinfo.takeout_shop_business_time}}" wx:key="id">
+          <view>{{item.business_date}} {{item.business_time}}；</view>
+        </block>
+      </mp-cell>
+      <mp-cell>
+        <view>商家服务：{{shopinfo.shop_service}}</view>
+        <view wx:for="{{shopinfo.shop_info_tags}}" wx:key="id">
+          <van-tag color="#FB4646">{{item.tag_title}}</van-tag>{{item.tag_desc}}
+        </view>
+      </mp-cell>
+    </swiper-item>
+  </swiper>
+</view>

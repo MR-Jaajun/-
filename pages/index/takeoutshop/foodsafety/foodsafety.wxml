@@ -1,0 +1,18 @@
+<view class="food_box">
+  <view class="title">食品安全监督量化等级公示</view>
+  <view class="f_list">
+    <view class="van-hairline--bottom">许可证号: {{safetyArchiveList.licence_no}}</view>
+    <view class="van-hairline--bottom">法定代表人: {{safetyArchiveList.leal_person}}</view>
+    <view class="van-hairline--bottom">经营地址: {{safetyArchiveList.business_address}}</view>
+    <view class="van-hairline--bottom">主体业务: {{safetyArchiveList.main_business}}</view>
+    <view class="van-hairline--bottom">经营范围: {{safetyArchiveList.business_scope}}</view>
+    <view class="van-hairline--bottom">有效期: {{safetyArchiveList.business_expiry_date}}</view>
+  </view>
+</view>
+<view class="food_box">
+  <view class="title van-hairline--bottom">食品安全监督量化等级公示</view>
+  <view class="f_list f_img">
+    <image src="{{safetyArchiveList.safety_archive_images[0].image_path}}"></image>
+    <image src="{{safetyArchiveList.safety_archive_images[1].image_path}}"></image>
+  </view>
+</view>

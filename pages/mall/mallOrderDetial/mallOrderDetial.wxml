@@ -1,0 +1,155 @@
+<!--pages/mall/mallOrderDetial/mallOrderDetial.wxml-->
+<!-- 待付款 -->
+<view class="wait_pay common" wx:if="{{order_status==1}}">
+  <view class="p1">
+    <text>剩余支付时间为</text>
+    <van-count-down class='item' time="{{ countDown }}" format="mm:ss" bind:finish="finished" />
+  </view>
+  <view class="p2">
+    <text>需付款：</text>
+    <text>￥{{ordata.goods_fee}}</text>
+  </view>
+</view>
+<!-- 已取消--->
+<view class="wait_fa common" wx:if="{{order_status==-1}}">
+  <view class="h1">
+    交易关闭
+  </view>
+</view>
+<!-- 等待发货--->
+<view class="wait_fa common" wx:if="{{order_status==2}}">
+  <view class="h1">
+    等待发货，暂无物流信息
+  </view>
+</view>
+<!-- 已签收 -->
+<view class="wait_fa common" wx:if="{{order_status==5}}">
+  <view class="h1">
+    已签收，祝您购物愉快
+  </view>
+</view>
+<!-- 物流--->
+<view class="wait_info common" wx:if="{{order_status==3||order_status==5}}">
+  <view class="info1">
+    <image class='img' src="/images/pingtuan/icon_che.png" />
+    <text>{{delivery_data.logistics.logistics_name}}</text>
+    <text wx:if="{{delivery_data.state==0}}">在途</text>
+    <text wx:if="{{delivery_data.state==1}}">揽收</text>
+    <text wx:if="{{delivery_data.state==3}}">签收</text>
+    <text wx:if="{{delivery_data.state==4}}">退签</text>
+    <text wx:if="{{delivery_data.state==5}}">派件</text>
+    <text wx:if="{{delivery_data.state==6}}">退回</text>
+    <text wx:if="{{delivery_data.state==7}}">转投</text>
+    <van-icon custom-class='info1_right' name="arrow" />
+  </view>
+  <view class='info2'>
+    <text>{{delivery_data.list.context}}</text>
+    <text>{{delivery_data.list.ftime}}</text>
+  </view>
+</view>
+
+<!-- 收货人 -->
+<view class="coupons common">
+  <view class="c_type">
+    <view>收货人</view>
+    <view>
+      <text>{{ordata.receiver_name}}</text>
+      <text>{{ordata.receiver_mobile}}</text>
+    </view>
+  </view>
+  <view class="c_address">
+    <view>收货地址</view>
+    <view class='ass'>{{address}}</view>
+  </view>
+</view>
+
+
+<!-- 店铺信息 -->
+<van-dialog id="van-dialog" />
+<view class="shop_info common">
+  <view class="info1" bindtap="toshopinfo">
+    <image src="/icon/icon_dianpu.png"></image>
+    <text>{{ordata.shop_title}}</text>
+    <van-icon name="arrow" />
+  </view>
+  <view class="info2">
+    <image class='info2_img' src="{{ordata.goods[0].cover_image}}"></image>
+    <view class='info2_center'>
+      <view>{{ordata.goods[0].goods_title}}</view>
+      <view>
+        <text class='center_text1'>{{ordata.goods[0].sku_title}}</text>
+        <text class="center_text2">x{{ordata.goods[0].goods_num}}</text>
+      </view>
+      <view>￥{{ordata.goods[0].sale_price}}</view>
+    </view>
+  </view>
+  <view class="info3">
+    <view class='info3_left'>
+      <van-icon name="chat" />
+      <view class='info_text'>联系卖家</view>
+    </view>
+    <view class='info3_right' bindtap="call">
+      <van-icon name="phone" />
+      <view class='info_text'>拨打电话</view>
+    </view>
+  </view>
+</view>
+
+<!--订单信息 -->
+<view class="order_info common">
+  <view class="r2">
+    <text>订单编号</text>
+    <text selectable='true'>{{ordata.order_bn}}</text>
+  </view>
+  <view class="r2">
+    <text>下单时间</text>
+    <text>{{ordata.create_time}}</text>
+  </view>
+  <view class="r2">
+    <text>支付方式</text>
+    <text>在线支付</text>
+  </view>
+  <view class="r2">
+    <text>配送方式</text>
+    <text>普通快递</text>
+  </view>
+  <view class="r2" wx:if="{{ordata.receipt>0}}">
+    <text>发票类型</text>
+    <text>{{ordata.receipt_title}}</text>
+  </view>
+</view>
+<view class="order_info common">
+  <view class="r2" wx:if="{{ordata.goods_fee}}">
+    <text>商品总额</text>
+    <text style="color:#E11A1A">￥{{ordata.goods_fee}}</text>
+  </view>
+  <view class="r2" wx:if="{{ordata.delivery_fee}}">
+    <text>运费</text>
+    <text style="color:#E11A1A">+￥{{ordata.delivery_fee}}</text>
+  </view>
+  <view class="r2" wx:if="{ordata.discount_fee}}">
+    <text>优惠券</text>
+    <text style="color:#E11A1A">-￥{{ordata.discount_fee}}</text>
+  </view>
+</view>
+<view class="bgview">
+  <text>共{{ordata.og_num}}件商品</text>
+  <text>订单总金额:</text>
+  <text>￥{{ordata.pay_fee}}</text>
+</view>
+<!-- 去支付 -->
+<view class="btn common" wx:if="{{ordata.order_status!='-1'}}">
+  <view class="v_btn {{type == -6 ? 'active' : ''}}" data-type='-6' bindtap="changeTap">申请售后</view>
+  <view class="v_btn {{type == -7 ? 'active' : ''}}" data-type='-7' wx:if="{{ordata.order_status!='2'}}" bindtap="changeTap">查看物流</view>
+
+  <view class="v_btn {{type == 2 ? 'active' : ''}}" data-type='2' wx:if="{{ordata.order_status=='2'}}" bindtap="changeTap">提醒发货</view>
+
+<view class="v_btn {{type == 3? 'active' : ''}}" wx:if="{{ordata.order_status=='3'}}" bindtap="changeTap">确认收货</view>
+
+<view class="v_btn {{type == 5? 'active' : ''}}" data-type='5' wx:if="{{ordata.order_status=='5'}}" bindtap="changeTap">去评价</view>
+
+</view>
+
+<view class="btn common" wx:if="{{ordata.order_status=='-1'}}">
+  <view class="v_btn active"  bindtap="delete">删除订单</view>
+</view>

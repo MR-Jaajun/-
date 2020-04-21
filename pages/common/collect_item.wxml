@@ -1,0 +1,25 @@
+<wxs src="./public.wxs" module="foo" />
+<template name="collect_item">
+  <block wx:for="{{shopsList}}" wx:key="collect_id">
+    <view class="merchant_item" bindlongtap="del" data-cid="{{item.collect_id}}">
+      <image src="{{item.shop_cover_image}}"></image>
+      <view class="right_view">
+        <view class="van-ellipsis">{{item.shop_title}}</view>
+        <view class="smalltxt_line">
+          <text class="blue_txt">{{item.shop_composite_evaluate_score}}</text>
+          <text>月销{{item.shop_month_sale_amount}}</text>
+          <!-- 处理小数 -->
+          <text class="toright" space="nbsp">{{foo.bar(item.shop_distance)}}km</text>
+        </view>
+        <view class="smalltxt_line txt_marg">
+          <text space="nbsp">起送¥{{item.shop_perperson_consumption}}  免配送费  人均¥{{item.shop_perperson_consumption}}</text>
+        </view>
+        <view class="smalltxt_line">
+          <block wx:for="{{item.shop_tags}}" wx:for-item="itemtag" wx:key="id">
+            <van-tag custom-class="bg_tag" color="#76B3F5" plain>{{itemtag.tag_title}}</van-tag>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>

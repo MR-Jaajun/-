@@ -1,0 +1,76 @@
+/* pages/mall/my_discount/my_discount.wxss */
+page{
+  background:rgba(243,243,243,1);
+}
+/* 可以用 */
+.quan_item{
+  width: 710rpx;
+  height: 162rpx;
+  margin: 12rpx 20rpx;
+  position: relative;
+}
+.quan_item .item_left{
+  text-align: center;
+  line-height: 162rpx;
+  color:#fff;
+  position: absolute;
+  left: 0;
+  width: 222rpx;
+  height: 162rpx;
+  background: url("https://image.xgscheng.com/admin_user_avatar/2019-12-25/1577271057_3K8QQK.png");
+  background-size:cover; 
+}
+.quan_item .item_left .t1{
+  font-size:26rpx; 
+  margin: 0 6rpx;
+}
+.quan_item .item_left .t2{
+  font-size: 32rpx;
+  font-weight:bold;
+}
+.quan_item .item_right{
+  padding: 24rpx 0 0 24rpx;
+  float: right;
+  width: 471rpx;
+  height: 138rpx;
+  background: url("https://apitest.xgscheng.com/static/weapp/juana.png");
+  background-size:cover; 
+  position: relative;
+}
+.item_right view{
+  display: flex;
+  flex-direction: column;
+  width: 180rpx;
+}
+.item_right .use{
+  width: 176rpx;
+  height: 162rpx;
+  color: #FF4F00;
+  font-size: 24rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  line-height: 162rpx;
+  writing-mode:vertical-lr;
+  letter-spacing:2rpx;
+}
+.quan_item .item_right view text:nth-child(1){
+  font-weight:bold;
+  font-size:28rpx;
+  color:rgba(249,62,62,1);
+}
+.quan_item .item_right view text:nth-child(2){
+  font-size:24rpx;
+  color:rgba(51,51,51,1);
+  margin: 10rpx 0 2rpx 0;
+}
+.quan_item .item_right view text:nth-child(3){
+  font-size:20rpx;
+  color:rgba(102,102,102,1);
+}
+/* 已过期 */
+.timeover .item_left{
+  background: url("https://apitest.xgscheng.com/static/weapp/juabnz.png");
+  background-size:cover; 
+}

@@ -1,0 +1,19 @@
+<import src="/pages/common/myteam.wxml" />
+
+<van-tabs swipeable animated custom-class="bottom">
+  <van-tab title="全部">
+    <block wx:for="{{allGroup}}"  wx:key="{{id}}" >
+      <template is="myteam" data="{{...item,index}}" />
+    </block>
+  </van-tab>
+  <van-tab title="一线团队({{num}})">
+    <block wx:for="{{oneTeam}}"  wx:key="{{id}}" >
+      <template is="show_one_team" data="{{...item,index}}" />
+    </block>
+  </van-tab>
+  <van-tab title="推荐商家">
+    
+      <!-- <template is="show_recommend" data="{{show_recommend}}" /> -->
+    
+  </van-tab>
+</van-tabs>

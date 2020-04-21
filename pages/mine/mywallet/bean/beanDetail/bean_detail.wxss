@@ -1,0 +1,30 @@
+/* .all{
+  height: 100%;
+  width: 750rpx;
+}
+.all .all_item{
+  height: 102rpx;
+  border-bottom: 2rpx solid #FAFAFA;
+  padding: 38rpx 32rpx 0 32rpx;
+  position: relative;
+}
+.all .all_item text{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:#666666;
+}
+.all .all_item .type{
+  display: block;
+  color: #333333;
+  font-size:28rpx;
+}
+.all .all_item .date{
+  margin-right: 25rpx;
+}
+.all .all_item .money{
+  position: absolute;
+  right: 32rpx;
+  top: 50%;
+  transform: translateY(-50%);
+} */

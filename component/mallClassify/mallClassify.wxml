@@ -1,0 +1,13 @@
+<!--component/mallClassify/mallClassify.wxml-->
+<!-- 商城模块 商品分类 -->
+<view class="vanSidebar">
+  <van-sidebar active="{{ active }}" custom-class="vanSidebar2">
+    <van-sidebar-item title="{{item.category_title}}" wx:for="{{sidebarArr}}" bindtap="onChange" wx:key="index" data-arr="{{item.category_children}}" custom-class="{{active==index?'vanSidebar3':''}}" />
+  </van-sidebar>
+</view>
+<view class="content">
+  <view class="c_item" wx:for="{{contentArr}}" wx:key="index" bindtap="toMallList" data-title='{{item.category_title}}'>
+    <image src="{{item.category_cover_image}}"></image>
+    <text>{{item.category_title}}</text>
+  </view>
+</view>

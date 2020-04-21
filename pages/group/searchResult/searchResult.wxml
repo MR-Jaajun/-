@@ -1,0 +1,124 @@
+<!-- pages/searchResult/searchResult.wxml -->
+<wxs src="../../../pages/common/public.wxs" module="fin" />
+<view class="topbar fl_row_cen">
+  <view class="fl1">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot shape="round" bind:change="onChange" bind:search="onSearch">
+      <view slot="action" bind:tap="onClick">搜索</view>
+    </van-search>
+  </view>
+</view>
+<!-- 热门搜索和搜索记录 -->
+<block wx:if="{{contentShow||resData.length==0}}">
+  <view class="result-area">
+    <view class="result-title">热门搜索</view>
+    <view class="hot-list">
+      <block wx:if="{{hotSearchList.length>0}}">
+        <view wx:for="{{hotSearchList}}" wx:key="keys" class="hot-list-item" data-name='{{item.search_title}}' bindtap="SearchClick">
+          {{item.search_title}}
+        </view>
+      </block>
+    </view>
+    <view class="result-title title-2">历史记录</view>
+    <view class="hot-list">
+      <block wx:if="{{historyList.length>0}}">
+        <view wx:for="{{historyList}}" wx:key="index" class="hot-list-item" data-name='{{item}}' bindtap="SearchClick">
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </view>
+</block>
+<block wx:if="{{resData.length>0}}">
+  <view class='v_page'>
+    <view class="topleft">
+      <van-dropdown-menu>
+        <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" bind:change="twoChange" />
+      </van-dropdown-menu>
+    </view>
+    <view class="topright">
+      <view data-id="1" bindtap="oneTap">销量</view>
+      <view data-id="2" bindtap="oneTap">距离</view>
+    </view>
+  </view>
+</block>
+<scroll-view scroll-y="true" class="scroll-y" style=" background:#F4F4F6;">
+  <block>
+    <view class='home_item' wx:for="{{goods_package_list}}" wx:key="index" data-id="{{item.shop_id}}" catchtap="goshopinfo">
+      <view class='one_txt'>
+        <text>{{item.shop_title}}</text>
+        <text class='km'>{{item.shop_distanc}}km</text>
+      </view>
+      <view class='three_txt'>
+        <text class='redbgtxt'>套餐</text>
+        <text>{{item.goods_subtitle}}</text>
+      </view>
+      <view class='two_txt'>
+        <text class='redtxt'>￥{{item.goods_pink_price}}</text>
+        <text>门市价{{item.goods_market_price}}</text>
+      </view>
+      <view class='five_img'>
+        <image class='duoImg' wx:for="{{fin.arrSlice(item.goods_image,0,3)}}" wx:key="index" src='{{item}}'></image>
+      </view>
+    </view>
+    <view class="merchant_item" wx:for="{{goods_voucher_list}}" wx:key="index" style="  margin: 20rpx 0;">
+      <image class="w_img" src="{{fin.arrSlice(item.goods_image,0,1)}}"></image>
+      <view class="right_view">
+        <view class='one_txt'>
+          <text>{{item.shop_title}} </text>
+          <text class='km'>{{item.shop_distanc}}km</text>
+        </view>
+        <image class='r_img' src="../../../images/pingtuan/youhuikuan.png"></image>
+        <text class="r_text">{{item.goods_title}}</text>
+        <view class="two_view">
+          <text class='bgtxt'>代金券</text>
+          <text class="twotxt">{{item.goods_subtitle}}</text>
+        </view>
+        <view class='three_view'>
+          <text class='redtxt'>￥{{item.goods_pink_price}}</text>
+          <text>门市价{{item.goods_market_price}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- <block wx:if="{{search_status==3}}">
+    <view class="merchant_item" wx:for="{{goods_voucher_list}}" wx:key="index" style="  margin: 20rpx 0;">
+      <image class="w_img" src="{{fin.arrSlice(item.goods_image,0,1)}}"></image>
+      <view class="right_view">
+        <view class='one_txt'>
+          <text>{{item.shop_title}} </text>
+          <text class='km'>{{item.shop_distanc}}km</text>
+        </view>
+        <image class='r_img' src="../../../images/pingtuan/youhuikuan.png"></image>
+        <text class="r_text">{{item.goods_title}}</text>
+        <view class="two_view">
+          <text class='bgtxt'>代金券</text>
+          <text class="twotxt">{{item.goods_subtitle}}</text>
+        </view>
+        <view class='three_view'>
+          <text class='redtxt'>￥{{item.goods_pink_price}}</text>
+          <text>门市价{{item.goods_market_price}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="merchant_item" wx:for="{{goods_package_list}}" wx:key="index" style="  margin: 20rpx 0;">
+      <image class="w_img" src="{{fin.arrSlice(item.goods_image,0,1)}}"></image>
+      <view class="right_view">
+        <view class='one_txt'>
+          <text>{{item.shop_title}} </text>
+          <text class='km'>{{item.shop_distanc}}km</text>
+        </view>
+        <image class='r_img' src="../../../images/pingtuan/youhuikuan.png"></image>
+        <text class="r_text">{{item.goods_title}}</text>
+        <view class="two_view">
+          <text class='bgtxt'>代金券</text>
+          <text class="twotxt">{{item.goods_subtitle}}</text>
+        </view>
+        <view class='three_view'>
+          <text class='redtxt'>￥{{item.goods_pink_price}}</text>
+          <text>门市价{{item.goods_market_price}}</text>
+        </view>
+      </view>
+    </view>
+  </block> -->
+
+</scroll-view>

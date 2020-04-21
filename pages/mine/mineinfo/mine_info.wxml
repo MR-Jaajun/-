@@ -1,0 +1,126 @@
+<!-- 顶部 -->
+<view class="top">
+  <view style="float:left" >
+    <!-- <image src="/images/icon_return.png" />
+    <text class="return">返回</text> -->
+  </view>
+  <view style="float:right">
+    <text class="save" bindtap="saveInfo">保存</text>
+  </view>
+</view>
+
+<!-- 用户详细信息 -->
+<view class="user_detail">
+  <!--信息内容 -->
+  <view>
+    <!-- 头像 -->
+    <view class="detail_item" bindtap="showPicture">
+      <text class="detail_l">头像</text>
+      <view class="detail_r">
+        <image class="user_picture" src="{{avatar}}"/>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 会员等级 -->
+    <view class="detail_item" bindtap="level">
+      <text class="detail_l">会员等级</text>
+      <view class="detail_r">
+        <text class="vip">小哥粉</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class="detail_item" bindtap="modify">
+      <text class="detail_l">手机号</text>
+      <view class="detail_r">
+        <text class="tel">{{telNum}}</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 昵称 -->
+    <view class="detail_item" bindtap="showName">
+      <text class="detail_l">昵称</text>
+      <view class="detail_r">
+        <text class="name">{{userName}}</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 性别 -->
+    <view class="detail_item" bindtap="showSex">
+      <text class="detail_l">性别</text>
+      <view class="detail_r">
+        <text class="sex">{{sex}}</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 生日 -->
+    <view class="detail_item" bindtap="showData">
+      <text class="detail_l">生日</text>
+      <view class="detail_r">
+        <text class="birthday">{{ birthday }}</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view>
+    <!-- 地址 -->
+    <!-- <view class="detail_item">
+      <text class="detail_l">我的地址</text>
+      <view class="detail_r">
+        <text class="address">你还未填写地址</text>
+        <image class="icon_next" src="/images/icon_next.png" />
+      </view>
+    </view> -->
+  </view>
+</view>
+
+
+<!-- 退出登录 -->
+<view class="exit_btn" bindtap="exitLogin">
+  退出登录
+</view>
+
+
+<!-- 头像弹窗 -->
+<van-popup class="show_picture" show="{{show_picture}}" bind:close="closePicture">
+  <view class="p_item" bindtap="useCamera">打开相机</view>
+  <view class="p_item" bindtap="useAlbum">相册</view>
+  <view class="p_item" style="border-bottom:none" bindtap="closePicture">取消</view>
+</van-popup>
+<!-- 昵称弹窗 -->
+<van-popup class="show_name" show="{{show_name}}" bind:close="closeName">
+  <view class="n_item">姓名：
+    <input type="text" placeholder="请填写更改的名字" bindblur="getVal" maxlength="8"/>
+  </view>
+  <view class="n_item" bindtap="nameOK">确定</view>
+</van-popup>
+<!-- 性别 -->
+<van-popup class="show_sex" show="{{show_sex}}" bind:close="closeSex">
+  <!-- <view class="s_item" bindtap="chooseMale">
+    <image src="/images/icon_male.png"/>男
+    <image class="choose" src="/images/icon_selection.png" wx:if="{{choose_male}}"/>
+  </view>
+  <view class="s_item" bindtap="chooseFemale">
+    <image src="/images/icon_female.png"/>女
+    <image class="choose" src="/images/icon_selection.png" wx:if="{{choose_female}}"/>
+  </view> -->
+  <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <van-radio name="1" checked-color="#FF4444">
+      <image src="/images/icon_male.png" />
+      <text>男</text>
+    </van-radio>
+    <van-radio name="2" checked-color="#FF4444">
+      <image src="/images/icon_female.png" />
+      <text>女</text>
+    </van-radio>
+  </van-radio-group>
+</van-popup>
+<!-- 生日 -->
+<van-popup class="show_data" show="{{show_data}}" bind:close="closeData">
+  <van-datetime-picker 
+    type="date" 
+    value="{{ currentDate }}" 
+    bind:cancel="closeData" 
+    bind:input="onInput" 
+    min-date="50" 
+    formatter="{{ forMatter }}" 
+    bind:confirm="birthday"/>
+</van-popup>

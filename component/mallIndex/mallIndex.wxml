@@ -1,0 +1,120 @@
+<!-- 头部搜索栏 -->
+<view class='top_bar'>
+  <!-- <view class='top_txt'>广州</view> -->
+  <van-search style='width:310px;' shape="round" background="#fff" value="{{ value }}" placeholder="搜索商品,商家名称" />
+  <image bindtap='toNotify' src='/images/icon_lindang.png'></image>
+</view>
+<!-- 日常推荐 -->
+<view class='hot'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="{{item.cover}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+<!-- 导航栏 -->
+<!-- /images/icon_delicious_food.png -->
+<view class="nav">
+  <block wx:for="{{menuList}}" wx:key="index">
+    <view class="nav_item" data-jid="{{item.jump_id}}" data-title="{{item.title}}" bindtap="toGoods">
+      <image src="{{item.cover}}"></image>
+      <text>{{item.title}}</text>
+    </view>
+  </block>
+</view>
+
+<!-- 底部导航 -->
+<malltabbar></malltabbar>
+
+<!-- 限时抢购 -->
+<view class="sale">
+  <!-- 限时商品 -->
+  <view class="left" bindtap="toTimelimit">
+    <view class="sale_top">
+      <view>
+        <image src="/images/xianshi@2x.png"></image>
+      </view>
+      <view class="sale_time">
+        <view class="time">{{scene_data.scene_title}}</view>
+        <view class="cutdown">
+          <van-count-down time="{{ time }}" bind:finish="finished" />
+        </view>
+
+      </view>
+    </view>
+    <view class="sale_bottom">
+      <view wx:for="{{goods_list}}" wx:key="index">
+        <image src="{{item.goods_cover_image}}"></image>
+        <view class="price">
+          <text>￥{{item.goods_sku_seckill_price}}</text>
+          <text>￥{{item.goods_sku_sale_price}}</text>
+        </view>
+      </view>
+      <view wx:if="{{goods_list.length<1}}">
+        <image src=""></image>
+        <view class="price">
+          <text>￥145.00</text>
+          <text>￥165.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 拼团 -->
+  <view class="right">
+    <view class="sale_top">
+      <view>
+        <image src="/images/pingtuan@2x.png" style="width:124rpx;height:28rpx;"></image>
+      </view>
+      <view class="sale_time" bindtap="topinkList">
+        <text style="font-size:22rpx;color:rgba(243,85,60,1);">热销商品</text>
+        <image src="/images/icon_more@2x.png" style="width:8rpx;height:14rpx;"></image>
+      </view>
+    </view>
+    <view class="sale_bottom" bindtap="topinkList">
+      <view wx:for="{{pink_goods}}" wx:key="index">
+        <image src="{{item.goods_cover_image}}"></image>
+        <view class="price">
+          <text>￥{{item.goods_pink_price}}</text>
+          <text>￥{{item.goods_sale_price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 推荐专区 -->
+<view class="recommend">
+  <view class="r_title">
+    <image src="/images/beijin.png" class="title_img" />
+    <view class="more" bindtap="toMallList">
+      <text>查看更多</text>
+      <image src="/images/icon_next.png"></image>
+    </view>
+  </view>
+  <view class="r_con">
+    <view class="r_item" wx:for="{{recommend}}" wx:key="index" bindtap="todetail" data-gid="{{item.goods_id}}">
+      <image src="{{item.goods_cover_image}}" />
+      <text class="goods_title">{{item.goods_title}}</text>
+      <view class="goods_price">
+        <text>￥{{item.goods_sale_price}}</text>
+        <text>{{item.goods_sale_amount}}人付款</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+<!-- 底线 -->
+<!-- <import src="../common/loadmore.wxml" />
+<!-- <template is="loadmore"/> -->
+<!-- <template is="nodata" />  -->

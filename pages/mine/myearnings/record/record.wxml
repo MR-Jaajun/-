@@ -1,0 +1,15 @@
+<view class="record_item">
+  <text>2019/09/02</text>
+  <text>15:34:00</text>
+  <text space="ensp">提现金额  ¥12.00</text>
+</view>
+<view class="record_item">
+  <text>2019/09/03</text>
+  <text>15:36:00</text>
+  <text space="ensp">提现金额  ¥15.00</text>
+</view>
+<view class="record_item">
+  <text>2019/09/04</text>
+  <text>15:34:85</text>
+  <text space="ensp">提现金额  ¥19.00</text>
+</view>

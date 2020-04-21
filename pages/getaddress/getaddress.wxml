@@ -1,0 +1,33 @@
+<van-search value="{{ value }}" shape="round" placeholder="搜索城市名称" bind:change="getsuggest" bind:clear="resetSearch" />
+
+<view class="body">
+  <view class="myaddress">
+    <view class="nowaddress fl_row_cen">
+      <image src="/images/weizhi-tianchong.png"></image>
+      <text>当前定位城市：{{city}}</text>
+    </view>
+  </view>
+  <view hidden="{{!searchCities.length}}">
+    <van-cell-group>
+      <van-cell wx:for="{{searchCities}}" wx:key="*this" title="{{item}}" data-name="{{item}}" bindtap="getSearchCity"/>
+      <!-- <van-cell title="单元格"/> -->
+    </van-cell-group>
+  </view>
+  <view hidden="{{searchCities.length}}" class="i-index-demo">
+    <i-index height="100%" bind:change="onChange">
+      <view class="hotcity">
+        <view class="hotcity_title">热门城市</view>
+        <block wx:for="{{hotCities}}" wx:key="*this">
+          <view class="addr_item" data-name="{{item}}" bindtap="getHotCity">{{item}}</view>
+        </block>
+      </view>
+      <i-index-item wx:for="{{ cities }}" wx:for-index="index" wx:key="{{index}}" wx:for-item="item" name="{{item.key}}">
+        <view class="i-index-demo-item" wx:for="{{item.list}}" wx:for-index="in" wx:key="{{in}}" wx:for-item="it" data-addrname="{{it.name}}" bindtap="getaddr">
+          {{it.name}}
+        </view>
+      </i-index-item>
+
+    </i-index>
+  </view>
+  
+</view>

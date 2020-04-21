@@ -1,0 +1,118 @@
+/* pages/mall/collect/collect.wxss */
+
+page {
+  background: #f8f8f8;
+}
+
+.goods {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750rpx;
+  height: 212rpx;
+  padding: 40rpx 32rpx 32rpx 32rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid rgba(241, 236, 236, 1);
+  position: relative;
+  background: #fff;
+}
+
+.goods .goodsinfo {
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goods .goodsinfo text:nth-child(1) {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goods .goodsinfo .t1 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  color: #e11a1a;
+}
+
+.goods image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin-right: 32rpx;
+}
+
+.goods .icons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 32rpx;
+}
+
+/* 商家 */
+
+.shops {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 710rpx;
+  height: 124rpx;
+  padding: 24rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0px 6px 16px rgba(180, 180, 180, 0.09);
+  position: relative;
+  margin-top: 20rpx;
+  border-radius: 8rpx;
+}
+
+.shops image {
+  width: 76rpx;
+  height: 76rpx;
+  background: #ccc;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+
+}
+
+.shops .btn {
+  width: 114rpx;
+  height: 50rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1rpx solid rgba(225, 26, 26, 1);
+  border-radius: 26rpx;
+  font-size: 28rpx;
+  color: #e11a1a;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.shops .goodsinfo {
+  height: 76rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shops .goodsinfo text:nth-child(1) {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+}
+
+.shops .goodsinfo text:nth-child(2) {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+}

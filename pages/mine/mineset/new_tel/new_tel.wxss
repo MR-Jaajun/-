@@ -1,0 +1,51 @@
+.title{
+  margin: 20rpx 0 0 20rpx;
+}
+.tel,.security{
+  height: 100rpx;
+  line-height:100rpx;
+  padding:0 20rpx 0 32rpx;
+  position: relative;
+}
+input{
+  height:100rpx;
+  font-size:30rpx;
+  border-bottom:1px solid rgba(241,242,238,1);
+  font-weight: 600;
+}
+.security input{
+  font-size: 30rpx;
+  width: 500rpx;
+}
+.security .get_security{
+  height:80rpx;
+  width: 200rpx;
+  box-shadow:0px 9px 16px rgba(0,0,0,0.14);
+  border-radius:33px;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  bottom: 8rpx;
+  right: 18rpx;
+}
+.security .noSend{
+  background:linear-gradient(94deg,rgba(63,73,80,1) 0%,rgba(44,52,56,1) 100%);
+  color:rgba(255,255,255,1);
+  font-size:28rpx; 
+}
+.security .isSend{
+  background: #f5f5f5;
+  color: #999;
+  font-size: 24rpx;
+}
+.next_btn{
+  text-align: center;
+  line-height: 80rpx;
+  width:494rpx;
+  height:80rpx;
+  color:rgba(255,255,255,1);
+  background:linear-gradient(94deg,rgba(63,73,80,1) 0%,rgba(44,52,56,1) 100%);
+  box-shadow:0px 18rpx 32rpx rgba(0,0,0,0.14);
+  border-radius:66rpx;
+  margin:115rpx 0 0 124rpx; 
+}

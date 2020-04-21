@@ -1,0 +1,38 @@
+<template name="earnings">
+  <view class="tab1_item">
+    <view class="item_left">
+      <text>结算收入</text>
+      <text>¥{{month_amount}}</text>
+      <text>本月收益</text>
+    </view>
+    <view class="item_right">
+      <text>预估收益</text>
+      <text>¥{{mouth_predict}}</text>
+      <text>本月收益</text>
+    </view>
+  </view>
+  <view class="tab1_item">
+    <view class="item_left">
+      <text>结算收入</text>
+      <text>¥{{last_amount}}</text>
+      <text>上月收益</text>
+    </view>
+    <view class="item_right">
+      <text>预估收益</text>
+      <text>¥{{last_predict}}</text>
+      <text>上月收益</text>
+    </view>
+  </view>
+  <view class="tab1_item">
+    <view class="item_left">
+      <text>结算收入</text>
+      <text>¥{{yesterday_amount}}</text>
+      <text>昨日收益</text>
+    </view>
+    <view class="item_right">
+      <text>预估收益</text>
+      <text>¥{{yesterday_predict}}</text>
+      <text>昨日收益</text>
+    </view>
+  </view>
+</template>

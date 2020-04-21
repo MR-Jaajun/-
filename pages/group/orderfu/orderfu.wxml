@@ -1,0 +1,71 @@
+<!--pages/group/order/order.wxml-->
+<wxs src="../../../pages/common/public.wxs" module="fin" />
+<view>
+  <view class="m_item">
+    <view class="left_view">
+      <image class="w_img" wx:if="{{order.goods_type==2}}" src="{{order.goods_cover_image}}"></image>
+      <image class="w_img" wx:if="{{order.goods_type==1}}" src="{{order.shop_cover_image}}"></image>
+    </view>
+
+    <view class="right_view">
+      <view class='one_txt'>
+        <text>{{order.goods_title}} </text>
+      </view>
+      <view class="two_view">
+        {{order.goods_booking}}
+      </view>
+      <view class='three_view'>
+        <text>随时退、过期自动退</text>
+      </view>
+      <view class='s_view'>
+        <!-- 发起拼团 -->
+        <text wx:if="{{type==2}}">¥{{order.goods_pink.pink_price}}</text>
+        <!-- 单独购买 -->
+        <text wx:if="{{type==1}}">¥{{order.goods_sale_price}}</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+<view class="num_div">
+  <view class="left_div">
+    数量
+  </view>
+  <view class="right_div">
+    <image class="t2" src="../../../images/icon_reduce.png" bindtap="bindMinus"></image>
+    <text class='t3'>{{num}}</text>
+    <image class="t2" src="../../../images/icon_plus.png" bindtap="bindAdd"></image>
+  </view>
+</view>
+<view class="num_div">
+  <view class="left_div">
+    小计
+  </view>
+  <!-- 发起拼团 -->
+  <view class="text_right" wx:if="{{type==2}}">
+    ¥{{order.goods_pink.pink_price*num}}
+  </view>
+  <!-- 单独购买 -->
+  <view class="text_right" wx:if="{{type==1}}">
+    ¥{{order.goods_sale_price*num}}
+  </view>
+</view>
+<view class="num_div" wx:if="{{phone}}">
+  <view class="left_div">
+    手机号
+  </view>
+  <view class="text_right">
+    {{phone}}
+  </view>
+</view>
+<!-- 发起拼团 -->
+<view class="tjorder" data-pay='1' wx:if="{{type==2}}" bindtap="tjorder">
+  ¥{{order.goods_pink.pink_price*num}}
+  <text>提交订单</text>
+</view>
+<!-- 单独购买 -->
+<view class="tjorder" data-pay="0" wx:if="{{type==1}}" bindtap="tjorder">
+  ¥{{order.goods_sale_price*num}}
+  <text>提交订单</text>
+</view>
+<!-- obj.goods_sale_price -->

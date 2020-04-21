@@ -1,0 +1,51 @@
+<!-- 引用 -->
+<import src="../../common/loadmore.wxml" />
+<import src="../../common/collect_item.wxml" />
+<!-- <view class="top">
+  <text class="ok" style="font-weight:400;font-size:26rpx;float:right;">完成</text>
+</view> -->
+<van-tabs swipeable>
+  <!-- 商品收藏 -->
+  <van-tab title="商品">
+    <view class="shop_item" wx:for="{{goodsList}}" wx:key="goods_id" data-index="{{index}}" >
+      <view class="shop_photo">
+        <image src="{{item.cover_image}}"></image>
+      </view>
+      <view class="shop_info">
+        <view class="shop_title" style="margin-bottom:20rpx;">
+          <image class="shop_icon" src="/images/icon_marketsmall.png" />
+          <text>{{item.goods_title}}</text>
+        </view>
+        <view class="shop_price">
+          <text>￥</text>
+          <text>{{item.sale_price}}</text>
+        </view>
+      </view>
+      <image class="next" src="/images/icon_next.png" />
+    </view>
+
+
+    <!-- 上拉loading -->
+    <template wx:if="{{show}}" is="{{isHideLoadMore ? 'loadmore' : 'nodata'}}"/>
+  </van-tab>
+  <!-- 商家收藏 -->
+  <van-tab title="商家">
+    <view class="merchant_list">
+      <template is="collect_item" data="{{shopsList}}" bindlongtap="del"/>
+    </view>
+    <!-- 上拉loading -->
+    <template  wx:if="{{show}}" is="{{isHideLoadMore ? 'loadmore' : 'nodata'}}" />
+  </van-tab>
+</van-tabs>
+<van-dialog
+  id="van-dialog"
+  message="您是否要删除此收藏商品"
+  show="{{ close }}"
+  show-cancel-button
+  async-close="true"
+  close-on-click-overlay
+  bind:cancel="onClose"
+  bind:confirm="isDel"
+  bind:getuserinfo="getUserInfo"
+>
+</van-dialog>

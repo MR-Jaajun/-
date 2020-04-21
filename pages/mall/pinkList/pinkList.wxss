@@ -1,0 +1,137 @@
+/* pages/mall/mallList/mallList.wxss */
+
+.category {
+  width: 750rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 6px 22px rgba(41, 63, 100, 0.09);
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+}
+
+.border {
+  display: inline-block;
+  font-weight: bold;
+  color: rgba(255, 79, 0, 1);
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #ff4f00;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0 44rpx;
+  width: fit-content;
+}
+
+.title {
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: fit-content;
+  font-size: 24rpx;
+  margin: 0 44rpx;
+  font-weight: 400;
+  color: #333;
+}
+
+.goodsList {
+  display: flex;
+  /* justify-content: space-around; *//* align-items: center; */
+  width: 750rpx;
+  height: 340rpx;
+  padding: 24rpx 32rpx 24rpx 32rpx;
+  border-bottom: 2rpx solid #f1ecec;
+  box-sizing: border-box;
+}
+
+.goodsList .goods_img {
+  margin-right: 32rpx;
+  width: 294rpx;
+  height: 294rpx;
+  border-radius: 10rpx;
+  background: #58bc58;
+}
+
+.goodsinfo {
+  height: 294rpx;
+  width: 360rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goodsinfo view:nth-child(1) {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.goodsinfo view:nth-child(2) {
+  font-size: 28rpx;
+  color: #666;
+  margin: 22rpx 0 22rpx 0;
+}
+
+.goodsinfo view:nth-child(3) text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.goodsinfo view:nth-child(4) text {
+  font-size: 22rpx;
+  color: #333;
+}
+
+/* .goodsinfo view:nth-child(4) image {
+  width: 10rpx;
+  height: 16rpx;
+} */
+
+.goodsinfo .topink {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 128rpx;
+  height: 52rpx;
+  background: rgba(255, 79, 0, 1);
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goodsinfo>.topink text {
+  margin-right: 6rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+/* 我的订单 */
+
+.order {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 120rpx;
+}
+
+.order view {
+  width: 670rpx;
+  height: 80rpx;
+  background: rgba(252, 206, 6, 1);
+  box-shadow: 0px 18rpx 28rpx rgba(0, 0, 0, 0.14);
+  border-radius: 66rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(48, 54, 57, 1);
+  letter-spacing: 2rpx;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}

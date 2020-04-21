@@ -1,0 +1,65 @@
+/* component/malltabbar/malltabber.wxss */
+
+/* .operations {
+  position: fixed;
+  z-index: 100;
+  bottom: 120rpx;
+  right: 32rpx;
+  width: 168rpx;
+  height: 216rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(210, 204, 204, 1);
+  box-shadow: 0px 6rpx 24rpx rgba(0, 0, 0, 0.06);
+  border-radius: 12rpx;
+}
+
+.operations>view {
+  height: 72rpx;
+  font-size: 24rpx;
+  line-height: 72rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+  text-align: center;
+  position: relative;
+}
+
+.operations view:nth-child(2) {
+  border-bottom: 2rpx solid #f1ecec;
+  border-top: 2rpx solid #f1ecec;
+} */
+page{
+  position: relative;
+}
+.meauList {
+  position: fixed;
+  top: 984rpx;
+  left: 85%;
+  /* margin-left: 50rpx; */
+  width: 168rpx;
+  height: 228rpx;
+  border-radius: 13rpx;
+  border: 2rpx solid rgba(210, 204, 204, 1);
+  box-shadow: 0px 6rpx 24rpx rgba(0, 0, 0, 0.06); 
+}
+
+.meauList .m_list {
+  height: 72rpx;
+  background: #fff;
+  line-height: 72rpx;
+  text-align: center;
+}
+.meauList .m_list:nth-child(2){
+  border-bottom: 2rpx solid #f1ecec;
+  border-top: 2rpx solid #f1ecec;
+}
+.m_list text {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+}
+
+.m_list image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 24rpx 0 20rpx;
+}

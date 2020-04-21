@@ -1,0 +1,34 @@
+<!--component/gropTap/gropTap.wxml-->
+<!--团购页底部tab-->
+
+
+<van-tabbar active="{{ active }}" z-index="3" active-color="#333" inactive-color="#999" bind:change="onChange">
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_fefefre@2x(1).png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />
+    <image slot="icon-active" src="/icon/icon_fefefre@2x.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" /> 首页
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_yongjuan1.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />
+    <image slot="icon-active" src="/icon/icon_yongjuan2.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />用券
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="/icon/icon_ksadk@2x.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />
+    <image slot="icon-active" src="/icon/icon_ordeer@2x.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />订单
+  </van-tabbar-item>
+  <van-tabbar-item bindtap="showMore">
+    <image slot="icon" src="/icon/icon_sdfjsjf@2x.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />
+    <image slot="icon-active" src="/icon/icon_sdfjs.png" mode="aspectFit" style="width: 62rpx; height: 38rpx;" />更多
+  </van-tabbar-item>
+</van-tabbar>
+
+<van-popup show="{{ showmeau }}" bind:close="onClose" custom-class="meauList" overlay-style="opacity:0.5;height:{{heights}}rpx">
+</van-popup>
+
+<view class="aaa" wx:if="{{showmeau}}" >
+  <view class="m_list" bindtap="toCollect">
+    <text>收藏列表</text>
+  </view>
+  <view class="m_list" bindtap="myCard">
+    <text>我的卡券</text>
+  </view>
+</view>

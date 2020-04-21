@@ -1,0 +1,99 @@
+<!-- 常见问题 -->
+<view class="title">常见问题</view>
+<view class="problem">
+  <view class="problem_list" wx:for="{{problemList}}">
+    <text>{{item}}</text>
+    <image src="/images/icon_next.png"></image>
+  </view>
+</view>
+<!-- 更多问题分类 -->
+<view class="title title2">更多问题分类</view>
+<view class="problem">
+  <view class="problem_list" wx:for="{{moreList}}" data-index="{{index}}" wx:key="{{index}}" bindtap="toDetail">
+    <text>{{item}}</text>
+    <image src="/images/icon_next.png"></image>
+  </view>
+</view>
+
+<!-- 咨询电话 -->
+<view class="call" bindtap="call">
+  <view class="info">
+    <view>咨询电话</view>
+    <view>(9:00-24:00)</view>
+  </view>
+  <image src="/images/icon_hkmm.png"></image>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 头部 -->
+<!-- <view class="top">
+  <view class="logo">
+    <image src="" style="width:94rpx;height:76rpx;" />
+  </view>
+  <view class="title">很高兴为你服务</view>
+  <view class="tab"> -->
+    <!-- 拨打客服电话 -->
+    <!-- <view class="tab_item" bindtap="call">
+      <image src="/images/icon_hkmm.png" />
+      <text class="t">热线</text>
+    </view> -->
+    <!-- 投诉商家 -->
+    <!-- <view class="tab_item" bindtap="complain">
+      <image src="/images/icon_complaint.png" />
+      <text class="t">投诉</text>
+    </view>
+    <view class="tab_item" bindtap="rate_of_progress">
+      <image src="/images/icon-asxc.png" />
+      <text class="t">服务进度</text>
+    </view>
+  </view>
+</view> -->
+<!-- hi，您是以下订单遇到问题么？ -->
+<!-- <view class="problem">hi，您是以下订单遇到问题么？</view> -->
+
+<!-- 订单里的问题 -->
+<!-- <view class="order_problem">
+  <view class="order">
+    <image src="/images/icon_market.png" />
+    <view class="order_info" style="float:left;">
+      <text style="color:#333;font-size:28rpx;">商品名称</text>
+      <text style="color:#666;font-size:20rpx;">巨无霸等2件商品</text>
+    </view>
+    <view class="order_status" style="float:right;">
+      <text style="color:#666;font-size:24rpx;">订单完成</text>
+      <text style="color:#333;font-size:20rpx;">实付￥23.0</text>
+    </view>
+  </view> -->
+  <!-- 直接致电商家 -->
+  <!-- <view class="call" bindtap="call">联系商家</view>
+  <view class="problem_info" wx:if="{{change_show}}">
+    <view>如何联系商家？</view>
+    <view>红包无法使用？</view>
+    <view>如何投诉商家或是骑手?</view>
+    <view>如何追加评论？</view>
+  </view>
+  <view class="problem_info" wx:if="{{!change_show}}">
+    <view>为什么这么慢？</view>
+    <view>为什么打电话也不接？</view>
+    <view>如何退款?</view>
+    <view>如何再来一单？</view>
+  </view>
+  <view class="change" bindtap="change">换一批</view>
+</view> -->

@@ -1,0 +1,30 @@
+<view class='fx_left login_bg'>
+  <text class='top_tip'>账号登录</text>
+  <block wx:if="{{canIUse}}">
+    <text class='main_tip'>欢迎来到兜宝小哥</text>
+    <text class='main_tip_num'>绑定手机号并登录</text>
+    <view class='inputNum'>
+      <input type='number' name='phoneinput' placeholder='请输入正确的手机号' bindinput="bindKeyInput" placeholder-class='pla_sty' />
+      <image class='f_img' src="{{imgcode}}" bindtap="getimg"></image>
+    </view>
+    <view class='inputNum'>
+      <input type='txt' name='codeinput' placeholder='请输入图形验证码' placeholder-class='pla_sty' bindinput="bindKeyInput2" />
+      <view wx:if="{{isSend}}" class="fz24" bindtap="getcode">获取短信验证码</view>
+      <view wx:if="{{!isSend}}" class="fz24">{{count}}s</view>
+    </view>
+    <view class='inputNum'>
+      <input type='txt' name='codeinput' placeholder='请输入短信验证码' placeholder-class='pla_sty' bindinput="bindKeyInput1" />
+    </view>
+
+    <view class='sign_in_sub' bindtap="formSubmit">登录</view>
+    <view class='other_tip' bindtap="tohome">
+      <text>去首页></text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="updateTxt">版本过低，无法正常使用功能，请升级版本</view>
+    <view class="updateBtn">
+      <button type="primary">点击升级</button>
+    </view>
+  </block>
+</view>

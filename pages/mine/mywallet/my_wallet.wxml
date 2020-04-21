@@ -1,0 +1,34 @@
+<view class="wallet">
+<!-- 余额 -->
+  <view class="wallet_item" bindtap="balance">
+    <view class="wallet_l">账户余额</view>
+    <view class="wallet_r">
+      ￥<text class="money">{{balance}}</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+  <!-- 小哥豆 -->
+  <view class="wallet_item" bindtap="bean">
+    <view class="wallet_l">小哥豆</view>
+    <view class="wallet_r">
+      <text>{{bean}}个</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+  <!-- 银行卡 -->
+  <!-- <view class="wallet_item">
+    <view class="wallet_l">银行卡</view>
+    <view class="wallet_r">
+      <text>你还没有绑卡哦</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view> -->
+  <!-- 卡券 -->
+  <view class="wallet_item" bindtap="coupon">
+    <view class="wallet_l">卡券</view>
+    <view class="wallet_r">
+      <text>暂无卡券</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+</view>

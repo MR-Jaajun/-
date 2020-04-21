@@ -1,0 +1,50 @@
+<wxs src="../../../../pages/common/public.wxs" module="foo" />
+
+<view class="message">
+<!-- 外卖通知 -->
+  <view class="message_list" wx:for="{{activityList}}" wx:key="{{item.id}}">
+    <view class="message_con">
+      <view class="message_type">
+        <image src="/images/icon_takedsmall.png" />
+        <text wx:if="{{item.module_type == 1}}">小哥商城</text>
+        <text wx:elif="{{item.module_type == 2}}">小哥外卖</text>
+        <text wx:else="{{item.module_type == 3}}">您有一笔新到账的佣金</text>
+      </view>
+      <text class="message_status">支付超时，订单已取消{{item.title}}</text>
+    </view>
+    <view class="toDetail" bindtap="toMessageDetail">
+      <text style="vertical-align: middle;">查看详情</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+
+  <!-- 商城通知 -->
+  <view class="message_list">
+    <view class="message_con">
+      <view class="message_type">
+        <image src="/images/icon_marketsmall.png" />
+        <text>小哥商城</text>
+      </view>
+      <text class="message_status">支付超时，订单已取消</text>
+    </view>
+    <view class="toDetail" bindtap="toMessageDetail">
+      <text style="vertical-align: middle;">查看详情</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+
+  <!-- 佣金通知 -->
+  <view class="message_list">
+    <view class="message_con">
+      <view class="message_type">
+        <image src="/images/icon_yongjin.png" />
+        <text>您有一笔新到账的佣金</text>
+      </view>
+      <text class="message_status">您有一笔新到账的佣金，快去查看佣金吧！</text>
+    </view>
+    <view class="toDetail" bindtap="toFeeDetail">
+      <text style="vertical-align: middle;">查看详情</text>
+      <image src="/images/icon_next.png" />
+    </view>
+  </view>
+</view>

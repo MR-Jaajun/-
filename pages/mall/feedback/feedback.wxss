@@ -1,0 +1,136 @@
+/* pages/mall/feedback/feedback.wxss */
+
+.top {
+  height: 168rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 26rpx 32rpx;
+  /* display: flex; */
+  border-bottom: 2rpx solid #f1ecec;
+}
+
+.top image {
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin-right: 22rpx;
+  float: left;
+}
+
+.rate {
+  width: fit-content;
+  /* float: left; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 116rpx;
+}
+
+.rate text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.rate .title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  /* letter-spacing: 2rpx; */
+}
+
+.rate .rate2 {
+  /* margin-top:  */
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.upload {
+  padding: 28rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.v1 {
+  position: relative;
+  background-color: #fafafa;
+  border-radius: 20rpx;
+  width: 100%;
+  height: 530rpx;
+  padding: 0 22rpx;
+  box-sizing: border-box;
+}
+
+.v1 .txtnum {
+  position: absolute;
+  right: 16rpx;
+  top: 24rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.areas {
+  width: 590rpx;
+  height: 300rpx;
+  box-sizing: border-box;
+  padding: 22rpx 22rpx 0 22rpx;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+}
+
+.imgurl {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* 匿名 */
+
+.anonymity {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.anonymity text {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 36rpx;
+}
+
+.shop_rate {
+  padding: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.shop_rate>.text {
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+/* 发布 */
+
+.announce {
+  width: 698rpx;
+  height: 80rpx;
+  background: rgba(252, 206, 6, 1);
+  box-shadow: 0px 18rpx 28rpx rgba(0, 0, 0, 0.14);
+  border-radius: 336rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  bottom: 26rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

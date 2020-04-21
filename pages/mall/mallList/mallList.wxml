@@ -1,0 +1,62 @@
+<van-tabs animated sticky bind:change="onChange" active="1" bind:click="pricesort">
+  <!-- 综合 -->
+  <van-tab title="综合" name="1">
+    <view class="goodsList" wx:for="{{recommend}}" wx:key="index">
+      <image src="{{item.goods_cover_image}}" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>{{item.goods_title}}</view>
+        <view>{{item.goods_subtitle}}</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">{{item.goods_sale_price}}</text>
+          <text style="color:#666;margin-left:36rpx">{{item.goods_sale_amount}}人付款</text>
+        </view>
+        <view>
+          <text>{{item.shop_title}}</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 销量 -->
+  <van-tab title="销量" name="2">
+    <view class="goodsList" wx:for="{{recommend}}" wx:key="index">
+      <image src="{{item.goods_cover_image}}" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>{{item.goods_title}}</view>
+        <view>{{item.goods_subtitle}}</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">{{item.goods_sale_price}}</text>
+          <text style="color:#666;margin-left:36rpx">{{item.goods_sale_amount}}人付款</text>
+        </view>
+        <view>
+          <text>{{item.shop_title}}</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <!-- 价格 -->
+  <van-tab title="价格" name="3">
+    <view class="goodsList" wx:for="{{recommend}}" wx:key="index">
+      <image src="{{item.goods_cover_image}}" class="goods_img"></image>
+      <view class="goodsinfo">
+        <view>{{item.goods_title}}</view>
+        <view>{{item.goods_subtitle}}</view>
+        <view>
+          <text style="color:#E11A1A;">￥</text>
+          <text style="font-size:44rpx;color:#E11A1A;">{{item.goods_sale_price}}</text>
+          <text style="color:#666;margin-left:36rpx">{{item.goods_sale_amount}}人付款</text>
+        </view>
+        <view>
+          <text>{{item.shop_title}}</text>
+          <text style="color:#333;margin:0 14rpx;">进店</text>
+          <image src="/images/icon_next.png"></image>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

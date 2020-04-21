@@ -1,0 +1,37 @@
+<!-- 搜索结果弹出层 -->
+<!-- <template is="searchPopup" data="{{isshowsearch}}"></template> -->
+<view class="nowaddress">
+  <view class="nowaddress_item fl_row_cen">
+    <view class="togetaddr" bindtap="togetaddr">
+      <image src="/images/icon_location-1.png"></image>
+      <text>{{city}}</text>
+      <image class="down" src="/images/icon-fanhui.png"></image>
+    </view>
+    <view class="ser_fl1">
+      <van-search bind:change="getsuggest" value="{{ backfill }}" shape="round" placeholder="请输入收货地址" />
+    </view>
+    <!-- <text>搜索</text> -->
+  </view>
+  <view class="nowaddress_item fl_row_cen">
+    <text class="fl1">系统自动定位到当前地址</text>
+    <image src="/images/icon_location-1.png"></image>
+    <button wx:if="{{isLocaled}}" bindtap="getLocationHandle" size="mini">重新定位</button>
+    <button wx:else open-type="openSetting" bindopensetting="toOpenSetting" size="mini">授权定位</button>
+    
+  </view>
+  <view class="nowaddress_item fl_row_cen" wx:if="{{defaultAddress}}" bindtap="setDefltAds">
+    <van-tag color="#999">默认</van-tag>
+    <text>{{defaultAddress.province}}{{defaultAddress.city}}{{defaultAddress.area}}{{defaultAddress.address}} {{defaultAddress.receiver}}</text>
+  </view>
+  <view class="nowaddress_item fl_row_cen">
+    <image src="/images/icon_address.png"></image>
+    <text>附近地址</text>
+  </view>
+  <!--关键词输入提示列表渲染-->
+  <block wx:for="{{suggestion}}" wx:key="index">
+    <view class="nowaddress_item fl_row_cen" bindtap="backfill" id="{{index}}">
+        {{item.title}}
+        <text style="font-size:12px;color:#666;text-align:center;">({{item.addr}})</text>
+    </view>
+  </block>
+</view>

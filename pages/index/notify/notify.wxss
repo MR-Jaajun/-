@@ -1,0 +1,55 @@
+.notify{
+  padding: 0 30rpx;
+}
+.van-tab__pane{
+  padding: 0 30rpx;
+}
+ .notify_item{
+  padding: 30rpx 0;
+  height: 76rpx;
+  width: 690rpx;
+  border-bottom: 2rpx solid #F2EEEE;
+  position: relative;
+}
+ .notify_item .time{
+  position: absolute;
+  color: #666666;
+  font-size:20rpx;
+  top: 24rpx;
+  right: 32rpx;
+}
+.imgtype{
+  width: 72rpx;
+  height: 72rpx;
+  float: left;
+  margin-right: 18rpx;
+  border-radius:4rpx;
+  position: relative;
+}
+ .notify_item .imgtype image{
+   width: 72rpx;
+   height: 72rpx;
+ }
+ .notify_title{
+   color: #333333;
+   font-size: 28rpx;
+   font-weight:bold;
+ }
+ .notify_info{
+   color: #666666;
+   font-size: 24rpx;
+ }
+
+ .notify_item .imgtype .notify_num{
+  position:absolute; 
+  top: -12rpx;
+  left: -10rpx;
+  width:42rpx;
+  height:24rpx;
+  background:rgba(241,75,75,1);
+  font-size: 22rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 24rpx;
+  border-radius:12rpx;
+ }

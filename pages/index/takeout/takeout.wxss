@@ -1,0 +1,7 @@
+.van_search_view .van-search__content{border-radius: 8px;}
+.van_search_view .van-search{
+  padding: 20rpx;
+}
+.van-checkbox {
+  align-items: center;
+}

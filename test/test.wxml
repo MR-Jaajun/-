@@ -1,0 +1,38 @@
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<!-- <open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data> -->
+<!-- 需要使用 button 来授权登录 -->
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindgetToken">授权登录</button>
+<view wx:else>请升级微信版本</view>
+
+<block wx:if="{{isshowphoneBtn}}">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section__title"></view>
+      <input name="phoneinput" placeholder="请输入手机号" bindblur="bindKeyInput"/>
+    </view>
+    <view class="section">
+      <view class="section__title"></view>
+      <input name="codeinput" placeholder="请输入验证码" />
+      <button bindtap="getcode">获取验证码</button>
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">Submit</button>
+      <button form-type="reset">Reset</button>
+    </view>
+  </form>
+</block>
+
+<button bindtap="getPhpUserInfo">获取用户信息</button>
+<button bindtap="seeuserok">引导用户重新授权</button>
+
+
+<button bindtap="asd">获取地址</button>
+
+<button bindtap="useCamera">使用相机</button>
+
+
+
+
+
+

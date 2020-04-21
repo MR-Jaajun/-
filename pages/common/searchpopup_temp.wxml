@@ -1,0 +1,32 @@
+<template name="searchpopup_temp">
+  <scroll-view wx:if="{{isshowsearch}}" scroll-y class="scroll_view" style="height: 100%;">
+    <view class="nowaddress_item searchview">
+      <view class="search_item">
+        <text class="fl1">真功夫</text>
+        <text class="distance">11.6千米</text>
+      </view>
+      <view class="address">广东省广州市黄埔区文冲。。。</view>
+    </view>
+    <view class="nowaddress_item searchview">
+      <view class="search_item">
+        <text class="fl1">真功夫</text>
+        <text class="distance">11.6千米</text>
+      </view>
+      <view class="address">广东省广州市黄埔区文冲。。。</view>
+    </view>
+    <view class="nowaddress_item searchview">
+      <view class="search_item">
+        <text class="fl1">真功夫</text>
+        <text class="distance">11.6千米</text>
+      </view>
+      <view class="address">广东省广州市黄埔区文冲。。。</view>
+    </view>
+    <view class="nowaddress_item searchview">
+      <view class="search_item">
+        <text class="fl1">真功夫</text>
+        <text class="distance">11.6千米</text>
+      </view>
+      <view class="address">广东省广州市黄埔区文冲。。。</view>
+    </view>
+  </scroll-view>
+</template>

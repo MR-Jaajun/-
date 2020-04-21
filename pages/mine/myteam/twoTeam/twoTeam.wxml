@@ -1,0 +1,13 @@
+<view class="team_item">
+  <view class="teamItem">
+    <view class="item_left">
+      <image src="" />
+      <text class="shop_name">谢文</text>
+      <text>小V哥</text>
+    </view>
+    <view class="item_center">
+      <view>我累计从中获得的收益：</view>
+      <view>¥24.60</view>
+    </view>
+  </view>
+</view>

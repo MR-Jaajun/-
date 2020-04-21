@@ -1,0 +1,52 @@
+<!--pages/group/submitRailse/submitRailse.wxml style="height:{{Height}}"-->
+<!-- <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower"> -->
+  <view class="appraise">
+    <view class="a_title">
+    </view>
+    <view class='box_a_main'>
+      <view class="a_main {{type == 0 ? 'active' : ''}}" data-type="0" bindtap="changeTap">
+        全部( {{pData.comment_amount}})
+      </view>
+      <view class="a_main {{type == 4 ? 'active' : ''}}" data-type="4" bindtap="changeTap">
+        有图({{pData.image_amount}})
+      </view>
+      <view class="a_main {{type == 1 ? 'active' : ''}}" data-type="1" bindtap="changeTap">
+        好评({{pData.evaluate_one_amount}})
+      </view>
+      <view class="a_main {{type == 2 ? 'active' : ''}}" data-type="2" bindtap="changeTap">
+        中评({{pData.evaluate_two_amount}})
+      </view>
+      <view class="a_main {{type == 3 ? 'active' : ''}}" data-type="3" bindtap="changeTap">
+        差评({{pData.evaluate_three_amount}})
+      </view>
+    </view>
+    <!-- style="height:{{xhow?'100%':'height'}}" -->
+    <view class="appraise_item" wx:for="{{goods_comment_data}}" wx:key="index">
+      <view class="a_top">
+        <image src="{{item.user_avatar}}"></image>
+        <view class="userinfo">
+          <view class="top_title">
+            <text style="margin-right:20rpx;">{{item.user_nick_name}}</text>
+            <text class="time">{{item.comment_time}}</text>
+          </view>
+          <van-rate value="{{item.comment_evaluate_score}}" void-icon="star" size="{{ 18 }}" color="#FF9C09" readonly />
+        </view>
+      </view>
+      <view class="a_center">{{item.comment_content}}</view>
+      <view class="a_bottom">
+        <image wx:for="{{fin.arrSlice(item.comment_image,0,3)}}" wx:for-index="idx" wx:key="idx" src="{{item}}"></image>
+      </view>
+      <view class='xiaofei'>
+        已消费:
+        <text>{{item.goods_title}}</text>
+      </view>
+      <view class='sjhf'>
+        商家回复：
+        <text>
+            {{item.comment_reply_content}}
+            </text>
+      </view>
+    </view>
+
+  </view>
+<!-- </scroll-view> -->

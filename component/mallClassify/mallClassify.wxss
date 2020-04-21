@@ -1,0 +1,50 @@
+/* component/mallClassify/mallClassify.wxss */
+
+.vanSidebar {
+  width: 200rpx;
+}
+
+/* 更改侧边栏样式 */
+
+.vanSidebar2 .van-sidebar-item {
+  text-align: center;
+  color: #999;
+}
+
+.vanSidebar2 .vanSidebar3 {
+  color: #333;
+  font-weight: bold;
+}
+
+/* 右边的内容 */
+
+.content {
+  width: 100%;
+  padding: 18rpx 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.content .c_item {
+  width: 190rpx;
+  height: 194rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .c_item image {
+  width: 138rpx;
+  height: 138rpx;
+  background: #ccc;
+  border-radius: 4rpx;
+}
+
+.content .c_item text {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 2rpx;
+}

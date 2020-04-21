@@ -1,0 +1,12 @@
+<!--外卖页底部tab-->
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="home-o">主页</van-tabbar-item>
+  <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
+  <van-tabbar-item icon="orders-o">订单</van-tabbar-item>
+  <van-tabbar-item icon="apps-o">更多</van-tabbar-item>
+</van-tabbar>
+<!-- <image
+      slot="icon"
+      src="{{ icon.normal }}"
+      mode="aspectFit"
+    /> -->

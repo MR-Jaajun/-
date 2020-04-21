@@ -1,0 +1,464 @@
+<!--pages/order/orderlist.wxml-->
+
+<import src="../common/loadmore.wxml" />
+<!-- <view class='base'>
+  <view class='title' bindtap="listShow">我的订单
+    <image wx:if='{{ArrowShow== 1}}' class="title-img" src="/images/icon-fanhui.png" mode='widthFix'></image>
+    <image class="title-img" wx:if='{{ArrowShow == 0}}' src="/images/icon-fanhui.png" mode='widthFix' style="transform:rotate(180deg)"></image>
+  </view>
+</view> -->
+<view wx:if='{{ArrowShow== 0}}' class='last-box'>
+  <view class="tabs-title {{type == 1 ? 'actives' : ''}}" data-type="1" bind:tap="changeTab">
+    <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+    外卖订单
+  </view>
+  <view class="tabs-title {{type == 2 ? 'actives' : ''}}" data-type="2" bind:tap="changeTab">
+    <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+    团购订单
+  </view>
+  <view class="tabs-title {{type == 3 ? 'actives' : ''}}" data-type="3" bind:tap="changeTab">
+    <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+    商城订单
+  </view>
+</view>
+<view class="zhezhao {{ArrowShow== 0? opacityitem :''}}">
+  <van-tabs swipeable animated>
+    <van-tab title="全部" data-type="1" bind:tap="changeTab ">
+      <!-- 无订单 -->
+      <block wx:if='{{OrderData==0}}'>
+        <view class='v-content'>
+          <view class='v-top'>
+            <image src="/images/blank.png" class="image-center" mode="scaleToFill"></image>
+            <view class="v-font">空空如也，啥都没有</view>
+          </view>
+        </view>
+        <view class="v-title">猜你喜欢</view>
+        <scroll-view class="scroll-y" scroll-y="true" style='height:826rpx' bindscrolltoupper="bindToupper" bindscrolltolower="scrollViewlower">
+          <view class="content-list" style='height:826rpx'>
+            <view class="content-item">
+              <image class="content-img" mode="scaleToFill"></image>
+              <view class="item_special">
+                <text class='special_txt text'>30减8</text>
+              </view>
+              <view class='content-detalis'>
+                <view class="one_txt">
+                  <text class='one_name'>乌冬面</text>
+                </view>
+                <view class='two_txt'>
+                  <text class='redtxt'>¥10 月售120</text>
+                </view>
+                <view class='three_txt'>
+                  <text class='nametxt'>商家名称</text>
+                </view>
+                <view class='four_txt'>
+                  <view class='v-bg  text'>{{time}}分钟</view>
+                  <view class='v-bg  text'>配送费{{rmb}}</view>
+                  <view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="content-item">
+              <image class="content-img" mode="scaleToFill"></image>
+              <view class="item_special">
+                <text class='special_txt text'>30减8</text>
+              </view>
+              <view class='content-detalis'>
+                <view class="one_txt">
+                  <text class='one_name'>担担面</text>
+                </view>
+                <view class='two_txt'>
+                  <text class='redtxt'>¥10 月售120</text>
+                </view>
+                <view class='three_txt'>
+                  <text class='nametxt'>商家名称</text>
+                </view>
+                <view class='four_txt'>
+                  <view class='v-bg  text'>{{time}}分钟</view>
+                  <view class='v-bg  text'>配送费{{rmb}}</view>
+                  <view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="content-item">
+              <image class="content-img" mode="scaleToFill"></image>
+              <view class="item_special">
+                <text class='special_txt text'>30减8</text>
+              </view>
+              <view class='content-detalis'>
+                <view class="one_txt">
+                  <text class='one_name'>乌冬面</text>
+                </view>
+                <view class='two_txt'>
+                  <text class='redtxt'>¥10 月售120</text>
+                </view>
+                <view class='three_txt'>
+                  <text class='nametxt'>商家名称</text>
+                </view>
+                <view class='four_txt'>
+                  <view class='v-bg  text'>{{time}}分钟</view>
+                  <view class='v-bg  text'>配送费{{rmb}}</view>
+                  <view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="content-item">
+              <image class="content-img" mode="scaleToFill"></image>
+              <view class="item_special">
+                <text class='special_txt text'>30减8</text>
+              </view>
+              <view class='content-detalis'>
+                <view class="one_txt">
+                  <text class='one_name'>炒面</text>
+                </view>
+                <view class='two_txt'>
+                  <text class='redtxt'>¥10 月售120</text>
+                </view>
+                <view class='three_txt'>
+                  <text class='nametxt'>商家名称</text>
+                </view>
+                <view class='four_txt'>
+                  <view class='v-bg  text'>{{time}}分钟</view>
+                  <view class='v-bg  text'>配送费{{rmb}}</view>
+                  <view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='scroll-Top' bindtap='ScrollTop'>
+            <image src='/images/icon_top.png'></image>
+          </view>
+        </scroll-view>
+      </block>
+      <!-- 有订单 -->
+      <block wx:if='{{OrderData!==0}}'>
+        <scroll-view class="scroll-y" scroll-y="true" style='height:{{scrollHeight}}px'>
+          <view class="merchant_list">
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1'>木桶饭连锁店 (天河店)</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2 '>已完成</text>
+                  <image class='close' src='/images/icon-shanchu.png' mode='widthFix'></image>
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">腐竹牛腩 等 8 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+
+                    <!-- <view class='txt_marg'>19减5</view>
+                    <view class='txt_marg'>24减7</view>
+                    <view class='txt_marg'>39减9</view> -->
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class=' v-bottom bottom-txt txt-bg'>查看评价</view>
+                <view class='v-bottom bottom-txt txt-bg1'>再来一单</view>
+              </view>
+            </view>
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1 left-two'>娜家女装实拍店</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>已完成</text>
+                  <!-- <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image> -->
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">时尚女装外套   等 1 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class=' v-bottom bottom-txt txt-bg'>确认收货</view>
+                <view class='v-bottom bottom-txt txt-bg1'>再来一单</view>
+              </view>
+            </view>
+          </view>
+          <template is="{{isHideLoadMore == 'true' ? 'loadmore' : 'nodata'}}" />
+
+        </scroll-view>
+      </block>
+    </van-tab>
+    <van-tab title="待付款" data-type="2" bind:tap="changeTab">
+      <block wx:if='{{types==2}}'>
+        <scroll-view class="scroll-y" scroll-y="true" style='height:{{scrollHeight}}px'>
+          <view class="merchant_list">
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1'>木桶饭连锁店 (天河店)</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>代付款</text>
+                  <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">腐竹牛腩 等 8 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt  txt-bg'>去支付</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>取消订单</view>
+              </view>
+            </view>
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1 left-two'>娜家女装实拍店</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>代付款</text>
+                  <!-- <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image> -->
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">时尚女装外套   等 1 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt  txt-bg'>去支付</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>取消订单</view>
+              </view>
+            </view>
+          </view>
+
+          <template is="{{isHideLoadMore == 'true' ? 'loadmore' : 'nodata'}}" />
+
+        </scroll-view>
+      </block>
+    </van-tab>
+    <van-tab title="待评价" data-types="3" bind:tap="">
+      <block wx:if='{{types==2}}'>
+        <scroll-view class="scroll-y" scroll-y="true" style='height:{{scrollHeight}}px'>
+          <view class="merchant_list">
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1'>木桶饭连锁店 (天河店)</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>待评价</text>
+                  <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">腐竹牛腩 等 8 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt txt-bg' catchtap="goappraise">去评价</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>再来一单</view>
+              </view>
+            </view>
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1 left-two'>娜家女装实拍店</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>待评价</text>
+                  <!-- <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image> -->
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">时尚女装外套   等 1 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt txt-bg'>去评价</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>再来一单</view>
+              </view>
+            </view>
+          </view>
+          <template is="{{isHideLoadMore == 'true' ? 'loadmore' : 'nodata'}}" />
+        </scroll-view>
+
+
+      </block>
+    </van-tab>
+    <van-tab title="退款/售后" data-types="4" bind:tap="">
+      <block wx:if='{{types==2}}'>
+        <scroll-view class="scroll-y" scroll-y="true" style='height:{{scrollHeight}}px'>
+          <view class="merchant_list">
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1'>木桶饭连锁店 (天河店)</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>退款失败</text>
+                  <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image>
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">腐竹牛腩 等 8 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt  txt-bg' catchtap="refundtap_ng">退款详情</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>取消订单</view>
+              </view>
+            </view>
+            <view class='warpper_item'>
+              <view class='v-one'>
+                <view class="top-left">
+                  <image class='img' src='/images/icon_take.png' mode='widthFix'></image>
+                  <text class='text1 left-two'>娜家女装实拍店</text>
+                </view>
+                <view class='top-right'>
+                  <text class='text2'>退款成功</text>
+                  <!-- <image class='close' src='/images/icon_quxiao.png' mode='widthFix' style='width:30rpx;'></image> -->
+                </view>
+              </view>
+              <view class="merchant_item">
+                <image src="" mode="widthFix"></image>
+                <view class="right_view">
+                  <view class="smalltxt_line">
+                    <text class="blue_txt">时尚女装外套   等 1 件商品</text>
+                  </view>
+                  <view class="smalltxt_line ">
+                    <view class="test">
+                      <van-tag round plain color="#F95D5D">19减5</van-tag>
+                      <van-tag round plain color="#F95D5D">24减7</van-tag>
+                      <van-tag round plain color="#F95D5D">39减9</van-tag>
+                    </view>
+                  </view>
+                  <view class="smalltxt_line right_txt">
+                    <text class="text3">实付款:</text>
+                    <text class="text2">￥24</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bottom-box'>
+                <view class='v-bottom bottom-txt  txt-bg' catchtap="refundtap_ok">退款详情</view>
+                <view class=' v-bottom bottom-txt txt-bg1'>取消订单</view>
+              </view>
+            </view>
+          </view>
+
+          <template is="{{isHideLoadMore == 'true' ? 'loadmore' : 'nodata'}}" />
+
+        </scroll-view>
+      </block>
+    </van-tab>
+  </van-tabs>
+</view>

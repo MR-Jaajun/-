@@ -1,0 +1,15 @@
+<view class="top">
+  <view>小哥豆</view>
+  <view>￥
+    <text class="money">{{bean}}</text>
+  </view>
+  <view bindtap="bean_detail">
+    <text>查看明细</text>
+    <image src="/images/icon_next.png"/>
+  </view>
+</view>
+
+<!-- 充值按钮 -->
+<view class="btn" bindtap="bean_recharge">
+  充值
+</view>

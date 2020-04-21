@@ -1,0 +1,51 @@
+/* pages/mine/feedback/feedback.wxss */
+page{
+  background:rgba(248,248,248,1);
+}
+.section{
+  width: 686rpx;
+  height: 468rpx;
+  background: #fff;
+  padding: 32rpx 32rpx 0 32rpx;
+  position: relative;
+}
+.section text{
+  color:rgba(102,102,102,1);
+  font-size:28rpx;
+}
+.section textarea{
+  width: 686rpx;
+  height: 400rpx;
+  font-size: 26rpx;
+}
+.text_num{
+  color: #999999;
+  font-size: 22rpx;
+  position: absolute;
+  right: 32rpx;
+  bottom: 24rpx;
+}
+.userinfo{
+  padding: 0 32rpx; 
+  width: 686rpx;
+  height: 104rpx;
+  background: #fff;
+  line-height: 104rpx;
+  border-bottom: 2rpx solid #F8F8F8;
+}
+.userinfo text{
+  vertical-align: middle;
+  color:rgba(102,102,102,1);
+  font-size:28rpx;
+}
+.userinfo input{
+  vertical-align: middle;
+  font-size:28rpx;
+  display: inline-block;
+}
+
+/* 按钮 */
+.submit{
+  margin-top: 50rpx;
+  background:linear-gradient(243deg,rgba(44,52,57,1) 0%,rgba(63,73,80,1) 100%);
+}

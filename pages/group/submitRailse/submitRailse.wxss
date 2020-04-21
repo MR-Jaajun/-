@@ -1,0 +1,217 @@
+/* 评价 */
+
+.appraise {
+  box-sizing: border-box;
+  padding: 24rpx 32rpx;
+  box-shadow: 0px 2rpx 12rpx rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+  margin: 20rpx 0;
+}
+
+.appraise .a_title {
+  width: 680rpx;
+  position: relative;
+}
+
+.appraise .a_main {
+  opacity: 1;
+  border-radius: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12rpx 20rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+  background: #eeedec;
+  color: #898787;
+}
+
+.appraise .active {
+  background: #ff4f00;
+  opacity: 1;
+  border-radius: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12rpx 20rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+  color: #fff;
+}
+
+.box_a_main {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  /* box-sizing: border-box; */
+  flex-wrap: wrap;
+  font-size: 20rpx;
+  align-content: center;
+}
+
+.a_title .loadmore {
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.appraise_item {
+  border-top: 2rpx solid #f1ecec;
+}
+
+.a_top {
+  display: flex;
+  height: 102rpx;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.a_top image {
+  width: 88rpx;
+  height: 88rpx;
+  background: #ccc;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.a_top .userinfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 88rpx;
+}
+
+.a_top .userinfo .top_title {
+  flex: 1;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top_title .time {
+  height: 40rpx;
+  font-size: 20rpx;
+  color: rgba(187, 187, 187, 1);
+  line-height: 40rpx;
+}
+
+.a_center {
+  width: 684rpx;
+  /* height: 80px; */
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 40rpx;
+  color: rgba(102, 102, 102, 1);
+  letter-spacing: 2rpx;
+  margin-bottom: 22rpx;
+}
+
+.xiaofei {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(72, 72, 72, 1);
+}
+
+.sjhf {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  opacity: 1;
+}
+
+/* 套餐评价 */
+
+.a_bottom {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.a_bottom image {
+  width: 166rpx;
+  height: 166rpx;
+  border-radius: 8rpx;
+  background: #ccc;
+  margin: 0 22rpx 22rpx 0;
+}
+
+.wbtn {
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  height: 80rpx;
+}
+
+.wbtn>.left_v {
+  width: 50%;
+  background: linear-gradient(270deg, rgba(48, 54, 57, 1) 0%, rgba(70, 77, 83, 1) 100%);
+  border-radius: 40px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wbtn>.right_v {
+  width: 50%;
+  background: rgba(252, 206, 6, 1);
+  border-radius: 0px 0px 40px 0px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right_v>.top_t {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  line-height: 40rpx;
+  color: #333;
+  opacity: 1;
+  text-align: center;
+}
+
+.right_v>.bottom_t {
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: #333;
+  opacity: 1;
+  text-align: center;
+}
+
+.left_v>.top_t {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 40rpx;
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+}
+
+.left_v>.bottom_t {
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: rgba(204, 196, 196, 1);
+  opacity: 1;
+}

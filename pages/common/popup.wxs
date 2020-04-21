@@ -1,0 +1,27 @@
+var setimgon = "";
+var popupShow = false;
+var arrowmarkRotate = function() {
+  setimgon= ""
+};
+var onClose = function () {
+  popupShow= false
+};
+var comprehensiveRanking = function (){
+  if (popupShow == true) {
+    popupShow = false
+  } else {
+    // wx.pageScrollTo({
+    //   selector: ".near_shop_filtrate_bar"
+    // })
+    setimgon= "setimgon";
+    popupShow= true;
+  }
+}
+
+module.exports = {
+  Setimgon: setimgon,
+  PopupShow: popupShow,
+  OnClose: onClose,
+  ComprehensiveRanking: comprehensiveRanking,
+  ArrowmarkRotate: arrowmarkRotate,
+};

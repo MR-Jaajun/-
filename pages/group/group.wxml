@@ -1,0 +1,21 @@
+<!-- 首页 -->
+<view wx:if="{{tabActive==0}}">
+  <gropindex></gropindex>
+</view>
+<!-- 用券 -->
+<view wx:if="{{tabActive==1}}">
+  <gropCoupons></gropCoupons>
+</view>
+
+<!-- 团购订单 -->
+<view wx:if="{{tabActive==2}}">
+  <groupOrder id="goodslist"></groupOrder>
+</view>
+
+
+<!-- 引用底线 -->
+<!-- <import src="/pages/common/loadmore.wxml" />
+<template is="nodata" /> -->
+
+<!-- 底部导航 -->
+<gropTap bind:getIndex="getIndex"></gropTap>

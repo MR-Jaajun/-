@@ -1,0 +1,69 @@
+<import src="./loadmore.wxml" />
+<template name="commentPage">
+  <scroll-view class="comment_scroll" scroll-y style="height:{{scrollheight}}px" bindscrolltolower="commentScrollLower">
+    <view class="comment_tab">
+      <view class="centxt">
+        <view class="coltxt bigtxt">{{composite_evaluate_score}}</view>
+        <view>商家评分</view>
+      </view>
+      <view>
+        <view class="fl_row_cen">
+          <text>口味</text>
+          <van-rate readonly custom-class="setStarMar" value="{{ flavor_evaluate_score }}" color="#7CBCFF" size="16" />
+          <text class="coltxt">{{flavor_evaluate_score}}</text>
+        </view>
+        <view class="fl_row_cen">
+          <text>包装</text>
+          <van-rate readonly custom-class="setStarMar" value="{{ pack_evaluate_score }}" color="#7CBCFF" size="16" />
+          <text class="coltxt">{{pack_evaluate_score}}</text>
+        </view>
+      </view>
+      <view class="centxt">
+        <view class="bigtxt">{{delivery_satisfaction}}%</view>
+        <view>配送满意度</view>
+      </view>
+    </view>
+
+    <view class="comment_bottom">
+      <view class="bottom_bg">
+        <van-tabs type="card" color="#666565" active="{{ isimgTabNum }}" bind:change="isimgChange">
+          <van-tab title="全部">
+            <template is="commentItem" data="{{commentlist}}"></template>
+          </van-tab>
+          <van-tab title="有图">
+            <template is="commentItem" data="{{commentlist}}"></template>
+          </van-tab>
+        </van-tabs>
+        <template is="{{!isHideLoadMore ? 'loadmore' : 'nodata'}}" />
+      </view>
+    </view>
+  </scroll-view>
+</template>
+
+<!-- 一个评论 -->
+<template name="commentItem">
+  <block wx:for="{{commentlist}}" wx:key="id">
+    <view class="comment_item van-hairline--bottom">
+      <view>
+        <image src="{{item.customer_info.avatar}}"></image>
+      </view>
+      <view class="right_info">
+        <view class="nick_name">{{item.customer_info.nick_name}}</view>
+        <view class="fl_row_cen">
+          <text>评分</text>
+          <van-rate readonly custom-class="setStarMar" value="{{ item.composite_evaluate_score }}" color="#7CBCFF" size="16" />
+          <text class="cdate">{{item.create_time}}</text>
+        </view>
+        <view class="ccontent">{{item.comment_content}}</view>
+        <view class="imgview">
+          <block wx:for="{{item.comment_images}}" wx:for-item="i" wx:key="id">
+            <image src="{{i.image_path}}" lazy-load="true"></image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+    
+  
+  
+</template>

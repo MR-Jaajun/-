@@ -1,0 +1,2 @@
+<!--component/searchcomp/searchcomp.wxml-->
+<van-search bind:clear="hideSearchView" bind:change="searchChange" value="{{ value }}" shape="round" placeholder="搜索商品,商家名称" />
